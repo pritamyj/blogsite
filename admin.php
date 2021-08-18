@@ -1,4 +1,5 @@
 <?php
+
 include "db.php";
 ?>
 <!DOCTYPE html>
@@ -17,7 +18,18 @@ include "db.php";
 
         <div id="header">
             <h1> MyBlog</h1>
-            <h2>Welcome Admin</h2>
+            <?php
+            if ($_SESSION['username'] == true) {
+                if ($_SESSION['username'] == 'admin') {?>
+                <h2><?php
+                    echo "My blog";?></h2><?php
+                } else {
+                    echo "Welcome" . " " . $_SESSION['username'];
+                }
+            } else {
+                header("Location: index.php");
+                exit();
+            }  ?> 
         </div>
 
         <div id="navbar">
@@ -29,7 +41,6 @@ include "db.php";
             </ul>
         </div>
         <div id="content">
-
 
 
             <?php if (isset($_REQUEST["info"])) {
