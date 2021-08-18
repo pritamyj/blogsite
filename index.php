@@ -25,7 +25,7 @@ include "db.php";
             <div id="navbar">
                 <ul>
                     <li><a href="index.php">HOME</a></li>
-                    <li><a href="">LOGIN</a></li>
+                    <li><a href="login1">LOGIN</a></li>
                     <li><a href="register.php">REGISTRATION</a></li>
                 </ul>
             </div>
