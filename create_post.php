@@ -24,6 +24,7 @@ include "db.php";
             </form>
             <br> <a href="user.php"> <button>Back</button></a>
         </div>
+        
     </div>
 </body>
 
