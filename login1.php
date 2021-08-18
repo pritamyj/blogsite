@@ -49,7 +49,6 @@ if (isset($_REQUEST["submit"])) {
 		<div id="navbar">
 			<ul>
 				<li><a href="index.php">HOME</a></li>
-
 			</ul>
 		</div>
 		<div class="contain">

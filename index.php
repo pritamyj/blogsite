@@ -23,7 +23,6 @@ include "db.php";
                 <h1> MyBlog</h1>
             </div>
             <div id="navbar">
-
                 <ul>
                     <li><a href="index.php">HOME</a></li>
                     <li><a href="">LOGIN</a></li>

@@ -1,5 +1,4 @@
 <?php
-
 include "db.php";
 ?>
 <!DOCTYPE html>
@@ -14,7 +13,7 @@ include "db.php";
 </head>
 
 <body>
-    <div id="container">
+    <div id="">
 
         <div id="header">
             <h1> MyBlog</h1>
@@ -61,8 +60,6 @@ include "db.php";
             <?php }
 
             ?>
-
-
 
             <?php
 

@@ -11,7 +11,6 @@ include "db.php";
     <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
     <title>All blog</title>
 </head>
-
 <body>
     <div class="center">
         <div class="">

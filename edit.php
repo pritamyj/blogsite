@@ -1,6 +1,5 @@
 <?php
 include "db.php";
-include "nav.php";
 
 if (isset($_REQUEST["update"])) {
     $id = $_REQUEST['id'];

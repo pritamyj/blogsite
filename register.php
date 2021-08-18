@@ -31,7 +31,6 @@
                <input type="text" name="uname" placeholder="User Name"><br><br>
           <?php } ?>
 
-
           <label>Password</label>
           <input type="password" name="password" placeholder="Password"><br><br>
 

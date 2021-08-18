@@ -1,6 +1,5 @@
 <?php
 include "db.php";
-include "nav.php";
 
 
 if (isset($_REQUEST['delete'])) {

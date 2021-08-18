@@ -1,8 +1,6 @@
 <?php
 include "db.php";
 
-
-
 if (isset($_POST['done'])) {
   $id = $_GET['upid'];
   $fn = $_POST['full_name'];

@@ -33,7 +33,6 @@ if (isset($_REQUEST["new_post"])) {
 </head>
 
 <body>
-
     <div class="">
         <div>
             <form method="GET">

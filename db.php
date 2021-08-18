@@ -8,7 +8,6 @@ if (!$conn) {
 }
 
 
-
 if (isset($_REQUEST['id'])) {
     $id = $_REQUEST['id'];
     $sql = "SELECT * FROM data WHERE id = $id";
