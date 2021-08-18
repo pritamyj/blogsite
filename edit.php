@@ -1,5 +1,23 @@
 <?php
 include "db.php";
+include "nav.php";
+
+if (isset($_REQUEST["update"])) {
+    $id = $_REQUEST['id'];
+    $title = $_REQUEST["title"];
+    $content = $_REQUEST["content"];
+    $desc = $_REQUEST["desc"];
+    $sql = "UPDATE data SET title='$title', content='$content', short_desc='$desc' WHERE id=$id";
+    mysqli_query($conn, $sql);
+
+    if ($_SESSION['username'] == 'admin') {
+        header("Location: admin.php?info=updated");
+        exit();
+    } else {
+        header("Location: user.php?info=updated");
+        exit();
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,6 +49,7 @@ include "db.php";
 
         </div>
     </div>
+
 </body>
 
 </html>

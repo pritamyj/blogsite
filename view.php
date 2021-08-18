@@ -1,5 +1,23 @@
 <?php
 include "db.php";
+include "nav.php";
+
+
+if (isset($_REQUEST['delete'])) {
+    $id = $_REQUEST['id'];
+    $sql = "DELETE FROM data WHERE id = $id";
+    $Q = mysqli_query($conn, $sql);
+
+    if ($_SESSION['username'] == 'admin') {
+
+        header("Location: admin.php?info=updated");
+        exit();
+    } else {
+        header("Location: user.php?info=deleted");
+        exit();
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,8 +63,9 @@ include "db.php";
             <br> <a href="admin.php"> <button>Back</button></a>
         <?php } else {
         ?><a href="user.php"><button>Back</button></a><?php
-                                                            } ?>
+                                                    } ?>
     </div>
+
 </body>
 
 </html>

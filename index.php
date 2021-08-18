@@ -11,7 +11,7 @@ include "db.php";
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
 
     <title>HOME</title>
 </head>
@@ -26,19 +26,19 @@ include "db.php";
 
                 <ul>
                     <li><a href="index.php">HOME</a></li>
-                    <li><a href="login1.php">LOGIN</a></li>
+                    <li><a href="">LOGIN</a></li>
                     <li><a href="register.php">REGISTRATION</a></li>
                 </ul>
             </div>
 
             <div id="content">
-                <div class="row mt-4">
-
+               
                     <?php
                     $SQL = "SELECT * from data ORDER BY date DESC ";
                     $QUERY = mysqli_query($conn, $SQL);
                     foreach ($QUERY as $q) {
-                    ?>
+                    ?> <div class="row-mt-4">
+
                         <!-- start row -->
                         <div class="col-md-4 ">
                             <div class="">
@@ -61,9 +61,9 @@ include "db.php";
                                     </div>
                                 </div>
                             </div>
-                        </div> <?php } ?>
+                        </div> 
                     <!-- end row -->
-                </div>
+                </div><?php } ?><br>
             </div>
         </div>
     </section>

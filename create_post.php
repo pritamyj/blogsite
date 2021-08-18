@@ -1,5 +1,25 @@
 <?php
 include "db.php";
+include "nav.php";
+
+if ($_SESSION['username'] == true) {
+    $userr = $_SESSION['username'];
+    $Sql = "SELECT * from user WHERE username = '$userr'";
+    $re = mysqli_query($conn, $Sql);
+    $Que = mysqli_fetch_assoc($re);
+    $uid = $Que['user_id'];
+}
+if (isset($_REQUEST["new_post"])) {
+    $title = $_REQUEST["title"];
+    $content = $_REQUEST["content"];
+    $desc = $_REQUEST["desc"];
+
+    $sql = "INSERT INTO data(title, content,date, user_id, short_desc) VALUES('$title', '$content', NOW(), '$uid', '$desc')";
+    mysqli_query($conn, $sql);
+
+    header("Location: user.php?info=added");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,8 +44,9 @@ include "db.php";
             </form>
             <br> <a href="user.php"> <button>Back</button></a>
         </div>
-        
+
     </div>
+    
 </body>
 
 </html>

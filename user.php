@@ -18,17 +18,18 @@ include "db.php";
     <div class="navbar">
 
         <h1> MyBlog </h1>
-        <h2><?php
+        <?php
             if ($_SESSION['username'] == true) {
-                if ($_SESSION['username'] == 'admin') {
-                    echo "My Posts";
+                if ($_SESSION['username'] == 'admin') {?>
+    <h2><?php
+                    echo "My blog";?></h2><?php
                 } else {
                     echo "Welcome" . " " . $_SESSION['username'];
                 }
             } else {
                 header("Location: index.php");
                 exit();
-            }  ?> </h2>
+            }  ?> 
         <ul>
             <?php
             if ($_SESSION['username'] == 'admin') { ?>
@@ -104,7 +105,6 @@ include "db.php";
                 </div>
             <?php } ?>
         </div>
-    </div>
     </div>
 </body>
 
