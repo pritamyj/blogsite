@@ -22,6 +22,7 @@ include "db.php";
 </head>
 
 <body>
+  
 <?php if($_SESSION['username'] == true){
 if ($_SESSION['ty'] == 'admin') {
     header("Location: admin.php");
@@ -33,6 +34,7 @@ if ($_SESSION['ty'] == 'admin') {
     } }
     error_reporting($errorlevel);
     ?>
+  
     <section>
         <div id="container">
             <div id="header" style="padding:20px;">
