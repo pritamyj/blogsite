@@ -1,0 +1,142 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: content-box;
+}
+
+body {
+    background-color: #fdfdfd;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+
+#container {
+    background-color: #dad4d8;
+    width: 1340px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contain {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    background-color: dad4d8;
+    padding: 30px;
+    box-shadow: 0 50px 50px -50px darkslategrey;
+}
+
+.myform {
+    color: #0b3042;
+    margin-bottom: 20px;
+}
+
+input {
+    border: none;
+    outline: none;
+    border-radius: 0;
+    width: 100%;
+    border-bottom: 2px solid #0b3042;
+    margin-bottom: 25px;
+    padding: 7px 0;
+    font-size: 14px;
+}
+
+button {
+    color: white;
+    background-color: #0b3042;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    font-size: 14px;
+    padding: 5px 12px;
+    font-weight: 500;
+}
+
+#header {
+    background-color: #0b3042;
+    color: white;
+    height: 100px;
+    text-align: center;
+}
+
+#content {
+    background-color: #f0dfe5;
+    padding: 2em;
+    border-radius: 6px 6px 0px 0px;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+
+}
+
+#main {
+    background-color: white;
+    border-radius: 6px;
+    padding: 10px;
+    margin: auto;
+    width: 800px;
+    height: 200px;
+}
+
+#footer {
+    background-color: #688c92ee;
+    clear: both;
+}
+
+
+/* NAVBAR */
+
+#navbar {
+    /* background-color: #0b3042; */
+    color: white;
+    overflow: hidden;
+    background-color: #060a0c;
+    border-radius: 0px 0px 6px 6px;
+    height: 60px;
+}
+
+#navbar .selected {
+    font-weight: bold;
+}
+
+#navbar ul {
+    list-style-type: none;
+    float: right;
+    padding: 0;
+}
+
+#navbar ul li {
+    float: left;
+    font-family: 'Noto Serif', serif;
+}
+
+#navbar ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 28px;
+    text-decoration: none;
+}
+
+#navbar ul li a:hover {
+    color: #ffffff;
+    background-color: #181818;
+}
+
+div.myform {
+    width: 450px;
+    background-color: white;
+    box-shadow: 0px 5px10px black;
+}
