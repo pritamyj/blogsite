@@ -25,9 +25,11 @@ $ty = $Que['user_type'];
 		$result = mysqli_query($conn, $sql);
 		$rowcount = mysqli_num_rows($result);
 		if ($rowcount == true) {
+			
 			$_SESSION['username'] = $uname;
 			$_SESSION['password'] = $pass;
 			$_SESSION['ty'] = $ty;
+			
 			if ($ty == 'admin') {
 
 				header("Location: admin.php");
