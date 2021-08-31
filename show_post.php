@@ -1,6 +1,7 @@
 <?php
 include "db.php";
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,15 +9,17 @@ include "db.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    
     <title>All blog</title>
+
 </head>
 
 <body>
     <div class="center">
         <div class="">
 
-            <?php foreach ($Query as $q) { ?>
+            <?php foreach ($Queryy as $q) { ?>
 
                 <div>
                     <h1><?php echo $q['title'] ?></h1>
@@ -32,6 +35,7 @@ include "db.php";
                 ?>
                 <p>Author:<?php echo $uname; ?></p>
             <?php } ?>
+        
         </div>
     </div>
 

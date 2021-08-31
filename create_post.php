@@ -38,10 +38,12 @@ include "db.php";
         </div>
     <div id="content">
         <div style="text-align: center;">
-            <form method="GET">
+            <form method="POST" enctype="multipart/form-data">
                 <input type="text" name="title" placeholder="Blog Title" style="width:400px"><br>
                 <textarea name="desc" placeholder="Short description" style="width:400px ;height:80px ;"></textarea><br><br>
                 <textarea name="content" placeholder="Blog content" style="width:400px ;height:130px ;"></textarea><br><br>
+                <input type="hidden" name="size" value="1000000"><br><br>
+                <input type="file" name="imgg"><br><br>
                 <button name="new_post">Add Post</button>
             </form>
         </div>

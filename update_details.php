@@ -85,7 +85,7 @@ header("Location: user.php?info=updated");
       </div>
       <div class="mb-3">
         <label class="form-label">Password</label>
-        <input type="password" class="form-control" name="pa" value="<?php echo $q['password']; ?>">
+        <input type="text" class="form-control" name="pa" value="<?php echo $q['password']; ?>">
       </div>
       <button type="submit" class="btn btn-primary" name="done">Submit</button>
                 </form>

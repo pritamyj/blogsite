@@ -3,41 +3,52 @@ $errorlevel = error_reporting();
 error_reporting($errorlevel & ~E_NOTICE);
 session_start();
 include "db.php";
+include "navbar_admin.php";
 ?>
 
 <!doctype html>
-<html lang="en">
+    <html lang="en">
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+      <link rel="stylesheet" type="text/css" href="style1.css">
 
-  <title>CRUD</title>
-</head>
+      <title>CRUD</title>
 
-<body>
-<?php if($_SESSION['username'] == false){
+  </head>
 
-    header("Location: index.php");
+  <body>
+    <?php if($_SESSION['username'] == false){
+
+        header("Location: index.php");
         exit();
-   }
+    }
     error_reporting($errorlevel);
-    ?>
-  
-  <div class="container">
-        <br><button class="btn btn-primary" name="add"><a href="add_user.php" class="text-light">+ Add User</a></button><br><br>
-    <table class="table">
-      <thead>
-        <tr class="text-center">
-          <th scope="col">User ID</th>
-          <th scope="col">Full Name</th>
-          <th scope="col">Username</th>
-          <th scope="col">Operations</th>
-        </tr>
+    ?> 
+
+    <div class="bg_admin">
+        <div class="hero">
+            <span class="text1">User Details</span>
+
+            <a href="add_user.php" class="btn" name="add">+ Add User</a>
+        </div>
+    </div>
+
+    <section class="latest-news-area" id="latest">
+      <div class="container">
+
+        <br><br>
+        <table class="table">
+          <thead >
+            <tr >
+              <th scope="col" style="text-align:center;">User ID</th>
+              <th scope="col" style="text-align:center;">Full Name</th>
+              <th scope="col" style="text-align:center;">Username</th>
+              <th scope="col" style="text-align:center;">Operations</th>
+          </tr>
       </thead>
       <tbody>
         <?php
@@ -50,23 +61,21 @@ include "db.php";
           $uname = $row['username'];
           // $full_name=$row['full_name'];
 
+          echo '<tr>
+          <th scope="row"  style="text-align:center;">' . $id . '</th>
+          <td  style="text-align:center;">' . $full_name . '</td>
+          <td  style="text-align:center;">' . $uname . '</td>
+          <td>
+          <button class="btn " ><a href="update.php?upid=' . $id . '" class="text-light" >Update</a></button>
+          <button class="btn" ><a href="up_del.php?delid=' . $id . '" class="text-light">Delete</a></button>
+          </td>
+          </tr>';
 
-          echo '<tr class="text-center">
-      <th scope="row">' . $id . '</th>
-      <td>' . $full_name . '</td>
-      <td>' . $uname . '</td>
-      <td>
-      <button class="btn btn-primary" ><a href="update.php?upid=' . $id . '" class="text-light">Update</a></button>
-      <button class="btn btn-danger" ><a href="up_del.php?delid=' . $id . '" class="text-light">Delete</a></button>
-      </td>
-    </tr>';
-        }
-
-        ?>
-      </tbody>
-    </table>
-  </div>
-
+      } ?>
+  </tbody>
+</table>
+</div>
+</section>
 
 </body>
 

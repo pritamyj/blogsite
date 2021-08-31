@@ -1,63 +1,74 @@
+<?php 
+include "navbar.php";
+?>
+
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-     <title>SIGN UP</title>
-     <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="style3.css">
+    
+    <title>Login</title>
+
 </head>
-
-<body><div id="container">
-<div id="header">
-            <br><h1> MyBlog</h1>
+<body>
+    <section>
+        <div class="imgBx">
+            <img src="13.jpg"> 
         </div>
-<div id="navbar">
+        <div class="contentBx">
+            <div class="formBx">
+                <h2>SIGN UP</h2>
+                <form action="signup-check.php" method="post">
+                    <?php if (isset($_GET['error'])) { ?>
+                     <p class="error"><?php echo $_GET['error']; ?></p>
+                    <?php } ?>
 
-            <ul>
-                <li><a href="index.php"> <button>Back</button></a></li>
-            
-            </ul>
+                    <?php if (isset($_GET['success'])) { ?>
+                     <p class="success"><?php echo $_GET['success']; ?></p>
+                     <?php } ?>
+
+                    <div class="inputBx">
+                        <span>Name</span>
+                        <?php if (isset($_GET['name'])) { ?>
+                            <input type="text" name="name" value="<?php echo $_GET['name']; ?>">
+                        <?php } else { ?>
+                         <input type="text" name="name">
+                        <?php } ?>
+                    </div>
+
+                    <div class="inputBx">
+                        <span>Username</span>
+                        <?php if (isset($_GET['uname'])) { ?>
+                            <input type="text" name="uname" value="<?php echo $_GET['uname']; ?>">
+                        <?php } else { ?>
+                         <input type="text" name="uname">
+                        <?php } ?>
+                    </div>
+
+                    <div class="inputBx">
+                        <span>Password</span>
+                        <input type="password" name="password">
+                    </div>
+
+                    <div class="inputBx">
+                        <span>Re-enter Password</span>
+                        <input type="password" name="re_password">
+                    </div><br>
+
+                    <div class="inputBx">
+                        <input type="submit" style="font-size: 14px;" name="submit" value="Sign up">
+                    </div>
+
+                    <div class="inputBx">
+                        <p>Already have an account? <a href="login1.php">login</a></p>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="content" style="text-align: center;"><br><br><br><br>
-               <!-- <div class="myform" > -->
-     <form action="signup-check.php" method="post"  style="text-align: center;">
-          <h2>SIGN UP</h2>
-          <?php if (isset($_GET['error'])) { ?>
-               <p class="error"><?php echo $_GET['error']; ?></p>
-          <?php } ?>
-
-          <?php if (isset($_GET['success'])) { ?>
-               <p class="success"><?php echo $_GET['success']; ?></p>
-          <?php } ?>
-
-          <label >Name</label><br>
-          <?php if (isset($_GET['name'])) { ?>
-               <input type="text" name="name" placeholder="Name" value="<?php echo $_GET['name']; ?>" style="width:400px"><br><br>
-          <?php } else { ?>
-               <input type="text" name="name" placeholder="Name" style="width:400px"><br><br>
-          <?php } ?>
-
-          <label>User Name</label><br>
-          <?php if (isset($_GET['uname'])) { ?>
-               <input type="text" name="uname" placeholder="User Name" value="<?php echo $_GET['uname']; ?>"  style="width:400px"><br><br>
-          <?php } else { ?>
-               <input type="text" name="uname" placeholder="User Name" style="width:400px"><br><br>
-          <?php } ?>
-
-
-          <label>Password</label><br>
-          <input type="password" name="password" placeholder="Password" style="width:400px"><br><br>
-
-          <label>Re Password</label><br>
-          <input type="password" name="re_password" placeholder="Re-enter_Password" style="width:400px"><br><br><br>
-
-          <button type="submit">Sign Up</button>
-          <a href="login1.php" class="ca">Already have an account?</a>
-     </form>
-     
-     <!-- </div> -->
-     <br><br><br><br><br><br>
-          </div>
-     </div>
+</section>
 </body>
-
 </html>

@@ -18,6 +18,7 @@ h2,
 h3 {
     margin: 0;
 }
+
 #container {
     background-color: #dad4d8;
     width: 1340px;
@@ -132,7 +133,7 @@ button {
 }
 
 div.myform {
-     background-color: white;
+    background-color: white;
     border-radius: 6px;
     padding: 10px;
     margin: auto;

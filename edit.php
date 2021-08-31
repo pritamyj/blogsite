@@ -42,16 +42,28 @@ include "db.php";
         </div>
         <div class="content">
 <div style="text-align: center;">
-            <?php foreach ($Query as $q) { ?>
-                <form method="GET"><br><br><br><br>
+            
+            <?php
+            $Row=mysqli_num_rows($Queryy);
+    if($Row)
+    {
+
+             foreach ($Queryy as $q) { ?>
+                <form method="POST" enctype="multipart/form-data"><br><br><br><br>
                     <input type="text" hidden name="id" value="<?php echo $q['id']; ?>" style="width:400px">
                     <h3>Title :</h3><input type="text" name="title" placeholder="Blog Title" value="<?php echo $q['title']; ?>" style="width:400px"><br>
                     <h3>Short Description :</h3><textarea name="desc" placeholder="Short description" style="width:400px ;height:80px ;"><?php echo $q['short_desc']; ?></textarea><br><br>
                     <h3>Content :</h3><textarea name="content" class="" style="width:400px ;height:130px ;"><?php echo $q['content']; ?></textarea><br><br>
+                    <input type="hidden" name="size" value="1000000"><br><br>
+                <input type="file" name="imgg"><br><br>
                     <button name="update">Update Post</button><br><br><br><br>
                 </form>
 
-            <?php } ?>
+            <?php }
+            }else{
+           header("Location: user.php");
+        exit();
+        } ?>
 </div>
     </div>
     </div>

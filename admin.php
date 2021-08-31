@@ -1,51 +1,60 @@
 <?php
 session_start();
 include "db.php";
+include "navbar_admin.php";
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>ADMIN HOME</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <link rel="stylesheet" type="text/css" href="style1.css">   
+
+    <title>home</title>
+
 </head>
-
 <body>
-    <div id="container">
 
-        <div id="header">
-            <br><h1> MyBlog</h1>
-            <h2>Welcome Admin : <?php
-            if ($_SESSION['username'] == true) {
-                if ($_SESSION['ty'] == 'admin') {
-                    echo $_SESSION['username'];
-                } else {
-                    echo "Welcome" . " " . $_SESSION['username'];
-                }
-            } else {
-                header("Location: index.php");
-                exit();
-            }  ?> </h2>
+    <?php
+    if ($_SESSION['username'] == true) {
+        if ($_SESSION['ty'] == 'admin') {
+            $n= $_SESSION['username'];
+        } else {
+            echo "Welcome" . " " . $_SESSION['username'];
+        }
+    } else {
+        header("Location: index.php");
+        exit();
+    }  ?>
+
+    <div class="bg_admin">
+        <div class="hero">
+            <span class="text1">Welcome </span>
+            <span class="text2"><?php echo $n; ?></span> 
         </div>
+    </div>
 
-        <div id="navbar">
-            <ul>
-                <li><a class="active" href="admin.php">HOME</a></li>
-                <li><a class="active" href="user.php">MY POST</a></li>
-                <li><a href="user_details.php">USER DETAILS</a></li>
-                <li><a href="update_details.php">DETAILS</a></li>
-                <li><a href="logout.php">LOGOUT</a></li>
-            </ul>
+    <section class="latest-news-area" id="latest">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="section_title">
+                    <!-- <div class="section_substitle">Blog</div> -->
+                    <br>
+                    <h2>All <strong>Blogs</strong></h2>
+                </div>
+            </div> 
         </div>
-        <div id="content">
+        <br><br>
 
-<div  style="text-indent: 170px; ">
+        <div  style="text-indent: 170px; ">
 
             <?php if (isset($_REQUEST["info"])) {
-            ?>
+                ?>
                 <?php if ($_REQUEST["info"] == "added") { ?>
                     <div class="alert alert-sucess" role="alert">
                         <h3>Post has been added successfully</h3>
@@ -61,43 +70,58 @@ include "db.php";
                 <?php } ?>
             <?php }
 
-            ?>
+            ?> 
+        </div> 
+        <div class="row mt-4">
+            <div class="news-active">
 
-</div><br> <br>
-
-            <?php
-
-
-            $SQL = "SELECT * from data ORDER BY date DESC ";
-            $QUERY = mysqli_query($conn, $SQL);
-
-
-            foreach ($QUERY as $q) { ?>
-
-
-                <div id="main">
-
-                    <p class="" style="width: 18rem; ">
-                    <h3><?php echo $q['title']; ?></h3><br>
-                    <p class=""><?php echo $q['short_desc']; ?>...</p><br>
-                    <?php
-                    $un = $q['user_id'];
-                    $Sql = "SELECT * from user WHERE user_id = '$un'";
-                    $re = mysqli_query($conn, $Sql);
-                    $Que = mysqli_fetch_assoc($re);
-                    $uname = $Que['username'];
+                <?php
+                $SQL = "SELECT * from data ORDER BY date DESC ";
+                $QUERY = mysqli_query($conn, $SQL);
+                foreach ($QUERY as $q) {
                     ?>
-                    <p style="color: #737878; padding-bottom: 10px;">Author:<?php echo " ".$uname; ?></p>
-                    <p style="color: #737878;">Posted on:<?php echo " ".$q['date']; ?></p><br>
-                    <button><a href="view.php?id=<?php echo $q['id']; ?>" , style="color: white;">Read More</a></button><br><br>
-                    </p><br>
-                </div><br>
 
-            <?php } ?>
+                    <div class="col-md-4" style="padding:20px;">
+                        <div class="latest-news-wrap">
+                            <div class="news-img">
+                                <img src="<?php echo $q['images']; ?>" class="img-responsive">
+                                <div class="date">
+                                    <?php 
+                                    $dt= new DateTime($q['date']);
 
-        </div>
+                                    ?>
+                                    <span><?php echo $dt->format('d'); ?></span>
+                                    <span><?php echo $dt->format('M');?></span>
+                                </div>
+                            </div> 
+                            <div class="news-content"> 
+                                <h3><?php echo $q['title']; ?></h3>
+                                <p >
+                                    <?php echo $q['short_desc']; ?>...
+                                </p>
 
-    </div>
-</body>
+                                <?php
+                                $un = $q['user_id'];
+                                $Sql = "SELECT * from user WHERE user_id = '$un'";
+                                $re = mysqli_query($conn, $Sql);
+                                $Que = mysqli_fetch_assoc($re);
+                                $uname = $Que['username'];
+                                ?>
 
-</html>
+                                <p><small class="text-muted">Author: <?php echo $uname; ?></small></p> 
+                                <p></p>
+                                <div>                     
+                                    <a href="view.php?id=<?php echo $q['id']; ?>">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php } ?><br> 
+                </div>
+            </div> 
+        </section>
+
+    </body>
+    </html>
+
+

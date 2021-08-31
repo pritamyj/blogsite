@@ -2,87 +2,102 @@
 $errorlevel = error_reporting();
 error_reporting($errorlevel & ~E_NOTICE);
 session_start();
-include "db.php";
-  
+include "db.php"; 
+include "navbar.php"; 
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <link rel="stylesheet" type="text/css" href="style1.css">
 
-    <title>HOME</title>
+    <title>home</title>
+ 
 </head>
-
 <body>
-<?php if($_SESSION['username'] == true){
-if ($_SESSION['ty'] == 'admin') {
-    header("Location: admin.php");
-        exit();
-    }
-    if($_SESSION['ty'] == 'user'){
-        header("Location: user.php");
-        exit();
-    } }
-    error_reporting($errorlevel);
-    ?>
-    <section>
-        <div id="container">
-            <div id="header" style="padding:20px;">
-                <h1> MyBlog</h1>
-            </div>
-            <div id="navbar">
 
-                <ul>
-                    <li><a href="index.php">HOME</a></li>
-                    <li><a href="login1.php">LOGIN</a></li>
-                    <li><a href="register.php">REGISTRATION</a></li>
-                </ul>
-            </div>
+    <?php if($_SESSION['username'] == true){
+        if ($_SESSION['ty'] == 'admin') {
+            header("Location: admin.php");
+            exit();
+        }
+        if($_SESSION['ty'] == 'user'){
+            header("Location: user.php");
+            exit();
+        } }
+        error_reporting($errorlevel);
+        ?>
 
-            <div id="content">
-                <div class="row mt-4">
+        <div class="bg">
+            <div class="hero">
+                <span class="text1">Digital Diary</span>
+                <span class="text2">Blogs</span> 
+            </div>
+        </div>
+
+        <section class="latest-news-area" id="latest"> 
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="section_title">
+                        <!-- <div class="section_substitle">Blog</div> -->
+                        <br>
+                        <h2>Recent <strong>Blogs</strong></h2>
+                    </div>
+                </div> 
+            </div>
+            <br><br>
+            <div class="row mt-3">
+                <div class="news-active">  
 
                     <?php
                     $SQL = "SELECT * from data ORDER BY date DESC ";
                     $QUERY = mysqli_query($conn, $SQL);
                     foreach ($QUERY as $q) {
-                    ?>
-                        <!-- start row -->
-                        <div class="col-md-4 ">
-                            <div class="">
-                                <div class="card mb-4">
-                                    <!-- <img src="..." class="card-img-top" alt="..."> -->
-                                    <div class="card-body">
-                                        <h5 class="card-title" style="text-color:blue;"><?php echo $q['title']; ?></h5><br>
-                                        <p class="card-text "><?php echo $q['short_desc']; ?>...</p>
-                                        <?php
-                                        $un = $q['user_id'];
-                                        $Sql = "SELECT * from user WHERE user_id = '$un'";
-                                        $re = mysqli_query($conn, $Sql);
-                                        $Que = mysqli_fetch_assoc($re);
-                                        $uname = $Que['username'];
+                        ?>
+
+                        <div class="col-md-4" style="padding:20px;">
+                            <div class="latest-news-wrap">
+                                <div class="news-img">
+                                    <img src="<?php echo $q['images']; ?>" class="img-responsive">
+                                    <div class="date">
+                                        <?php 
+                                        $dt= new DateTime($q['date']);
                                         ?>
-                                        <p class="card-text"><small class="text-muted">Author:<?php echo $uname; ?></small></p>
-                                        <p class="card-text"><small class="text-muted">Posted on
-                                                <?php echo $q['date']; ?></small></p>
-                                        <a href="show_post.php?id=<?php echo $q['id']; ?>" class="btn btn-outline-primary rounded-0 float-end">Read More</a>
+                                        <span><?php echo $dt->format('d'); ?></span>
+                                        <span><?php echo $dt->format('M');?></span>
+                                    </div>
+                                </div> 
+                                <div class="news-content">
+                                    <h3><?php echo $q['title']; ?></h3>
+                                    <p > <?php echo $q['short_desc']; ?>...</p>
+
+                                    <?php
+                                    $un = $q['user_id'];
+                                    $Sql = "SELECT * from user WHERE user_id = '$un'";
+                                    $re = mysqli_query($conn, $Sql);
+                                    $Que = mysqli_fetch_assoc($re);
+                                    $uname = $Que['username'];
+                                    ?>
+
+                                    <p><small class="text-muted">Author: <?php echo $uname; ?></small></p> 
+                                    <p></p>
+                                    <div>                     
+                                        <a href="show_post.php?id=<?php echo $q['id']; ?>">Read More</a>
                                     </div>
                                 </div>
                             </div>
-                        </div> <?php } ?>
-                    <!-- end row -->
+                        </div>
+                        <?php } ?><br>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
-</body>
+        </section>
 
+</body>
 </html>
+
+
