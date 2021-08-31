@@ -9,8 +9,7 @@ if (!$conn) {
   die("Error connecting to database: " . mysqli_connect_error($conn));
   exit();
 }
-
-// if user clicks like or dislike button
+ 
 if (isset($_POST['action'])) {
   $post_id = $_POST['post_id'];
   $action = $_POST['action'];
@@ -34,14 +33,12 @@ if (isset($_POST['action'])) {
   	default:
   		break;
   }
-
-  // execute query to effect changes in the database ...
+ 
   mysqli_query($conn, $sql);
   echo getRating($post_id);
   exit(0);
 }
-
-// Get total number of likes for a particular post
+ 
 function getLikes($id)
 {
   global $conn;
@@ -51,8 +48,7 @@ function getLikes($id)
   $result = mysqli_fetch_array($rs);
   return $result[0];
 }
-
-// Get total number of dislikes for a particular post
+ 
 function getDislikes($id)
 {
   global $conn;
@@ -62,8 +58,7 @@ function getDislikes($id)
   $result = mysqli_fetch_array($rs);
   return $result[0];
 }
-
-// Get total number of likes and dislikes for a particular post
+ 
 function getRating($id)
 {
   global $conn;
@@ -81,8 +76,7 @@ function getRating($id)
   ];
   return json_encode($rating);
 }
-
-// Check if user already likes post or not
+ 
 function userLiked($post_id)
 {
   global $conn;
@@ -96,8 +90,7 @@ function userLiked($post_id)
   	return false;
   }
 }
-
-// Check if user already dislikes post or not
+ 
 function userDisliked($post_id)
 {
   global $conn;
@@ -113,7 +106,5 @@ function userDisliked($post_id)
 }
 
 $sql = "SELECT * FROM data";
-$result = mysqli_query($conn, $sql);
-// fetch all posts from database
-// return them as an associative array called $posts
+$result = mysqli_query($conn, $sql); 
 $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
