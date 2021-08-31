@@ -32,11 +32,10 @@ if (isset($_REQUEST["submit"])) {
             $_SESSION['ui'] = $ui;
 
             if(isset($_POST['rememberme'])){
-
-<<<<<<< HEAD
+		    
                 $unamee = base64_encode($uname);
                 $passs = base64_encode($pass);
-=======
+
 		$result = mysqli_query($conn, $sql);
 		$rowcount = mysqli_num_rows($result);
 		if ($rowcount == true) {
@@ -46,12 +45,10 @@ if (isset($_REQUEST["submit"])) {
 			$_SESSION['ty'] = $ty;
 			
 			if ($ty == 'admin') {
->>>>>>> 304a0d0cdb145003f1ef30f26384a08f41f948e5
-
+				
                 setcookie('usernamecookie',$unamee, time()+86400, '/', null,null,true);
                 setcookie('passwordcookie', $passs, time()+86400, '/', null, null,true);
-
-
+				
                 if ($ty == 'admin') {
 
                     header("Location: admin.php");
@@ -126,9 +123,9 @@ if (isset($_REQUEST["submit"])) {
         </div>
     </section>
 </body>
-<<<<<<< HEAD
-</html>
-=======
 
 </html>
->>>>>>> 304a0d0cdb145003f1ef30f26384a08f41f948e5
+
+
+</html>
+
