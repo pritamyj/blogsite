@@ -20,8 +20,6 @@ include "navbar.php";
  
 </head>
 <body>
-<<<<<<< HEAD
-=======
   
 <?php if($_SESSION['username'] == true){
 if ($_SESSION['ty'] == 'admin') {
@@ -41,7 +39,6 @@ if ($_SESSION['ty'] == 'admin') {
                 <h1> MyBlog</h1>
             </div>
             <div id="navbar">
->>>>>>> 304a0d0cdb145003f1ef30f26384a08f41f948e5
 
     <?php if($_SESSION['username'] == true){
         if ($_SESSION['ty'] == 'admin') {
@@ -123,7 +120,3 @@ if ($_SESSION['ty'] == 'admin') {
 </html>
 
 
-<<<<<<< HEAD
-=======
-</html>
->>>>>>> 304a0d0cdb145003f1ef30f26384a08f41f948e5
