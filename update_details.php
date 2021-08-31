@@ -4,6 +4,7 @@ error_reporting($errorlevel & ~E_NOTICE);
 session_start();
 include "db.php";
 
+
 if ($_SESSION['username'] == true) {
     $userr = $_SESSION['username'];
     $pass = $_SESSION['password'];
