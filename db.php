@@ -23,10 +23,7 @@ if (isset($_REQUEST['id'])) {
 }
 
 
-
-
-
-//user home
+ 
 if ($_SESSION['username'] == true) {
     $userr = $_SESSION['username'];
     $pass = $_SESSION['password'];
@@ -35,6 +32,9 @@ if ($_SESSION['username'] == true) {
     $Que = mysqli_fetch_assoc($re);
     $uid = $Que['user_id'];
 }
+
+
+
 
 if (isset($_REQUEST["new_post"])) {
     $file=$_FILES['imgg']; 
@@ -62,6 +62,8 @@ if (isset($_REQUEST["new_post"])) {
 }
 
 
+
+
 if (isset($_REQUEST["update"])) {
     $id = $_REQUEST['id'];
     $file=$_FILES['imgg']; 
@@ -72,6 +74,7 @@ if (isset($_REQUEST["update"])) {
     $title = $_REQUEST["title"];
     $content = $_REQUEST["content"];
     $desc = $_REQUEST["desc"];
+
 
  if ($fileerror == 0) {
         
