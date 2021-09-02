@@ -1,0 +1,244 @@
+.navbar {
+    padding: 45px 0px 0px 0px;
+    transition: all 0.5s ease-in-out;
+    font-family: tahoma;
+}
+
+.bg { 
+    background-image: url(../images/2.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    /*width: 100%;*/
+    background-attachment: fixed;
+}
+
+.bg_admin {
+    background-image: url(../images/1.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    width: 100%;
+    background-attachment: fixed;
+}
+
+.hero {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: tahoma;
+    color: white;
+}
+
+.text1 {
+    display: block;
+    font-size: 80px;
+    color: white;
+}
+
+.text2 {
+    display: block;
+    font-size: 50px;
+    color: white;
+    letter-spacing: 5pxs;
+}
+
+.btn {
+    text-align: center;
+    margin: 0 auto;
+    text-decoration: none;
+    border: 2px solid white;
+    padding: 12px, 30px;
+    border-radius: 50px;
+    display: block;
+    color: white;
+    margin-top: 40px;
+    font-size: 22px;
+}
+
+.wrapper {
+    padding: 0 85px;
+}
+
+.navbar-nav {
+    float: right;
+}
+
+.navbar-nav>li>a {
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+
+}
+
+.navbar-nav>li>a:hover,
+.navbar-nav>li>a:focus {
+    background: none;
+    color: white;
+}
+
+.navbar-toggle {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px solid white;
+    border-radius: 0;
+}
+
+.navbar-toggle .icon-bar {
+    background-color: white;
+}
+
+.navbar-brand {
+    color: white;
+}
+
+.navbar-collapse {
+    max-height: none !important;
+}
+
+
+
+.latest-news-area{
+    margin: 40px ;
+    flex-direction: column;
+    grid-template-columns: repeat(auto-fit, 1fr);
+}
+
+.latest-news-wrap{
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+    height: 575px;
+    justify-content: space-between;
+    flex-direction: column;
+    display: flex;
+}
+
+.news-img{
+    position: relative ;
+}
+
+.news-img:before{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #000 ;
+    content: "";
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.5s;
+}
+
+.latest-news-wrap:hover .news-img:before{
+ opacity: 0.4;
+ transform: scale(1.0);
+}
+
+.date{
+
+    background: #bd4f6c none repeat scroll 0 0;
+    height: 70px;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 70px;
+    padding: 10px;
+}
+
+.date span{
+    display: block;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.news-content{
+    padding: 20px;
+    margin-left: 3px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.news-content h3{
+    margin-top: 0;
+}
+
+.news-content p{
+    margin-bottom: 15px;
+    text-align: justify;
+    margin-top: 20px;
+}
+
+.news-content a{
+    font-size:14px ;
+    background-color:#cf7065;
+    padding: 10px 20px ;
+    color: white;
+    transition: all 0.5s ease-in;
+    justify-content: flex-end;
+    display: flex;
+    width: 120px;
+    float: left;
+}
+
+.news-content a:hover{
+    font-size: 14px;
+    border: 1px solid #bd4f6c;
+    border-top-right-radius: 20px;
+    background-color: transparent;
+    color: #bd4f6c;
+    text-decoration: none;
+    justify-content: flex-end;
+    display: flex;
+}
+
+.btn:hover{
+ background-color: #c24234;
+ color: white;
+}
+
+
+@media (max-width: 768px){
+
+    .latest-news-area{
+        margin: 20px ;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .latest-news-wrap{
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+        height: 33.33%;
+        justify-content: space-between;
+        flex-direction: column;
+        display: flex;
+    }
+ 
+    .text1 {
+        display: block;
+        font-size: 60px;
+        color: white;
+    }
+
+    .text2 {
+        display: block;
+        font-size: 30px;
+        color: white;
+        letter-spacing: 5pxs;
+    }
+ 
+    .table{
+        font-size: 13px;
+        text-align: center;
+        margin: 0px;
+    } 
+
+    .table .btn{
+        font-size: 13px;
+        padding: 2px;
+        margin: 4px;
+        width: 60px;
+    }
+}
+

@@ -1,0 +1,83 @@
+<?php
+$errorlevel = error_reporting();
+error_reporting($errorlevel & ~E_NOTICE);
+session_start();
+include "db.php";
+include "navbar_admin.php";
+?>
+
+<!doctype html>
+    <html lang="en">
+
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+      <link rel="stylesheet" type="text/css" href="../css/user_details.css">
+      <link rel="stylesheet" type="text/css" href="../css/index_&_admin.css">
+
+      <title>CRUD</title>
+
+  </head>
+
+  <body>
+    <?php if($_SESSION['username'] == false){
+
+        header("Location: index.php");
+        exit();
+    }
+    error_reporting($errorlevel);
+    ?> 
+
+    <div class="bg_admin">
+        <div class="hero">
+            <span class="text1">User Details</span>
+
+            <a href="add_user.php" class="btn" name="add">+ Add User</a>
+        </div>
+    </div>
+
+    <section class="latest-news-area" id="latest">
+      <div class="container">
+
+        <br><br>
+        <table class="table">
+          <thead >
+            <tr >
+              <th scope="col" style="text-align:center;">User ID</th>
+              <th scope="col" style="text-align:center;">Full Name</th>
+              <th scope="col" style="text-align:center;">Username</th>
+              <th scope="col" style="text-align:center;">Operations</th>
+          </tr>
+      </thead>
+      <tbody>
+        <?php
+        $sql = "SELECT * FROM user";
+        $result = mysqli_query($conn, $sql);
+
+        while ($row = mysqli_fetch_assoc($result)) {
+          $id = $row['user_id'];
+          $full_name = $row['full_name'];
+          $uname = $row['username'];
+          // $full_name=$row['full_name'];
+
+          echo '<tr>
+          <th scope="row"  style="text-align:center;">' . $id . '</th>
+          <td  style="text-align:center;">' . $full_name . '</td>
+          <td  style="text-align:center;">' . $uname . '</td>
+          <td>
+          <button class="btn " ><a href="update.php?upid=' . $id . '" >Update</a></button>
+          <button class="btn" ><a href="up_del.php?delid=' . $id . '" >Delete</a></button>
+          </td>
+          </tr>';
+
+      } ?>
+  </tbody>
+</table>
+</div>
+</section>
+
+</body>
+
+</html>

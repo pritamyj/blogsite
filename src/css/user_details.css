@@ -1,0 +1,28 @@
+
+.table{
+    font-size: 20px;
+    text-align: center;
+    margin: 0px;
+}
+
+.table .btn{
+
+    padding: 2px;
+    margin: 4px;
+    width: 100px;
+}
+
+.btn {
+    text-align: center;
+    margin: 0 auto;
+    text-decoration: none;
+    border: 2px solid white;
+    padding: 12px, 30px;
+    border-radius: 50px;
+    display: block;
+    color: white;
+    margin-top: 40px;
+    font-size: 22px;
+}
+ 
+
