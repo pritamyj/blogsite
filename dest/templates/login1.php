@@ -42,8 +42,7 @@ $ui = $Que['user_id'];
 
                 setcookie('usernamecookie',$unamee, time()+86400, '/', null,null,true);
                 setcookie('passwordcookie', $passs, time()+86400, '/', null, null,true);
-
-
+				
                 if ($ty == 'admin') {
 
                     header("Location: admin.php");
@@ -69,8 +68,7 @@ $ui = $Que['user_id'];
     }
 }
 ?>
-
-
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>

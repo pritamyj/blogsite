@@ -30,6 +30,9 @@ if ($_SESSION['username'] == true) {
     $uid = $Que['user_id'];
 }
 
+
+
+
 if (isset($_REQUEST["new_post"])) {
     $file=$_FILES['imgg']; 
     $filename=$file['name'];
@@ -54,6 +57,8 @@ if (isset($_REQUEST["new_post"])) {
     header("Location: user.php?info=added");
     exit();
 }
+
+
 
 
 if (isset($_REQUEST["update"])) {
