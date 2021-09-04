@@ -24,9 +24,8 @@ include "server.php";
 
 </head>
 <body>
-
-  <?php if($_SESSION['ty'] == true){ 
-    if($_SESSION['ty'] == 'admin'){ ?>
+<?php
+    if($_SESSION['ty'] == 'admin' || $_SESSION['ty'] == false){ ?>
   
   <header>
     <div class="navbar navbar-fixed-top">
@@ -90,10 +89,7 @@ include "server.php";
     </header>
 
    <?php }
- }else{
-    header("Location: index.php");
-    exit();
-  }
+ 
   error_reporting($errorlevel);
   ?>
 
@@ -101,9 +97,9 @@ include "server.php";
   
   <?php
 
-  if($_SESSION['ty'] == 'admin')
+  if($_SESSION['ty'] == 'admin' || $_SESSION['ty'] == false)
   {
-    foreach ($Queryy as $q) {   
+    foreach ($queryy as $q) {   
      ?> 
 
      <br><br><br><br><br>
@@ -116,13 +112,13 @@ include "server.php";
                 <img src="<?php echo $q['images']; ?>" alt="blog1" class="img" style="height: 460px; width: 800px;">
               </div>
  
-              <?php $un = $q['user_id'];
-              $Sql = "SELECT * from user WHERE user_id = '$un'";
-              $re = mysqli_query($conn, $Sql);
-              $Que = mysqli_fetch_assoc($re);
-              $uname = $Que['username'];
-              $i=$q['id'];
-              ?>
+              <?php 
+               $a2= new Index(); 
+                                        $a1 = $a2->usern($q['user_id']); 
+                                        foreach($a1 as $u){
+                                          $uname= $u['username'] ;
+                                        }
+                        ?>
 
               <div class="post-info">
                 <span>
@@ -134,7 +130,8 @@ include "server.php";
                 <div class="post-title"><br>
                   <h2><strong><?php echo $q['title'] ?></strong></h2> 
                   <p style="color: #454343; font-size: 1.8rem;"><?php echo $q['content'] ?></p>
-
+<?php if ($_SESSION['ty'] == 'admin') {?>
+ 
                   <div class="">  
                    
                     <h3><i <?php if (userLiked($q['id'])): ?>
@@ -155,16 +152,25 @@ include "server.php";
                 data-id="<?php echo $q['id'] ?>"></i> 
                 <span class="dislikes"><?php echo getDislikes($q['id']); ?></span></h3> 
               </div>
+            <?php }else{ ?>
+              <div class=" "><br> 
+                    <h4 ><strong style=" color: blue;"><span class="likes"><?php echo getLikes($q['id']); ?> Likes </span></strong> 
+
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+ 
+                <strong style=" color: red;"> <span class="dislikes"><?php echo getDislikes($q['id']); ?>  Dislikes</span></strong> </h4> 
+              </div><br><br>
+            <?php } ?>
               </div>
               </div>
             </div>
             </div>
             <?php }  
           }else{ 
-            $Row=mysqli_num_rows($Query);
-            if($Row)
+            // $Row=mysqli_num_rows($queryy);
+            if(!empty($query))
             {
-             foreach ($Query as $q) {
+             foreach ($query as $q) {
 
                ?>
 
@@ -178,12 +184,12 @@ include "server.php";
                           <img src="<?php echo $q['images']; ?>" alt="blog1" class="img" style="height: 460px; width: 800px;">
                         </div>
 
-                        <?php $un = $q['user_id'];
-                        $Sql = "SELECT * from user WHERE user_id = '$un'";
-                        $re = mysqli_query($conn, $Sql);
-                        $Que = mysqli_fetch_assoc($re);
-                        $uname = $Que['username'];
-                        $i=$q['id'];
+                        <?php 
+                         $a2= new Index(); 
+                                        $a1 = $a2->usern($q['user_id']); 
+                                        foreach($a1 as $u){
+                                          $uname= $u['username'] ;
+                                        } 
                         ?>
 
                         <div class="post-info ">
@@ -217,19 +223,21 @@ include "server.php";
                             data-id="<?php echo $q['id'] ?>"></i> 
                             <span class="dislikes"><?php echo getDislikes($q['id']); ?></span></h3> 
                           </div>
-
+</div>
                         <?php } 
                       }else{
                        header("Location: user.php");
                        exit();
                      }
 
-                   } ?>
+                   } 
+                   if ($_SESSION['ty'] == true) { ?>
                    <form method="POST" style="display: inline-block;padding-top: 0;">
                     <input type="text" hidden name="id" value="<?php echo $q['id']; ?>" >
                     <button name="delete" class="btnn" style="color: white;font-size: 1.8rem; ">DELETE</button>
                     <button class="btnn"> <a href="edit.php?id=<?php echo $q['id']; ?>", style="text-decoration: none;color: white;font-size: 1.8rem; ">EDIT</a></button><br><br>
-                  </form></div> 
+                  </form>
+                  <?php } ?> 
                 </div>
               </div>
             </div>

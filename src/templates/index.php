@@ -70,7 +70,7 @@ include "navbar.php";
                     <div class="news-active">  
 
                         <?php
-                         $datas= new User(); 
+                         $datas= new Index(); 
                          $dataa = $datas->allposts(); 
                          foreach ($dataa as $q) {
                             ?>
@@ -92,9 +92,12 @@ include "navbar.php";
                                         <p > <?php echo $q['short_desc']; ?>...</p>
 
                                         <?php
-                                        $a2= new User();
-                                        // var_dump(get_class_methods($a2));
-                                        $uname = $a2->author($q['user_id']); 
+                                        // var_dump(get_class_methods($a2)); 
+                                         $a2= new Index(); 
+                                        $a1 = $a2->usern($q['user_id']); 
+                                        foreach($a1 as $u){
+                                          $uname= $u['username'] ;
+                                        }
                                         ?>
 
                                         <h4><small class="text-muted">Author: <?php echo $uname; ?></small></h4>
@@ -108,7 +111,7 @@ include "navbar.php";
 
                                           <p></p>
                                           <div>                     
-                                            <a href="show_post.php?id=<?php echo $q['id']; ?>">Read More</a>
+                                            <a href="view.php?id=<?php echo $q['id']; ?>">Read More</a>
                                         </div>
                                     </div>
                                 </div>

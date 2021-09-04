@@ -43,14 +43,15 @@ if (
 		$ch = new Register();
             $result = $ch->usern_check($uname);
 
-		if (mysqli_num_rows($result) > 0) {
+		if (!empty($result)) {
 			header("Location: register.php?error=The username is taken try another&$user_data");
 			exit();
 		} else {
 			// $sql2 = "INSERT INTO user(username, password, full_name, user_type) VALUES('$uname', '$pass', '$name', 'user')";
 			// $result2 = mysqli_query($conn, $sql2);
+			$user= 'user';
 			$insert = new Register();
-            $result2 = $insert->signup_check($uname, $pass, $name, user);
+            $result2 = $insert->signup_check($uname, $pass, $name, $user);
 			if ($result2) {
 				header("Location: register.php?success=Your account has been created successfully");
 				exit();

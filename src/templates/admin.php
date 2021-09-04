@@ -77,10 +77,10 @@ include "server.php";
             <div class="news-active">
 
                 <?php
-                $SQL = "SELECT * from data ORDER BY date DESC ";
-                $QUERY = mysqli_query($conn, $SQL);
-                foreach ($QUERY as $q) {
-                    ?>
+                         $datas= new Index(); 
+                         $dataa = $datas->allposts(); 
+                         foreach ($dataa as $q) {
+                            ?>
 
                     <div class="col-md-4" style="padding:20px;">
                         <div class="latest-news-wrap">
@@ -102,12 +102,12 @@ include "server.php";
                                 </p>
 
                                 <?php
-                                $un = $q['user_id'];
-                                $Sql = "SELECT * from user WHERE user_id = '$un'";
-                                $re = mysqli_query($conn, $Sql);
-                                $Que = mysqli_fetch_assoc($re);
-                                $uname = $Que['username'];
-                                ?>
+                                        $a2= new Index(); 
+                                        $a1 = $a2->usern($q['user_id']); 
+                                        foreach($a1 as $u){
+                                          $uname= $u['username'] ;
+                                        }
+                                        ?>
 
                                 <p><small class="text-muted">Author: <?php echo $uname; ?></small></p> 
                                 

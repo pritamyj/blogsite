@@ -26,8 +26,7 @@ if (isset($_REQUEST["submit"])) {
         $ui = $q['user_id']; 
 }
  
-        $rowcount = mysqli_num_rows($dataa);
-        if (!empty($dataa)) {
+         if (!empty($dataa)) {
             $_SESSION['username'] = $uname;
             $_SESSION['password'] = $pass;
             $_SESSION['ty'] = $ty;

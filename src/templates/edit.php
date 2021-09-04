@@ -44,11 +44,16 @@ include "db.php";
 <div style="text-align: center;">
             
             <?php
-            $Row=mysqli_num_rows($Queryy);
-    if($Row)
+
+    $id = $_REQUEST['id'];
+    $ui= $_SESSION['ui'];
+    $data = new User(); 
+    $query = $data->selectedposts($id, $ui);
+            // $Row=mysqli_num_rows($Queryy);
+    if(!empty($query))
     {
 
-             foreach ($Queryy as $q) { ?>
+             foreach ($query as $q) { ?>
                 <form method="POST" enctype="multipart/form-data"><br><br><br><br>
                     <input type="text" hidden name="id" value="<?php echo $q['id']; ?>" style="width:400px">
                     <h3>Title :</h3><input type="text" name="title" placeholder="Blog Title" value="<?php echo $q['title']; ?>" style="width:400px"><br>

@@ -63,10 +63,8 @@ include "server.php";
                 <img src="<?php echo $q['images']; ?>" alt="blog1" class="img" style="height: 460px; width: 800px;">
               </div>
               <?php $un = $q['user_id'];
-                $Sql = "SELECT * from user WHERE user_id = '$un'";
-                $re = mysqli_query($conn, $Sql);
-                $Que = mysqli_fetch_assoc($re);
-                $uname = $Que['username'];
+                $a2= new Index(); 
+                $uname = $a2->author($q['user_id']); 
                 ?>
                 <div class="post-info">
                           <span> 

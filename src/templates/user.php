@@ -25,10 +25,14 @@ include "server.php";
     if ($_SESSION['username'] == true) {
         if ($_SESSION['ty'] == 'admin') {
             $n= $_SESSION['username'];
+    $id = $_REQUEST['id'];
+    $ui= $_SESSION['ui'];
             include "navbar_admin.php";
 
         } else {
          $n= $_SESSION['username'];
+    $id = $_REQUEST['id'];
+    $ui= $_SESSION['ui'];
          include "navbar_user.php";
 
      }
@@ -108,16 +112,9 @@ include "server.php";
         <div class="news-active">
 
             <?php
-            $userr = $_SESSION['username'];
-            $Sql = "SELECT * from user WHERE username = '$userr'";
-            $re = mysqli_query($conn, $Sql);
-            $Que = mysqli_fetch_assoc($re);
-            $uid = $Que['user_id'];
-
-            $sql = "SELECT * from data WHERE user_id = '$uid'";
-            $query = mysqli_query($conn, $sql);
-
-            foreach ($query as $q) { ?> 
+            $data = new User();
+    $Queryy=$data->userposts($ui);
+            foreach ($Queryy as $q) { ?> 
 
                 <div class="col-md-4" style="padding:20px;">
                     <div class="latest-news-wrap">

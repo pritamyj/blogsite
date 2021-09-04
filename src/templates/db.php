@@ -13,25 +13,20 @@ if (!$conn) {
 
 if (isset($_REQUEST['id'])) {
     $id = $_REQUEST['id'];
-    $ui= $_SESSION['ui'];
-    $sql = "SELECT * FROM data WHERE id = $id AND user_id=$ui";
-    $Query = mysqli_query($conn, $sql);
-    
-    $sl = "SELECT * FROM data WHERE id = $id ";
-    $Queryy = mysqli_query($conn, $sl);
-    
+    $ui= $_SESSION['ui']; 
+    $data = new User(); 
+    $queryy = $data->selectedposts($id);
+    if($_SESSION['ty'] == true){
+    $query = $data->selectedpostuser($id, $ui);
 }
-
+}
 
 if ($_SESSION['username'] == true) {
     $userr = $_SESSION['username'];
-    $pass = $_SESSION['password'];
-    $datas= new Login(); 
-    $dataa = $datas->login_check($userr,$pass); 
-    foreach ($dataa as $q) { 
-        $uid = $q['user_id'];
+    $pass = $_SESSION['password']; 
+    $uid = $_SESSION['ui']; 
 }
-}
+
 
 if (isset($_REQUEST["new_post"])) {
     $file=$_FILES['imgg']; 
