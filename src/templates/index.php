@@ -2,7 +2,9 @@
 $errorlevel = error_reporting();
 error_reporting($errorlevel & ~E_NOTICE);
 session_start();
-include "db.php";
+// include "db.php";
+include "config.php"; 
+include "dbquery.php"; 
 include "server.php"; 
 include "navbar.php"; 
 ?>
@@ -68,9 +70,9 @@ include "navbar.php";
                     <div class="news-active">  
 
                         <?php
-                        $SQL = "SELECT * from data ORDER BY date DESC ";
-                        $QUERY = mysqli_query($conn, $SQL);
-                        foreach ($QUERY as $q) {
+                         $datas= new User(); 
+                         $dataa = $datas->allposts(); 
+                         foreach ($dataa as $q) {
                             ?>
 
                             <div class="col-md-4" style="padding:20px;">
@@ -90,11 +92,9 @@ include "navbar.php";
                                         <p > <?php echo $q['short_desc']; ?>...</p>
 
                                         <?php
-                                        $un = $q['user_id'];
-                                        $Sql = "SELECT * from user WHERE user_id = '$un'";
-                                        $re = mysqli_query($conn, $Sql);
-                                        $Que = mysqli_fetch_assoc($re);
-                                        $uname = $Que['username'];
+                                        $a2= new User();
+                                        // var_dump(get_class_methods($a2));
+                                        $uname = $a2->author($q['user_id']); 
                                         ?>
 
                                         <h4><small class="text-muted">Author: <?php echo $uname; ?></small></h4>

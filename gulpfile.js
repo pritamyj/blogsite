@@ -17,13 +17,11 @@ gulp.task('copyphp', async function(){
 
 
 
-
  gulp.task('imageMin', () => 
 	gulp.src('src/images/*')
 		.pipe(imagemin())
 		.pipe(gulp.dest('dest/images'))
-);
-
+); 
 
 
  gulp.task('minify', async function(){

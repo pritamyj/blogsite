@@ -38,7 +38,7 @@ include "db.php";
         </div>
     <div id="content">
         <div style="text-align: center;">
-            <form method="POST" >
+            <form method="POST" enctype="multipart/form-data" >
                 <input type="text" name="title" placeholder="Blog Title" style="width:400px"><br>
                 <textarea name="desc" placeholder="Short description" style="width:400px ;height:80px ;"></textarea><br><br>
                 <textarea name="content" placeholder="Blog content" style="width:400px ;height:130px ;"></textarea><br><br>

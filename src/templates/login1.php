@@ -1,9 +1,9 @@
 <?php
 session_start();
-include "db.php";
+// include "db.php";
+include "config.php"; 
+include "dbquery.php";
 include "navbar.php";
-
-
 
 
 if (isset($_REQUEST["submit"])) {
@@ -18,18 +18,16 @@ if (isset($_REQUEST["submit"])) {
         exit();
     } else {
 
-
-            $Sql = "SELECT * FROM user WHERE username='$uname' AND password='$pass'";
-    $re = mysqli_query($conn, $Sql);
-    $Que = mysqli_fetch_assoc($re);
-$ty = $Que['user_type'];
-$ui = $Que['user_id'];
-
-        $sql = "SELECT * FROM user WHERE username='$uname' AND password='$pass'";
-
-        $result = mysqli_query($conn, $sql);
-        $rowcount = mysqli_num_rows($result);
-        if ($rowcount == true) {
+         $datas= new Login(); 
+         $dataa = $datas->login_check($uname,$pass); 
+         foreach ($dataa as $q) {
+             
+        $ty = $q['user_type'];
+        $ui = $q['user_id']; 
+}
+ 
+        $rowcount = mysqli_num_rows($dataa);
+        if (!empty($dataa)) {
             $_SESSION['username'] = $uname;
             $_SESSION['password'] = $pass;
             $_SESSION['ty'] = $ty;
@@ -78,7 +76,7 @@ $ui = $Que['user_id'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/login1_&_register.css">
-        
+
     <title>Login</title>
 
 
@@ -87,33 +85,33 @@ $ui = $Que['user_id'];
     <section>
         <div class="imgBx">
             <img src="../images/9.jpg">
-            <!-- <span>MYBLOG</span> -->
         </div>
         <div class="contentBx">
             <div class="formBx">
-            <h2>Login</h2>
-            <form method="post">
-                <?php if (isset($_GET['error'])) { ?>
+                <h2>Login</h2>
+                <form method="post">
+
+                    <?php if (isset($_GET['error'])) { ?>
                         <p class="error"><?php echo $_GET['error']; ?></p>
                     <?php } ?>
-                <div class="inputBx">
-                    <span>Username</span>
-                    <input type="text" name="uname" value="<?php if(isset($_COOKIE['usernamecookie'])){ echo base64_decode($_COOKIE['usernamecookie']);} ?>">
-                </div>
-                <div class="inputBx">
-                    <span>Password</span>
-                    <input type="password" name="password" value="<?php if(isset($_COOKIE['passwordcookie'])){ echo base64_decode($_COOKIE['passwordcookie']);} ?>">
-                </div>
-                <div class="remember">
-                    <label><input type="checkbox" name="rememberme"> Remember me</label>
-                </div>
-                <div class="inputBx">
-                    <input type="submit" style="font-size: 14px;" name="submit" value="Sign in">
-                </div>
-                <div class="inputBx">
-                    <p>Don't have an account? <a href="register.php">Sign up</a></p>
-                </div>
-            </form>
+                    <div class="inputBx">
+                        <span>Username</span>
+                        <input type="text" name="uname" value="<?php if(isset($_COOKIE['usernamecookie'])){ echo base64_decode($_COOKIE['usernamecookie']);} ?>">
+                    </div>
+                    <div class="inputBx">
+                        <span>Password</span>
+                        <input type="password" name="password" value="<?php if(isset($_COOKIE['passwordcookie'])){ echo base64_decode($_COOKIE['passwordcookie']);} ?>">
+                    </div>
+                    <div class="remember">
+                        <label><input type="checkbox" name="rememberme"> Remember me</label>
+                    </div>
+                    <div class="inputBx">
+                        <input type="submit" style="font-size: 14px;" name="submit" value="Sign in">
+                    </div>
+                    <div class="inputBx">
+                        <p>Don't have an account? <a href="register.php">Sign up</a></p>
+                    </div>
+                </form>
             </div>
         </div>
     </section>

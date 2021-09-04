@@ -3,6 +3,8 @@
 $errorlevel = error_reporting();
 error_reporting($errorlevel & ~E_NOTICE);
 session_start();
+include "config.php";
+include "dbquery.php";
 $conn = mysqli_connect('localhost', 'root', '', 'blog');
 if (!$conn) {
     echo "<h3>Not able to established Database Connection</h3>";
@@ -24,10 +26,11 @@ if (isset($_REQUEST['id'])) {
 if ($_SESSION['username'] == true) {
     $userr = $_SESSION['username'];
     $pass = $_SESSION['password'];
-    $Sql = "SELECT * FROM user WHERE username='$userr' AND password='$pass'";
-    $re = mysqli_query($conn, $Sql);
-    $Que = mysqli_fetch_assoc($re);
-    $uid = $Que['user_id'];
+    $datas= new Login(); 
+    $dataa = $datas->login_check($userr,$pass); 
+    foreach ($dataa as $q) { 
+        $uid = $q['user_id'];
+}
 }
 
 if (isset($_REQUEST["new_post"])) {
@@ -43,11 +46,9 @@ if (isset($_REQUEST["new_post"])) {
 
     if ($fileerror == 0) {
         
-        if (move_uploaded_file($filepath, $filedest)) {    
-
-            $sql = "INSERT INTO data(title, content, user_id, short_desc, images) VALUES('$title', '$content', '$uid', '$desc', '$filedest')";
-            mysqli_query($conn, $sql);
-
+        if (move_uploaded_file($filepath, $filedest)) {   
+            $insert = new User();
+            $insert->insert($title, $content, $uid, $desc, $filedest);
         }
     }
      
@@ -71,8 +72,8 @@ if (isset($_REQUEST["update"])) {
         
         if (move_uploaded_file($filepath, $filedest)) {    
 
-            $sql = "UPDATE data SET title='$title', content='$content', short_desc='$desc', images='$filedest' WHERE id=$id";
-            mysqli_query($conn, $sql);
+            $update = new User();
+            $update->update($title, $content, $desc, $filedest, $id);
 
             if ($_SESSION['ty'] == 'admin') {
                 header("Location: admin.php?info=updated");
@@ -88,12 +89,12 @@ if (isset($_REQUEST["update"])) {
 if (isset($_REQUEST['delete'])) {
     $id = $_REQUEST['id'];
 
-    $sql = "DELETE FROM data WHERE id = $id";
-    $Q = mysqli_query($conn, $sql);
+    $delete = new User();
+            $delete->delete($id);
 
     if ($_SESSION['ty'] == 'admin') {
 
-        header("Location: admin.php?info=updated");
+        header("Location: admin.php?info=deleted");
         exit();
     } else {
         header("Location: user.php?info=deleted");
