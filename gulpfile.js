@@ -7,8 +7,7 @@ gulp.task('msg', async function(){
 	return console.log('learning gulp.......');
 });
 
-
-
+ 
 
 gulp.task('copyphp', async function(){
 	gulp.src('src/templates/*.php')
