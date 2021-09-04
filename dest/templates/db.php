@@ -8,7 +8,6 @@ if (!$conn) {
     echo "<h3>Not able to established Database Connection</h3>";
 }
 
-
 if (isset($_REQUEST['id'])) {
     $id = $_REQUEST['id'];
     $ui= $_SESSION['ui'];
