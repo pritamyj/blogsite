@@ -17,7 +17,7 @@ include "navbar.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
-    <link rel="stylesheet" type="text/css" href="../css/index_&_admin.css">
+    <link rel="stylesheet" type="text/css" href="../css/indexadmin.css">
 
     <title>home</title>
 
@@ -70,9 +70,9 @@ include "navbar.php";
                     <div class="news-active">  
 
                         <?php
-                         $datas= new Index(); 
-                         $dataa = $datas->allposts(); 
-                         foreach ($dataa as $q) {
+                        $datas= new Index(); 
+                        $dataa = $datas->allposts(); 
+                        foreach ($dataa as $q) {
                             ?>
 
                             <div class="col-md-4" style="padding:20px;">
@@ -93,17 +93,17 @@ include "navbar.php";
 
                                         <?php
                                         // var_dump(get_class_methods($a2)); 
-                                         $a2= new Index(); 
+                                        $a2= new Index(); 
                                         $a1 = $a2->usern($q['user_id']); 
                                         foreach($a1 as $u){
                                           $uname= $u['username'] ;
-                                        }
-                                        ?>
+                                      }
+                                      ?>
 
-                                        <h4><small class="text-muted">Author: <?php echo $uname; ?></small></h4>
+                                      <h4><small class="text-muted">Author: <?php echo $uname; ?></small></h4>
 
-                                          <p></p>
-                                        <h5><strong style="color: blue;"><small"> <?php echo getLikes($q['id']); ?> Likes </small></strong> 
+                                      <p></p>
+                                      <h5><strong style="color: blue;"><small"> <?php echo getLikes($q['id']); ?> Likes </small></strong> 
 
                                           &nbsp;&nbsp;&nbsp;&nbsp;
 

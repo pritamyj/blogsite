@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 
                 
-        <link rel="stylesheet" type="text/css" href="../css/index_&_admin.css">
+        <link rel="stylesheet" type="text/css" href="../css/indexadmin.css">
 
 
     <title>home</title>
@@ -30,7 +30,7 @@
                     </div>
 
                     <div class="collapse navbar-collapse" id="menu" >
-                        <ul class="nav navbar-nav" style="padding:auto;text-align: center;">
+                        <ul class="nav navbar-nav ">
                             <li><a href="index.php">HOME</a></li>
                             <li><a href="login1.php">LOGIN</a></li>
                             <li><a href="register.php">SIGN UP</a></li>

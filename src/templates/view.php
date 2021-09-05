@@ -10,241 +10,238 @@ include "server.php";
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="../css/index_&_admin.css"> 
-  <link rel="stylesheet" type="text/css" href="../css/view.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/indexadmin.css"> 
+	<link rel="stylesheet" type="text/css" href="../css/view.css">
 
-  <title>User blog</title>
+	<title>User blog</title>
 
 </head>
 <body>
-<?php
-    if($_SESSION['ty'] == 'admin' || $_SESSION['ty'] == false){ ?>
-  
-  <header>
-    <div class="navbar navbar-fixed-top">
-      <div class="container">
-        <div class="">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" >
-              <span class="sr-only">Toggle Navigation</span>
-              <span class="icon-bar"></span>     
-              <span class="icon-bar"></span> 
-              <span class="icon-bar"></span>                        
-            </button>
+	<?php
+	if($_SESSION['ty'] == 'admin' || $_SESSION['ty'] == false){ ?>
 
-            <a href="" class="navbar-brand">LOGO</a>
+		<header>
+			<div class="navbar navbar-fixed-top">
+				<div class="container">
+					<div class="">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" >
+								<span class="sr-only">Toggle Navigation</span>
+								<span class="icon-bar"></span>     
+								<span class="icon-bar"></span> 
+								<span class="icon-bar"></span>                        
+							</button>
 
-          </div>
+							<a href="" class="navbar-brand">LOGO</a>
 
-          <div class="collapse navbar-collapse" id="menu">
-            <ul class="nav navbar-nav">
-              <li><a href="admin.php" >HOME</a></li>
-              <li><a href="user.php">MY POST</a></li>
-              <li><a href="user_details.php">USER DETAILS</a></li>
-              <li><a href="update_details.php">DETAILS</a></li>
-              <li><a href="logout.php">LOGOUT</a></li>
-            </ul>
-          </div> 
-        </div>
-      </div>
-    </div>
-  </header>
+						</div>
 
-   <?php }else{ ?>
+						<div class="collapse navbar-collapse" id="menu">
+							<ul class="nav navbar-nav">
+								<li><a href="admin.php" >HOME</a></li>
+								<li><a href="user.php">MY POST</a></li>
+								<li><a href="user_details.php">USER DETAILS</a></li>
+								<li><a href="update_details.php">DETAILS</a></li>
+								<li><a href="logout.php">LOGOUT</a></li>
+							</ul>
+						</div> 
+					</div>
+				</div>
+			</div>
+		</header>
 
-<header>
-        <div class="navbar navbar-fixed-top">
-            <div class="container">
-                <div class="">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" >
-                            <span class="sr-only">Toggle Navigation</span>
-                            <span class="icon-bar"></span>     
-                            <span class="icon-bar"></span> 
-                            <span class="icon-bar"></span>                        
-                        </button>
+	<?php }else{ ?>
 
-                        <a href="" class="navbar-brand">LOGO</a>
+		<header>
+			<div class="navbar navbar-fixed-top">
+				<div class="container">
+					<div class="">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" >
+								<span class="sr-only">Toggle Navigation</span>
+								<span class="icon-bar"></span>     
+								<span class="icon-bar"></span> 
+								<span class="icon-bar"></span>                        
+							</button>
 
-                    </div>
+							<a href="" class="navbar-brand">LOGO</a>
 
-                    <div class="collapse navbar-collapse" id="menu">
-                        <ul class="nav navbar-nav">
-                            <li><a href="user.php">MY POSTS</a></li>
-                            <li><a href="update_details.php">DETAILS</a></li>
-                            <li><a href="logout.php">LOGOUT</a></li>
-                        </ul>
-                    </div>
+						</div>
 
-                </div>
-            </div>
-        </div>
-    </header>
+						<div class="collapse navbar-collapse" id="menu">
+							<ul class="nav navbar-nav">
+								<li><a href="user.php">MY POSTS</a></li>
+								<li><a href="update_details.php">DETAILS</a></li>
+								<li><a href="logout.php">LOGOUT</a></li>
+							</ul>
+						</div> 
+					</div>
+				</div>
+			</div>
+		</header>
 
-   <?php }
- 
-  error_reporting($errorlevel);
-  ?>
+	<?php }
+
+	error_reporting($errorlevel);
+	?>
 
 
-  
-  <?php
+	
+	<?php
 
-  if($_SESSION['ty'] == 'admin' || $_SESSION['ty'] == false)
-  {
-    foreach ($queryy as $q) {   
-     ?> 
+	if($_SESSION['ty'] == 'admin' || $_SESSION['ty'] == false)
+	{
+		foreach ($queryy as $q) {   
+			?> 
 
-     <br><br><br><br><br>
-     <section class="container">
-      <div class="site-content">
-        <div class="posts">
-          <div class="post-content">
-            <div class="post-image">
-              <div>
-                <img src="<?php echo $q['images']; ?>" alt="blog1" class="img" style="height: 460px; width: 800px;">
-              </div>
- 
-              <?php 
-               $a2= new Index(); 
-                                        $a1 = $a2->usern($q['user_id']); 
-                                        foreach($a1 as $u){
-                                          $uname= $u['username'] ;
-                                        }
-                        ?>
+			<section class="container">
+				<div class="site-content">
+					<div class="posts">
+						<div class="post-content">
+							<div class="post-image">
+								<div>
+									<img src="<?php echo $q['images']; ?>" alt="blog1" class="img">
+								</div>
 
-              <div class="post-info">
-                <span>
-                  &nbsp;&nbsp;Author: <?php echo $uname; ?></span>
-                  <span>
-                    &nbsp;&nbsp;Posted on: <?php echo $q['date'] ?></span>
-                  </div>
-                </div>
-                <div class="post-title"><br>
-                  <h2><strong><?php echo $q['title'] ?></strong></h2> 
-                  <p style="color: #454343; font-size: 1.8rem;"><?php echo $q['content'] ?></p>
-<?php if ($_SESSION['ty'] == 'admin') {?>
- 
-                  <div class="">  
-                   
-                    <h3><i <?php if (userLiked($q['id'])): ?>
-                    class="fa fa-thumbs-up like-btn"
-                  <?php else: ?>
-                    class="fa fa-thumbs-o-up like-btn"
-                  <?php endif ?>
-                  data-id="<?php echo $q['id'] ?>"></i> 
-                  <span class="likes"><?php echo getLikes($q['id']); ?></span>
+								<?php 
+								$a2= new Index(); 
+								$a1 = $a2->usern($q['user_id']); 
+								foreach($a1 as $u){
+									$uname= $u['username'] ;
+								}
+								?>
 
-                  &nbsp;&nbsp;&nbsp;&nbsp;
+								<div class="post-info">
+									<span>
+										&nbsp;&nbsp;Author: <?php echo $uname; ?></span>
+										<span>
+											&nbsp;&nbsp;Posted on: <?php echo $q['date'] ?></span>
+										</div>
+									</div>
+									<div class="post-title"> 
+										<h2><strong><?php echo $q['title'] ?></strong></h2> 
+									</div>
+									<div class="post-content">
+										<p><?php echo $q['content'] ?></p></div>
+										<?php if ($_SESSION['ty'] == 'admin') {?>
 
-                  <i  <?php if (userDisliked($q['id'])): ?>
-                  class="fa fa-thumbs-down dislike-btn"
-                <?php else: ?>
-                  class="fa fa-thumbs-o-down dislike-btn"
-                <?php endif ?>
-                data-id="<?php echo $q['id'] ?>"></i> 
-                <span class="dislikes"><?php echo getDislikes($q['id']); ?></span></h3> 
-              </div>
-            <?php }else{ ?>
-              <div class=" "><br> 
-                    <h4 ><strong style=" color: blue;"><span class="likes"><?php echo getLikes($q['id']); ?> Likes </span></strong> 
+											<div class="rate">  
 
-                  &nbsp;&nbsp;&nbsp;&nbsp;
- 
-                <strong style=" color: red;"> <span class="dislikes"><?php echo getDislikes($q['id']); ?>  Dislikes</span></strong> </h4> 
-              </div><br><br>
-            <?php } ?>
-              </div>
-              </div>
-            </div>
-            </div>
-            <?php }  
-          }else{ 
-            // $Row=mysqli_num_rows($queryy);
-            if(!empty($query))
-            {
-             foreach ($query as $q) {
+												<h3><i <?php if (userLiked($q['id'])): ?>
+												class="fa fa-thumbs-up like-btn"
+											<?php else: ?>
+												class="fa fa-thumbs-o-up like-btn"
+											<?php endif ?>
+											data-id="<?php echo $q['id'] ?>"></i> 
+											<span class="likes"><?php echo getLikes($q['id']); ?></span>
 
-               ?>
+											&nbsp;&nbsp;&nbsp;&nbsp;
 
-               <br><br><br><br><br>
-               <section class="container">
-                <div class="site-content">
-                  <div class="posts">
-                    <div class="post-content">
-                      <div class="post-image">
-                        <div>
-                          <img src="<?php echo $q['images']; ?>" alt="blog1" class="img" style="height: 460px; width: 800px;">
-                        </div>
+											<i  <?php if (userDisliked($q['id'])): ?>
+											class="fa fa-thumbs-down dislike-btn"
+										<?php else: ?>
+											class="fa fa-thumbs-o-down dislike-btn"
+										<?php endif ?>
+										data-id="<?php echo $q['id'] ?>"></i> 
+										<span class="dislikes"><?php echo getDislikes($q['id']); ?></span></h3> 
+									</div>
+								<?php }else{ ?>
+									<div class="rate"> 
+										<h4 ><strong style=" color: blue;"><span class="likes"><?php echo getLikes($q['id']); ?> Likes </span></strong> 
 
-                        <?php 
-                         $a2= new Index(); 
-                                        $a1 = $a2->usern($q['user_id']); 
-                                        foreach($a1 as $u){
-                                          $uname= $u['username'] ;
-                                        } 
-                        ?>
+											&nbsp;&nbsp;&nbsp;&nbsp;
 
-                        <div class="post-info ">
-                          <span> 
-                            &nbsp;&nbsp;Author: <?php echo $uname; ?></span>
-                            <span> 
-                              &nbsp;&nbsp;Posted on: <?php echo $q['date'] ?></span>
-                            </div>
-                          </div>
-                          <div class="post-title "><br>
-                            <h2><strong><?php echo $q['title'] ?></strong></h2> 
-                            <p style="color: #454343; font-size: 1.8rem;"><?php echo $q['content'] ?></p>
-                            
-                            <div class=" "> 
-                              <h3><i <?php if (userLiked($q['id'])): ?>
-                              class="fa fa-thumbs-up like-btn"
-                            <?php else: ?>
-                              class="fa fa-thumbs-o-up like-btn"
-                            <?php endif ?>
-                            data-id="<?php echo $q['id'] ?>"></i>
-                            <span class="likes"><?php echo getLikes($q['id']); ?></span>
+											<strong style=" color: red;"> <span class="dislikes"><?php echo getDislikes($q['id']); ?>  Dislikes</span></strong> </h4> 
+										</div>
+									<?php } ?>
+								</div>
+							</div>
+						</div>
+					<?php }  
+				}else{  
+					if(!empty($query))
+					{
+						foreach ($query as $q) {
 
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-                            
-                            <i 
-                            <?php if (userDisliked($q['id'])): ?>
-                              class="fa fa-thumbs-down dislike-btn"
-                            <?php else: ?>
-                              class="fa fa-thumbs-o-down dislike-btn"
-                            <?php endif ?>
-                            data-id="<?php echo $q['id'] ?>"></i> 
-                            <span class="dislikes"><?php echo getDislikes($q['id']); ?></span></h3> 
-                          </div>
-</div>
-                        <?php } 
-                      }else{
-                       header("Location: user.php");
-                       exit();
-                     }
+							?>
 
-                   } 
-                   if ($_SESSION['ty'] == true) { ?>
-                   <form method="POST" style="display: inline-block;padding-top: 0;">
-                    <input type="text" hidden name="id" value="<?php echo $q['id']; ?>" >
-                    <button name="delete" class="btnn" style="color: white;font-size: 1.8rem; ">DELETE</button>
-                    <button class="btnn"> <a href="edit.php?id=<?php echo $q['id']; ?>", style="text-decoration: none;color: white;font-size: 1.8rem; ">EDIT</a></button><br><br>
-                  </form>
-                  <?php } ?> 
-                </div>
-              </div>
-            </div>
-            <aside class="sidebar"> 
-            </aside>
-          </div>
-        </section>
-        <script src="../js/scripts.js"></script>
-      </body>
-      </html>
+							<section class="container">
+								<div class="site-content">
+									<div class="posts">
+										<div class="post-content">
+											<div class="post-image">
+												<div class="img">
+													<img src="<?php echo $q['images']; ?>" alt="blog1" class="img" >
+												</div>
+
+												<?php 
+												$a2= new Index(); 
+												$a1 = $a2->usern($q['user_id']); 
+												foreach($a1 as $u){
+													$uname= $u['username'] ;
+												} 
+												?>
+
+												<div class="post-info ">
+													<span> 
+														&nbsp;&nbsp;Author: <?php echo $uname; ?></span>
+														<span> 
+															&nbsp;&nbsp;Posted on: <?php echo $q['date'] ?></span>
+														</div>
+													</div>
+													<div class="post-title "> 
+														<h2><strong><?php echo $q['title'] ?></strong></h2> 
+													</div>
+													<div class="post-content"><p><?php echo $q['content'] ?></p></div>
+
+													<div class="rate"> 
+														<h3><i <?php if (userLiked($q['id'])): ?>
+														class="fa fa-thumbs-up like-btn"
+													<?php else: ?>
+														class="fa fa-thumbs-o-up like-btn"
+													<?php endif ?>
+													data-id="<?php echo $q['id'] ?>"></i>
+													<span class="likes"><?php echo getLikes($q['id']); ?></span>
+
+													&nbsp;&nbsp;&nbsp;&nbsp;
+
+													<i 
+													<?php if (userDisliked($q['id'])): ?>
+														class="fa fa-thumbs-down dislike-btn"
+													<?php else: ?>
+														class="fa fa-thumbs-o-down dislike-btn"
+													<?php endif ?>
+													data-id="<?php echo $q['id'] ?>"></i> 
+													<span class="dislikes"><?php echo getDislikes($q['id']); ?></span></h3> 
+												</div>
+											<?php } 
+										}else{
+											header("Location: user.php");
+											exit();
+										} 
+
+									} 
+									if ($_SESSION['ty'] == true) { ?>
+										<form method="POST ">
+											<input type="text" hidden name="id" value="<?php echo $q['id']; ?>" >
+											<button name="delete" class="btnn" style=" ">DELETE</button>
+											<button class="btnn"> <a href="edit.php?id=<?php echo $q['id']; ?> ">EDIT</a></button> 
+										</form>
+									<?php } ?> 
+								</div>
+							</div>
+						</div>
+						<aside class="sidebar"> 
+						</aside>
+					</div>
+				</section>
+				<script src="../js/scripts.js"></script>
+			</body>
+			</html>

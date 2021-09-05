@@ -12,17 +12,17 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: tahoma;
-  color: white; }
+  color: #fff; }
 
 .text1 {
   font-size: 80px;
   display: block;
-  color: white; }
+  color: #fff; }
 
 .text2 {
   font-size: 50px;
   display: block;
-  color: white;
+  color: #fff;
   letter-spacing: 5pxs; }
 
 .bg_admin {
@@ -37,13 +37,16 @@
   text-align: center;
   margin: 0 auto;
   text-decoration: none;
-  border: 2px solid white;
+  border: 2px solid #fff;
   padding: 12px, 30px;
   border-radius: 50px;
   display: block;
-  color: white;
+  color: #fff;
   margin-top: 40px;
   font-size: 22px; }
+  .btn:hover {
+    background-color: #c24234;
+    color: #fff; }
 
 .navbar {
   padding: 45px 0px;
@@ -54,22 +57,22 @@
   .navbar .navbar-nav {
     float: right; }
     .navbar .navbar-nav > li > a {
-      color: white;
+      color: #fff;
       font-size: 18px;
       text-transform: uppercase;
       letter-spacing: 1px;
       font-weight: 400; }
       .navbar .navbar-nav > li > a:hover, .navbar .navbar-nav > li > a:focus {
         background: none;
-        color: white; }
+        color: #fff; }
   .navbar .navbar-toggle {
     background-color: rgba(0, 0, 0, 0.1);
-    border: 1px solid white;
+    border: 1px solid #fff;
     border-radius: 0; }
     .navbar .navbar-toggle .icon-bar {
-      background-color: white; }
+      background-color: #fff; }
   .navbar .navbar-brand {
-    color: white; }
+    color: #fff; }
   .navbar .navbar-collapse {
     max-height: none !important; }
 
@@ -110,7 +113,7 @@
     padding: 10px; }
     .latest-news-area .date span {
       display: block;
-      color: white;
+      color: #fff;
       font-weight: 700;
       font-size: 16px; }
   .latest-news-area .news-content {
@@ -144,9 +147,6 @@
         border-top-right-radius: 20px;
         background-color: transparent;
         text-decoration: none; }
-  .latest-news-area .btn:hover {
-    background-color: #c24234;
-    color: white; }
 
 @media (max-width: 768px) {
   .latest-news-area {
@@ -162,11 +162,11 @@
   .text1 {
     font-size: 60px;
     display: block;
-    color: white; }
+    color: #fff; }
   .text2 {
     font-size: 30px;
     display: block;
-    color: white;
+    color: #fff;
     letter-spacing: 5pxs; }
   .table {
     margin: 0px;
