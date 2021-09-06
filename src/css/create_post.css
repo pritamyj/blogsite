@@ -10,11 +10,11 @@ h1{
   font-weight: 600;
   font-size: 2em;
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   border-bottom: 4px solid#ff4584;
   display: inline-block;
   letter-spacing: 1px;
-  margin-left: 180px;
+  margin-left: 140px;
 }
 
 p{
@@ -30,7 +30,7 @@ p{
 
 .p{
   height: 70%;
-  margin: 0px 30px 10px 30px; 
+  margin: 0px 30px 10px 0px; 
   box-shadow: 0 0 20px;
   display: flex;
   justify-content: space-between;
@@ -46,7 +46,7 @@ p{
 .child img{  
   height: 400px;
   width: 570px; 
-  margin-top: 12px; 
+  margin: 12px ; 
   position: absolute;
    border: 1px solid #607d8b; 
 }
@@ -75,5 +75,5 @@ input[type="submit"]:hover {
           border: 1px solid #607d8b; }
 
           form{
-            margin-left: 150px;
+            margin-left: 140px;
           }

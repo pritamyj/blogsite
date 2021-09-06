@@ -13,14 +13,13 @@ include "db.php";
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="css/indexadmin.css"> 
-  <link rel="stylesheet" type="text/css" href="stylesss.css">
+     
   <title></title>
 
 </head>
 
 <body> 
-  <?php if($_SESSION['username'] == false){
+  <?php if($_SESSION['ty'] == false){
 
     header("Location: index.php");
     exit();
@@ -55,7 +54,7 @@ include "db.php";
     </section>
 
     <link rel="stylesheet" type="text/css" href="css/view.css">
-    <link rel="stylesheet" type="text/css" href="stylesss.css">
+    <link rel="stylesheet" type="text/css" href="css/create_post.css">
   </body>
 
   </html> 
