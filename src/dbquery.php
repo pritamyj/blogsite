@@ -1,6 +1,5 @@
 <?php
 
-
  
 class Index extends Db{
  
@@ -97,6 +96,15 @@ public function deleteuser($uid){
     $stmt2->execute([$uid]); 
   }   
   
+public function Adduser($uname, $pass, $name, $user){
+
+    $sql = "INSERT INTO user(username, password, full_name, user_type) VALUES(?, ?, ?, ?)";
+    $stmt = $this->connect()->prepare($sql);
+    $stmt->execute([$uname, $pass, $name, $user]); 
+     return true; 
+
+  }  
+
 }
 
 

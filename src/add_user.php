@@ -3,13 +3,14 @@ $errorlevel = error_reporting();
 error_reporting($errorlevel & ~E_NOTICE);
 session_start();
 include "db.php";
-
+ 
 if (isset($_REQUEST['ADD'])) {
   $fn = $_REQUEST['fn'];
   $un = $_REQUEST["un"];
   $pass = $_REQUEST["pa"];
-    $sql = "INSERT INTO user(full_name,username, password) VALUES('$fn', '$un', '$pass')";
-  mysqli_query($conn, $sql);
+   $user= 'user';
+      $insert = new User();
+            $result2 = $insert->Adduser($un, $pass, $fn, $user);
   header("Location: user_details.php?info=added");
   exit();
 }
