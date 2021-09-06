@@ -155,7 +155,7 @@
     grid-template-columns: repeat(2, 1fr); }
     .latest-news-area .latest-news-wrap {
       box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
-      height: 33.33%;
+      height: auto;
       justify-content: space-between;
       flex-direction: column;
       display: flex; }

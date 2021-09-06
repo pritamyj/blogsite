@@ -17,90 +17,27 @@ include "server.php";
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="../css/indexadmin.css"> 
-	<link rel="stylesheet" type="text/css" href="../css/view.css">
+	<link rel="stylesheet" type="text/css" href="css/indexadmin.css">
 
 	<title>User blog</title>
 
 </head>
 <body>
 	<?php
-	if($_SESSION['ty'] == 'admin' || $_SESSION['ty'] == false){ ?>
-
-		<header>
-			<div class="navbar navbar-fixed-top">
-				<div class="container">
-					<div class="">
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" >
-								<span class="sr-only">Toggle Navigation</span>
-								<span class="icon-bar"></span>     
-								<span class="icon-bar"></span> 
-								<span class="icon-bar"></span>                        
-							</button>
-
-							<a href="" class="navbar-brand">LOGO</a>
-
-						</div>
-
-						<div class="collapse navbar-collapse" id="menu">
-							<ul class="nav navbar-nav">
-								<li><a href="admin.php" >HOME</a></li>
-								<li><a href="user.php">MY POST</a></li>
-								<li><a href="user_details.php">USER DETAILS</a></li>
-								<li><a href="update_details.php">DETAILS</a></li>
-								<li><a href="logout.php">LOGOUT</a></li>
-							</ul>
-						</div> 
-					</div>
-				</div>
-			</div>
-		</header>
-
-	<?php }else{ ?>
-
-		<header>
-			<div class="navbar navbar-fixed-top">
-				<div class="container">
-					<div class="">
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" >
-								<span class="sr-only">Toggle Navigation</span>
-								<span class="icon-bar"></span>     
-								<span class="icon-bar"></span> 
-								<span class="icon-bar"></span>                        
-							</button>
-
-							<a href="" class="navbar-brand">LOGO</a>
-
-						</div>
-
-						<div class="collapse navbar-collapse" id="menu">
-							<ul class="nav navbar-nav">
-								<li><a href="user.php">MY POSTS</a></li>
-								<li><a href="update_details.php">DETAILS</a></li>
-								<li><a href="logout.php">LOGOUT</a></li>
-							</ul>
-						</div> 
-					</div>
-				</div>
-			</div>
-		</header>
-
-	<?php }
-
+	if($_SESSION['ty'] == false){  
+ 		include "navbar.php";   
+	  }elseif($_SESSION['ty'] == 'admin'){
+	  	include "navbar_admin.php"; 
+	  } else{ 
+	  include "navbar_user.php"; } 
 	error_reporting($errorlevel);
-	?>
-
-
-	
-	<?php
+ 
 
 	if($_SESSION['ty'] == 'admin' || $_SESSION['ty'] == false)
 	{
 		foreach ($queryy as $q) {   
 			?> 
-
+ 
 			<section class="container">
 				<div class="site-content">
 					<div class="posts">
@@ -177,7 +114,7 @@ include "server.php";
 									<div class="posts">
 										<div class="post-content">
 											<div class="post-image">
-												<div class="img">
+												<div>
 													<img src="<?php echo $q['images']; ?>" alt="blog1" class="img" >
 												</div>
 
@@ -232,16 +169,16 @@ include "server.php";
 										<form method="POST ">
 											<input type="text" hidden name="id" value="<?php echo $q['id']; ?>" >
 											<button name="delete" class="btnn" style=" ">DELETE</button>
-											<button class="btnn"> <a href="edit.php?id=<?php echo $q['id']; ?> ">EDIT</a></button> 
+											<button class="btnn"> <a href="edit.php?id=<?php echo $q['id']; ?> " style="text-decoration: none;color: white;">EDIT</a></button> 
 										</form>
 									<?php } ?> 
 								</div>
 							</div>
 						</div>
 						<aside class="sidebar"> 
-						</aside>
-					</div>
-				</section>
-				<script src="../js/scripts.js"></script>
+						</aside> 
+				</section> 
+        <script src="js/scripts.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/view.css">
 			</body>
 			</html>

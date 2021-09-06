@@ -33,7 +33,7 @@ if (isset($_REQUEST["new_post"])) {
     $filename=$file['name'];
     $filepath=$file['tmp_name'];
     $fileerror=$file['error'];
-    $filedest="../images/".$filename;
+    $filedest="images/".$filename;
     $title = $_REQUEST["title"];
     $content = $_REQUEST["content"];
     $desc = $_REQUEST["desc"];
@@ -58,7 +58,7 @@ if (isset($_REQUEST["update"])) {
     $filename=$file['name'];
     $filepath=$file['tmp_name'];
     $fileerror=$file['error'];
-    $filedest="../images/".$filename;
+    $filedest="images/".$filename;
     $title = $_REQUEST["title"];
     $content = $_REQUEST["content"];
     $desc = $_REQUEST["desc"];

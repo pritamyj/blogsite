@@ -1,0 +1,45 @@
+    *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1{
+  font-size: 4rem;
+  padding: 50px 0;
+  text-align: center;
+  color: #000;
+}
+
+p{
+  text-align: center;
+}
+
+.gp{
+  width: 100vw;
+      height: 100vh;
+  background: #dfe6e9;
+  color: #fff; 
+}
+
+.p{
+  width: 80vw;
+  height: 200px;
+  margin: auto;
+  background: #636e72;
+  box-shadow: 0 0 20px #bac2c2;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  transition:all 0.2 linear;
+}
+
+.child{ 
+ flex: 1 1 200px ;
+}
+
+.child:first-child{
+  background: #ff7979;
+}
+.child:last-child{
+background: #ffbe76;
+}

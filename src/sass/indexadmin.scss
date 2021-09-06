@@ -171,7 +171,7 @@
 @include lna(20px,repeat(2, 1fr)); 
 
     .latest-news-wrap{
-      @include lnw(33.33%); 
+      @include lnw(auto); 
     }
     }
  

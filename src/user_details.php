@@ -14,9 +14,10 @@ include "navbar_admin.php";
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
-      <link rel="stylesheet" type="text/css" href="../css/user_details.css">
-      <link rel="stylesheet" type="text/css" href="../css/indexadmin.css">
+      <link rel="stylesheet" type="text/css" href="css/user_details.css">
+      <link rel="stylesheet" type="text/css" href="css/indexadmin.css">
 
+<script src="../js/navbar.js"></script> 
       <title>CRUD</title>
 
   </head>
