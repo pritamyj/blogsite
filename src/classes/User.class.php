@@ -1,32 +1,5 @@
 <?php
 
- 
-class Index extends Db{
- 
-  public function allposts(){
-
-    $sql = "SELECT * FROM data ORDER BY date DESC";
-    $stmt = $this->connect()->query($sql); 
-    while($row = $stmt->fetch()){
-      $data[] = $row; 
-    }
-    return $data ; 
-  } 
-
-
-  public function usern($uid){
-
-    $sql = "SELECT * from user WHERE user_id = '$uid'"; 
-    $stmt = $this->connect()->query($sql);
-    while($row = $stmt->fetch()){
-      $data[] = $row; 
-    }
-    return $data ; 
-  } 
-
-}
-
-
 class User extends Db{
  
   public function userposts($ui){
@@ -94,65 +67,16 @@ public function deleteuser($uid){
     $stmt->execute([$uid]);
     $stmt2 = $this->connect()->prepare($sql2);
     $stmt2->execute([$uid]); 
-  }   
+  }
+
+public function showalluser(){
+
+    $sql = "SELECT * FROM user";
+    $stmt = $this->connect()->query($sql); 
+    while($row = $stmt->fetch()){
+      $data[] = $row; 
+    }
+    return $data ; 
+  } 
   
-public function Adduser($uname, $pass, $name, $user){
-
-    $sql = "INSERT INTO user(username, password, full_name, user_type) VALUES(?, ?, ?, ?)";
-    $stmt = $this->connect()->prepare($sql);
-    $stmt->execute([$uname, $pass, $name, $user]); 
-     return true; 
-
-  }  
-
 }
-
-
-
-
-class Login extends Db{
- 
-  public function login_check($uname, $pass){
-
-$sql = "SELECT * FROM user WHERE username='$uname' AND password='$pass'";
-    $stmt = $this->connect()->query($sql);
-    // $stmt->execute([$uname, $pass]); 
-    while($row = $stmt->fetch()){
-      $data[] = $row; 
-    }
-    return $data; 
-
- } 
-
-}
-
-
-
-
-class Register extends Db{
- 
-  public function signup_check($uname, $pass, $name, $user){
-
-$sql = "INSERT INTO user(username, password, full_name, user_type) VALUES(?, ?, ?, ?)";
-    $stmt = $this->connect()->prepare($sql);
-    $stmt->execute([$uname, $pass, $name, $user]); 
-     
-    return true; 
-
- } 
-
-public function usern_check($uname ){
-
-$sql = "SELECT * FROM user WHERE username='$uname' ";
-    $stmt = $this->connect()->query($sql);
-    // $stmt->execute([$uname, $pass]); 
-    while($row = $stmt->fetch()){
-      $data[] = $row; 
-    }
-    return $data; 
-
- } 
-
-}
-
- 

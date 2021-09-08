@@ -2,7 +2,7 @@
 $errorlevel = error_reporting();
 error_reporting($errorlevel & ~E_NOTICE);
 session_start();
-include "db.php"; 
+include 'includes/db.inc.php';
 include "server.php"; 
 ?>
 
@@ -91,11 +91,11 @@ include "server.php";
 									</div>
 								<?php }else{ ?>
 									<div class="rate"> 
-										<h4 ><strong style=" color: blue;"><span class="likes"><?php echo getLikes($q['id']); ?> Likes </span></strong> 
+										<h4 ><strong style=" color: darkslategrey;"><span class="likes"><?php echo getLikes($q['id']); ?> Likes </span></strong> 
 
 											&nbsp;&nbsp;&nbsp;&nbsp;
 
-											<strong style=" color: red;"> <span class="dislikes"><?php echo getDislikes($q['id']); ?>  Dislikes</span></strong> </h4> 
+											<strong style=" color: darkslategrey;"> <span class="dislikes"><?php echo getDislikes($q['id']); ?>  Dislikes</span></strong> </h4> 
 										</div>
 									<?php } ?>
 								</div>

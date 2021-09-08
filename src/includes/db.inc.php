@@ -2,13 +2,9 @@
 
 $errorlevel = error_reporting();
 error_reporting($errorlevel & ~E_NOTICE);
-session_start();
-include "config.php";
-include "dbquery.php";
-$conn = mysqli_connect('localhost', 'root', '', 'blog');
-if (!$conn) {
-    echo "<h3>Not able to established Database Connection</h3>";
-}
+session_start(); 
+ 
+include 'includes/autoload.inc.php'; 
 
 
 if (isset($_REQUEST['id'])) {

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "db.php";
+include 'includes/db.inc.php';
 include "navbar_admin.php";
 include "server.php";  
 ?>
@@ -11,7 +11,7 @@ include "server.php";
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="js/navbar.js"></script> 
+	<script src="js/navbar.js"></script> 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 	<link rel="stylesheet" type="text/css" href="css/indexadmin.css">   
 
@@ -43,8 +43,7 @@ include "server.php";
 
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="section_title">
-					<!-- <div class="section_substitle">Blog</div> -->
+				<div class="section_title"> 
 					<br>
 					<h2>All <strong>Blogs</strong></h2>
 				</div>
@@ -77,10 +76,10 @@ include "server.php";
 			<div class="news-active">
 
 				<?php
-						 $datas= new Index(); 
-						 $dataa = $datas->allposts(); 
-						 foreach ($dataa as $q) {
-							?>
+				$datas= new Index(); 
+				$dataa = $datas->allposts(); 
+				foreach ($dataa as $q) {
+					?>
 
 					<div class="col-md-4" style="padding:20px;">
 						<div class="latest-news-wrap">
@@ -102,35 +101,35 @@ include "server.php";
 								</p>
 
 								<?php
-										$a2= new Index(); 
-										$a1 = $a2->usern($q['user_id']); 
-										foreach($a1 as $u){
-										  $uname= $u['username'] ;
-										}
-										?>
+								$a2= new Index(); 
+								$a1 = $a2->usern($q['user_id']); 
+								foreach($a1 as $u){
+									$uname= $u['username'] ;
+								}
+								?>
 
 								<p><small class="text-muted">Author: <?php echo $uname; ?></small></p> 
 								
-							<p></p>
-							<h5><strong style="color: blue;"><small"> <?php echo getLikes($q['id']); ?> Likes </small></strong> 
+								<p></p>
+								<h5><strong style="color: darkslategrey;"><small"> <?php echo getLikes($q['id']); ?> Likes </small></strong> 
 
-							  &nbsp;&nbsp;&nbsp;&nbsp;
+									&nbsp;&nbsp;&nbsp;&nbsp;
 
-							  <strong style="color: red;"> <span class="dislikes"><?php echo getDislikes($q['id']); ?> Dislikes</span></strong> </h5>
-							<p></p>
+									<strong style="color: darkslategrey;"> <span class="dislikes"><?php echo getDislikes($q['id']); ?> Dislikes</span></strong> </h5>
+									<p></p>
 
-								<div>                     
-									<a href="view.php?id=<?php echo $q['id']; ?>">Read More</a>
+									<div>                     
+										<a href="view.php?id=<?php echo $q['id']; ?>">Read More</a>
+									</div>
 								</div>
 							</div>
 						</div>
+						<?php } ?><br> 
 					</div>
-					<?php } ?><br> 
-				</div>
-			</div> 
-		</section>
+				</div> 
+			</section>
 
-	</body>
-	</html>
+		</body>
+		</html>
 
 

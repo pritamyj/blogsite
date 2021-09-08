@@ -1,10 +1,10 @@
 <?php
-include "db.php";
+include 'includes/db.inc.php';
 
 if (isset($_REQUEST['upid'])) {
-  $id = $_REQUEST['upid'];
+  $upid = $_REQUEST['upid'];
   $a2= new Index(); 
-  $que = $a2->usern($id);  
+  $que = $a2->usern($upid);  
 }
 
 if (isset($_REQUEST['done'])) {
@@ -12,13 +12,21 @@ if (isset($_REQUEST['done'])) {
   $fn = $_REQUEST['fn'];
   $un = $_REQUEST["un"];
   $pass = $_REQUEST["pa"];
-  // $sql = "UPDATE user SET full_name='$fn', username='$un', password='$pass' WHERE user_id=$id";
-  // mysqli_query($conn, $sql);
-  $update= new User();
+
+  $ch = new Register();
+            $result = $ch->usern_check($un);
+
+    if (empty($result)) {
+      $update= new User();
   $update->upd_mydetails($un, $pass, $fn, $id);
-  header("Location: user_details.php?info=updated");
+  $url = "user_details.php?updated"; 
+  header("Location:".$url);
+    exit();
+    }else{ 
+  $url = "update.php?upid=$upid";
+         header("Location:".$url);
   exit();
-}
+}}
 
 
 ?>
@@ -29,44 +37,63 @@ if (isset($_REQUEST['done'])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/login1register.css">
 
     <title>CRUD</title>
   </head>
 
   <body>
-    <div class="container">
+    <?php if($_SESSION['ty'] == false){
+
+    header("Location: index.php");
+    exit();
+  }
+  if($_SESSION['ty'] == false){  
+    include "navbar.php";   
+  }elseif($_SESSION['ty'] == 'admin'){
+    include "navbar_admin.php"; 
+  } else{ 
+    include "navbar_user.php"; }
+    error_reporting($errorlevel);
+    ?>
+
+   <section> 
+      <div class="contentBx" style="width:100%">
+            <div class="formBx">
+                <h2>ADD USER</h2>
 
       <?php 
       $uid= $_REQUEST['upid'];
       
       foreach ($que as $q) { ?>
         <form method="GET">
-          <div class="mb-3">
+          <div class="inputBx">
 
-            <input type="uid" hidden class="form-control" name="uid" value="<?php echo "$uid"; ?>">
+            <input type="hidden" class="form-control" name="uid" value="<?php echo "$uid"; ?>">
           </div>
-          <div class="mb-3">
-            <label class="form-label">Full Name</label>
-            <input type="full_name" class="form-control" name="fn" value="<?php echo $q['full_name']; ?>">
+          <div class="inputBx">
+            <span>Full Name</span>
+            <input type="full_name" name="fn" value="<?php echo $q['full_name']; ?>">
           </div>
-          <div class="mb-3">
-            <label class="form-label">Username</label>
-            <input type="username" class="form-control" name="un" value="<?php echo $q['username']; ?>">
+          <div class="inputBx">
+            <span>Username</span>
+            <input type="username" name="un" value="<?php echo $q['username']; ?>">
           </div>
-          <div class="mb-3">
-            <label class="form-label">Password</label>
-            <input type="password" class="form-control" name="pa" value="<?php echo $q['password']; ?>">
-          </div>
-          <button type="submit" class="btn btn-primary" name="done">Submit</button>
-        </form>
-
+          <div class="inputBx">
+            <span>Password</span>
+            <input type="password" name="pa" value="<?php echo $q['password']; ?>">
+          </div><br>
+                    <div class="inputBx">
+                        <input type="submit" name="done" value="Update User  Details">
+                    </div> 
+</form>
       <?php } ?>
 
-
+</div>
     </div>
+  
+    </section>
 
-
-  </body>
-
+        <script src="js/scripts.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/view.css">
   </html>

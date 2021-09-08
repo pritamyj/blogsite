@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "db.php";  
+include 'includes/db.inc.php'; 
 include "server.php";  
 ?>
 
@@ -25,13 +25,13 @@ include "server.php";
     if ($_SESSION['username'] == true) {
         if ($_SESSION['ty'] == 'admin') {
             $n= $_SESSION['username'];
-    $id = $_REQUEST['id'];
+    // $id = $_REQUEST['id'];
     $ui= $_SESSION['ui'];
             include "navbar_admin.php";
 
         } else {
          $n= $_SESSION['username'];
-    $id = $_REQUEST['id'];
+    // $id = $_REQUEST['id'];
     $ui= $_SESSION['ui'];
          include "navbar_user.php";
 
@@ -134,11 +134,11 @@ include "server.php";
                             <p > <?php echo $q['short_desc']; ?>... </p>
 
                             <p></p>
-                            <h5><strong style="color: blue;"><small"> <?php echo getLikes($q['id']); ?> Likes </small></strong> 
+                            <h5><strong style="color: darkslategrey;"><small"> <?php echo getLikes($q['id']); ?> Likes </small></strong> 
 
                               &nbsp;&nbsp;&nbsp;&nbsp;
 
-                              <strong style="color: red;"> <span class="dislikes"><?php echo getDislikes($q['id']); ?> Dislikes</span></strong> </h5>
+                              <strong style="color: darkslategrey;"> <span class="dislikes"><?php echo getDislikes($q['id']); ?> Dislikes</span></strong> </h5>
                               <p></p>
 
                               <a href="view.php?id=<?php echo $q['id']; ?>">Read More</a> 

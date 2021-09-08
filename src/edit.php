@@ -2,7 +2,7 @@
 $errorlevel = error_reporting();
 error_reporting($errorlevel & ~E_NOTICE);
 session_start();
-include "db.php";
+include 'includes/db.inc.php';
 ?>
 
 <!DOCTYPE html>
@@ -48,23 +48,27 @@ include "db.php";
     <section class="gp">
       <h1>Edit Post</h1>
       <div class="p">
+        <div class="child">
+          <img src="<?php echo $q['images']; ?>" alt="Add image" class="img" >
+        </div>
         <div class="child"> 
           <p><form method="POST" enctype="multipart/form-data" >
             <!-- <h3>Title :</h3> -->
             <input type="text" name="title" placeholder="Blog Title" value="<?php echo $q['title']; ?>"> 
-            <!-- <h3>Short Description :</h3> -->
-            <textarea name="desc" placeholder="Short description"  style=" height:80px;"><?php echo $q['short_desc']; ?></textarea>
-            <!-- <h3>Content :</h3> -->
-            <textarea name="content" placeholder="Blog content" style="height:130px;"><?php echo $q['content']; ?></textarea> 
+            <!-- <h3>Short Description :</h3>  
+            <textarea name="desc" placeholder="Short description"  style=" height:80px;">
+            <?php 
+            // echo $q['short_desc']; 
+            ?>
+            </textarea>
+             <h3>Content :</h3> -->
+            <textarea name="content" placeholder="Blog content" style="height:185px;"><?php echo $q['content']; ?></textarea> 
             <input type="hidden" name="size" value="1000000"> 
             <input type="file" name="imgg"style="margin-bottom: 15px;"> 
             <input type="submit" name="update" value="Edit Post">
             <input type="text" hidden name="id" value="<?php echo $q['id']; ?>" >
             <!-- <button name="update">Add Post</button> -->
           </form></p>
-        </div>
-        <div class="child">
-          <img src="<?php echo $q['images']; ?>" alt="Add image" class="img" >
         </div>
 
       </div>

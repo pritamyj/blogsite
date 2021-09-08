@@ -2,7 +2,7 @@
 $errorlevel = error_reporting();
 error_reporting($errorlevel & ~E_NOTICE);
 session_start();
-include "db.php";
+include 'includes/db.inc.php';
 include "navbar_admin.php";
 ?>
 
@@ -54,14 +54,13 @@ include "navbar_admin.php";
       </thead>
       <tbody>
         <?php
-        $sql = "SELECT * FROM user";
-        $result = mysqli_query($conn, $sql);
+        $data= new User(); 
+        $result = $data->showalluser(); 
 
-        while ($row = mysqli_fetch_assoc($result)) {
-          $id = $row['user_id'];
-          $full_name = $row['full_name'];
-          $uname = $row['username'];
-          // $full_name=$row['full_name'];
+        foreach ($result as $q) {
+          $id = $q['user_id'];
+          $full_name = $q['full_name'];
+          $uname = $q['username']; 
 
           echo '<tr>
           <th scope="row"  style="text-align:center;">' . $id . '</th>

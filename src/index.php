@@ -2,9 +2,7 @@
 $errorlevel = error_reporting();
 error_reporting($errorlevel & ~E_NOTICE);
 session_start();
-// include "db.php";
-include "config.php"; 
-include "dbquery.php"; 
+include 'includes/db.inc.php';
 include "server.php"; 
 include "navbar.php";   
 ?>
@@ -24,7 +22,7 @@ include "navbar.php";
 </head>
 <body> 
 
-    <?php if($_SESSION['username'] == true){
+    <?php if($_SESSION['ty'] == true){
         if ($_SESSION['ty'] == 'admin') {
             header("Location: admin.php");
             exit();
@@ -36,7 +34,7 @@ include "navbar.php";
         error_reporting($errorlevel);
         ?>
 
-        <?php if($_SESSION['username'] == true){
+        <?php if($_SESSION['ty'] == true){
             if ($_SESSION['ty'] == 'admin') {
                 header("Location: admin.php");
                 exit();
@@ -103,11 +101,11 @@ include "navbar.php";
                                       <h4><small class="text-muted">Author: <?php echo $uname; ?></small></h4>
 
                                       <p></p>
-                                      <h5><strong style="color: blue;"><small"> <?php echo getLikes($q['id']); ?> Likes </small></strong> 
+                                      <h5><strong style=" color: darkslategrey;"><small"> <?php echo getLikes($q['id']); ?> Likes </small></strong> 
 
                                           &nbsp;&nbsp;&nbsp;&nbsp;
 
-                                          <strong style="color: red;"> <span class="dislikes"><?php echo getDislikes($q['id']); ?> Dislikes</span></strong> </h5>
+                                          <strong style=" color: darkslategrey;"> <span class="dislikes"><?php echo getDislikes($q['id']); ?> Dislikes</span></strong> </h5>
 
                                           <p></p>
                                           <div>                     

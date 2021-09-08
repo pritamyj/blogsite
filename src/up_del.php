@@ -1,5 +1,5 @@
 <?php
-include "db.php";
+include 'includes/db.inc.php';
 
 $id = $_GET['delid'];
 // $sql = "DELETE FROM `user` WHERE user_id= $id";

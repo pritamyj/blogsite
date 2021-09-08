@@ -1,8 +1,6 @@
 <?php
 session_start();
-// include "db.php";
-include "config.php"; 
-include "dbquery.php";
+include 'includes/db.inc.php';
 include "navbar.php";
 
 
