@@ -40,7 +40,6 @@
   border: 2px solid #fff;
   padding: 12px, 30px;
   border-radius: 5px;
-  /*display: block;*/
   color: #fff;
   margin-top: 40px;
   font-size: 22px; }
@@ -72,18 +71,18 @@
     .navbar .navbar-toggle .icon-bar {
       background-color: #fff; }
   .navbar .navbar-brand {
-    color: #fff; }
+    color: #fff;
+    margin-top: -21px; }
   .navbar .navbar-collapse {
     max-height: none !important; }
 
 .latest-news-area {
   margin: 40px;
-    width: 90%;                 /*     new     */
   flex-direction: column;
   grid-template-columns: repeat(auto-fit, 1fr); }
   .latest-news-area .latest-news-wrap {
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
-    height: 575px;
+    height: 530px;
     justify-content: space-between;
     flex-direction: column;
     display: flex; }
@@ -106,11 +105,15 @@
     margin-left: 3px;
     font-family: Arial, Helvetica, sans-serif; }
     .latest-news-area .news-content h3 {
-      margin-top: 0; }
+      margin-top: 0px;
+      margin-bottom: 5px; }
+    .latest-news-area .news-content h5 {
+      margin-top: 15px;
+      margin-bottom: 20px; }
     .latest-news-area .news-content p {
-      margin-bottom: 15px;
+      margin-bottom: 10px;
       text-align: justify;
-      margin-top: 20px; }
+      margin-top: 10px; }
     .latest-news-area .news-content a {
       font-size: 14px;
       color: #fff;

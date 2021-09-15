@@ -6,7 +6,7 @@
 		<div class="container">
 			<div class="sec aboutus">
 				<h2>About Us</h2>
-				<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+				<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum that it has a more-or-less normal distribution letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
 			<ul class="sci">
 				<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 				<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
@@ -29,8 +29,7 @@
 				<ul class="info">
 					<li>
 						<span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-						<span>987 Demo Street<br>
-							Democity, District 12345,<br>Country</span>
+						<span>987 Demo Street, Democity, District 12345, Country</span>
 					</li>
 					<li>
 						<span><i class="fa fa-phone" aria-hidden="true"></i></span>

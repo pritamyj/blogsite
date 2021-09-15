@@ -19,7 +19,7 @@ footer{
 	position: relative;
 	width: 100%;
 	height: auto;
-	padding: 50px 100px;
+	padding: 30px 30px;
 	background: #313131;
 	display: flex;
 	justify-content: space-between;
@@ -28,24 +28,25 @@ footer{
 
 footer .container{
 	display: flex;
-	justify-content: space-between;
+	/*justify-content: space-between;*/
 	flex-wrap: wrap;
 	flex-direction: row;
 }
 
 footer .container .sec{
-	margin-right: 30px;
+	/*margin-right: 70px;*/
 }
 
 footer .container .sec.aboutus{
-	width: 40%;
+	width: 33.66%;
+    margin-right: 9%;
 }
 
 footer .container h2{
 	position: relative;
 	color: #fff;
 	font-weight: 500;
-	margin-bottom: 15px;
+	margin-bottom: 25px;
 }
 
 footer .container h2:before{
@@ -94,12 +95,15 @@ footer p{
 }
 
 .quicklinks{
-	position: relative;
-	width: 25%;
+	    position: relative;
+    width: 25.66%;
+    margin-right: 30px;
 }
 
 .quicklinks ul li{ 
-	list-style: none;
+	text-align: center;
+    list-style: none;
+    margin-right: 150px;
 }
 
 .quicklinks ul li a{
@@ -114,7 +118,7 @@ footer p{
 }
 
 .contact{
-	width: calc(35% - 60px);
+	width: 28%;
 	margin-right: 0 !important;
 }
 
@@ -155,7 +159,7 @@ footer p{
 
 @media(max-width: 768px){
 	footer{
-		padding: 40px;
+		padding: 10px;
 	}
 
 footer .container h2{
@@ -178,7 +182,9 @@ footer p{
 	.contact{
 		width: 100%;
 	}
-
+.quicklinks ul li { 
+   text-align: left;
+}
  .quicklinks ul li a{
  	font-size: 16px;
  } 
@@ -192,6 +198,9 @@ footer p{
 	}
 }
 
- 
+ @media(max-width: 1024px){
+ 	.quicklinks ul li { 
+    margin-right: 80px;
+ }
 
 

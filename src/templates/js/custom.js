@@ -25,6 +25,7 @@ $(document).ready(function () {
 						<div class="ml-4 reply_section">\
 						</div>\
 						</div>\
+						<hr>\
 						'); 
 				});
 			}

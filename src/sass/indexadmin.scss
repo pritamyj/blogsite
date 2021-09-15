@@ -22,7 +22,7 @@
 } 
 
 .bg_admin {
-@include bgcode(url(../images/1.jpg),80vh); 
+@include bgcode(url(../images/greg-rakozy-oMpAz-DN-9I-unsplash.jpg),100vh); 
 }
  
 .btn {
@@ -31,8 +31,7 @@
     text-decoration: $nn;
     border: 2px solid $txtcolor;
     padding: 12px, 30px;
-    border-radius: 50px;
-    display: $bl;
+    border-radius: 5px; 
     color: $txtcolor;
     margin-top: 40px;
     font-size: 22px;
@@ -77,6 +76,7 @@
 
 .navbar-brand {
     color: $txtcolor;
+    margin-top: -21px;
 }
 
 .navbar-collapse {
@@ -88,9 +88,8 @@
 @include lna(40px,repeat(auto-fit, 1fr));
  
 .latest-news-wrap{
-@include lnw(575px);
+@include lnw(530px);
 }
-
 .date{ 
     background: $color1 none repeat scroll 0 0;
     height: 70px;
@@ -114,13 +113,18 @@
     font-family: Arial, Helvetica, sans-serif;
  
 & h3{
-    margin-top: 0;
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+& h5{
+    margin-top: 15px;
+    margin-bottom: 20px;
 }
  
 & p{
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     text-align: justify;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 & a{

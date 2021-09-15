@@ -11,8 +11,14 @@
                     </div>
                   </div> 
                   <div class="news-content">
-                    <h3><?php echo $q['title']; ?></h3>
-                    <p > <?php echo $q['short_desc']; ?>...</p>
+                    <h3><?php
+               echo substr($q['title'],0 ,20); 
+              if(strlen($q['title']) > 20){ 
+                echo "...";
+              }
+             ?></h3>
+              <p > <?php echo substr($q['content'], 0, 190); ?>...</p>
+
 
                     <?php 
                     $a2= new Index(); 

@@ -7,21 +7,21 @@ include '../autoload.php';
 $uid = $_SESSION['ui']; 
 if (isset($_REQUEST["new_post"])) {
   
+$uid = $_SESSION['ui']; 
      $file=$_FILES['imgg']; 
     $filename=$file['name'];
     $filepath=$file['tmp_name'];
     $fileerror=$file['error'];
     $filedest="images/".$filename;
     $title = $_REQUEST["title"];
-    $content = $_REQUEST["content"];
-    $desc = "desc";
+    $content = $_REQUEST["content"]; 
     
 
     if ($fileerror == 0) {
         
         if (move_uploaded_file($filepath, "../../$filedest")) {   
             $insert = new User();
-            $insert->insert($title, $content, $uid, $desc, $filedest);
+            $insert->insert($title, $content, $uid , $filedest);
         }
     }
      
@@ -67,8 +67,7 @@ if($_SESSION['ty'] == false){
         </div>
          <div class="child"> 
           <p><form method="POST" enctype="multipart/form-data" >
-            <input type="text" name="title" placeholder="Blog Title "style="margin-bottom: 15px;"> 
-            <!-- <textarea name="desc" placeholder="Short description" style=" height:80px;"></textarea> -->
+            <input type="text" name="title" placeholder="Blog Title "style="margin-bottom: 15px;">  
             <textarea name="content" placeholder="Blog content" style="height:185px;"></textarea> 
             <input type="hidden" name="size" value="1000000"> 
             <input type="file" name="imgg" onchange="preview()" style="margin-bottom: 15px;"> 

@@ -32,18 +32,18 @@ class User extends Db{
     return $data ; 
   }  
 
-public function insert($title, $content, $uid, $desc, $filedest){
+public function insert($title, $content, $uid , $filedest){
 
-    $sql = "INSERT INTO data(title, content, user_id, short_desc, images) VALUES(?, ?, ?, ?, ?)"; 
+    $sql = "INSERT INTO data(title, content, user_id , images) VALUES(?, ?, ?, ?, ?)"; 
     $stmt = $this->connect()->prepare($sql);
-    $stmt->execute([$title, $content, $uid, $desc, $filedest]); 
+    $stmt->execute([$title, $content, $uid , $filedest]); 
   } 
  
-public function update($title, $content, $desc, $filedest, $uid){
+public function update($title, $content , $filedest, $uid){
 
-    $sql = "UPDATE data SET title=?, content=?, short_desc=?, images=? WHERE id=?"; 
+    $sql = "UPDATE data SET title=?, content=? , images=? WHERE id=?"; 
     $stmt = $this->connect()->prepare($sql);
-    $stmt->execute([$title, $content, $desc, $filedest, $uid]); 
+    $stmt->execute([$title, $content, $filedest, $uid]); 
   } 
 
 public function delete($id){
