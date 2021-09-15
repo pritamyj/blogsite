@@ -43,7 +43,7 @@ object-fit: cover;
 @include sec;
 
 & .formBx{
-width: 50%;
+width: 330px;
 
 & h2{
 @include form(600,20px);
@@ -95,18 +95,26 @@ section .imgBx {
 
 	section .contentBx .formBx {
 		width: 50%;
-		padding: 40px;
+		padding: 30px;
 		background: rgba(255, 255, 255, 0.8);
-		margin: 50px;
+		margin: 100px 50px 50px 50px;
 	}
 
 	section .contentBx .formBx .inputBx input{ 
 	@include inp(10px);
 	@include input(transparent,1px solid $color3);
 		font-weight: 400; 
-		font-size: 8px;
+		font-size: 12px;
 		letter-spacing: 1px;
 		color: $color3; 
 	}
 }
 
+@media (max-width: 425px){
+section .contentBx .formBx {
+		width: 100%;
+		padding: 20px;
+		    margin: 100px 40px 40px 40px;
+	}
+
+}
