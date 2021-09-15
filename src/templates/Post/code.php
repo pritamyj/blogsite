@@ -1,6 +1,14 @@
 <?php
  
-include '../autoload.php';
+include '../classes/Db.php';
+
+include '../classes/Index.php';
+
+include '../classes/Login.php';
+
+include '../classes/Register.php';
+
+include '../classes/User.php';
 
 
 if(isset($_POST['add_subreplies'])){ 

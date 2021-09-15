@@ -167,7 +167,7 @@ $id = $_REQUEST['id'];
 
 							</section> 
 
-							<?php if ($_SESSION['ty'] == 'admin') { 
+							<?php if ($_SESSION['ty'] == 'admin' || $_SESSION['ty'] == 'user') { 
 								?>
 								<section class="container">
 									<div class="post-comment">
