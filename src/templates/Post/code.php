@@ -1,13 +1,7 @@
 <?php
  
-include '../classes/Db.php';
-
-include '../classes/Index.php';
-
-include '../classes/Login.php';
-
-include '../classes/Register.php';
-
+include '../classes/Db.php'; 
+include '../classes/Index.php'; 
 include '../classes/User.php';
 
 
@@ -34,7 +28,7 @@ if(isset($_POST['view_comment_data'])){
 		$user_id = $q['user_id']; 
 	    $dataa=$objj->dispcommentuser($user_id);
 
-	    array_push($result_array,['cmt'=> $q, 'userr'=>$dataa]);
+	    array_push($result_array,['cmt'=>$q, 'userr'=>$dataa]);
 	}
 	header('Content-type: application/json');
 	echo json_encode($result_array);
@@ -62,7 +56,7 @@ if(isset($_POST['comment_load_data'])){
 		$user_id = $q['user_id']; 
 	    $dataa=$obj->dispcommentuser($user_id);
 
-	    array_push($array_result,['cmt'=> $q, 'userr'=>$dataa]);
+	    array_push($array_result,['cmt'=>$q, 'userr'=>$dataa]);
 	}
 	header('Content-type: application/json');
 	echo json_encode($array_result);

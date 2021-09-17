@@ -115,7 +115,7 @@ src="https://code.jquery.com/jquery-3.6.0.js"></script>
                 echo "...";
               }
              ?></h3>
-              <p > <?php echo substr($q['content'], 0, 190); ?>...</p>
+              <p > <?php echo substr($q['content'], 0, 180); ?>...</p>
 
               <?php 
               

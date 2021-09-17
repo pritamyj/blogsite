@@ -1,0 +1,33 @@
+@import 'mixins';
+@import 'var';
+    .table{
+    @include tbl(0px);
+        text-align: center;
+      
+    & .btn{
+    @include tbl(4px); 
+    padding: 2px;
+    width: 100px;
+
+    &:hover{
+    color:#fff;
+    background:#color6;
+    text-decoration:none;
+    }
+    }
+    } 
+  
+a {
+    color: #bb5f5e;
+    text-decoration: none;
+}
+
+@media(max-width:425px){
+	 .table{
+     font-size:15px;
+      
+    & .btn{
+     font-size:15px;
+    }
+    } 
+}

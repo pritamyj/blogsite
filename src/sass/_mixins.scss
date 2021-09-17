@@ -51,7 +51,7 @@ padding: 7px 0;
 
 @mixin tbl($m){
         margin: $m;
-        font-size: 13px;
+        font-size: 18px;
     
 }
 
@@ -116,4 +116,17 @@ left: $le;
 text-align:center;
 width:$wi;
 border-radius: 3rem;
+}
+
+@mixin btn{
+width: 100%;
+    text-align: $c;
+    margin: 0 auto;
+    text-decoration: $nn;
+    border: 2px solid $txtcolor;
+    padding: 12px, 30px;
+    border-radius: 5px; 
+    color: $txtcolor;
+    margin-top: 40px;
+    font-size: 22px;
 }

@@ -3,7 +3,7 @@
 	<link rel="stylesheet" type="text/css" href="../../css/footer.css">
  
 	<footer>
-		<div class="container">
+		<div class="containerr">
 			<div class="sec aboutus">
 				<h2>About Us</h2>
 				<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum that it has a more-or-less normal distribution letters, as opposed to using 'Content here, content here', making it look like readable English.</p>

@@ -1,6 +1,5 @@
 $(document).ready(function () {
-
-	load_comment();
+ 	load_comment();
 	function load_comment() {
 		
 		$.ajax({

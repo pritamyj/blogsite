@@ -26,8 +26,7 @@ src="https://code.jquery.com/jquery-3.6.0.js"></script>
             <span class="icon-bar"></span>                      
           </button>
      <div class="navbar-brand"><a href="" class="logo-image">
-            <img src="../../images/DD.png" class="img-fluid">
-         DIGITAL DIARY </a> </div>
+            <img src="../../images/DD.png" class="img-fluid"></a> </div>
         </div>
 
         <div class="collapse navbar-collapse" id="menu" >

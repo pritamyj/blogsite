@@ -82,7 +82,7 @@
   grid-template-columns: repeat(auto-fit, 1fr); }
   .latest-news-area .latest-news-wrap {
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
-    height: 530px;
+    height: 540px;
     justify-content: space-between;
     flex-direction: column;
     display: flex; }
