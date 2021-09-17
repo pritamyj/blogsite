@@ -34,8 +34,8 @@ if($_SESSION['ty'] == 'admin'){
     ?> 
 
   <script src="../js/navbar.js"></script>
-      <link rel="stylesheet" type="text/css" href="../../css/user_details.css">
       <link rel="stylesheet" type="text/css" href="../../css/indexadmin.css">
+      <link rel="stylesheet" type="text/css" href="../../css/user_details.css">
         
     <div class="bg_admin">
         <div class="hero">
@@ -73,7 +73,7 @@ if($_SESSION['ty'] == 'admin'){
           <td  style="text-align:center;">' . $full_name . '</td>
           <td  style="text-align:center;">' . $uname . '</td>
           <td>
-          <button class="btn" ><a href="update.php?upid=' . $id . '" >Update</a></button>
+          <button class="btn" ><a class=" orng" href="update.php?upid=' . $id . '" >Update</a></button>
           <button class="btn" ><a href="up_del.php?delid=' . $id . '" >Delete</a></button>
           </td>
           </tr>';

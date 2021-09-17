@@ -1,6 +1,8 @@
 @import 'mixins';
 @import 'var';
-   
+  h2 {
+    margin-top: 0px;
+}  
 .bg { 
 @include bgcode(url(../images/2.jpg),100vh); }
     .hero {

@@ -79,8 +79,7 @@ src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <section class="latest-news-area" id="latest"> 
   <div class="row">
     <div class="col-sm-12">
-      <div class="section_title">
-        <!-- <div class="section_substitle">Blog</div> -->
+      <div class="section_title"> 
         <br>
         <h2>Recent <strong>Blogs</strong></h2>
       </div>
@@ -109,13 +108,13 @@ src="https://code.jquery.com/jquery-3.6.0.js"></script>
               </div>
             </div> 
             <div class="news-content">
-              <h3><?php
+               <h3><?php
                echo substr($q['title'],0 ,20); 
               if(strlen($q['title']) > 20){ 
                 echo "...";
               }
              ?></h3>
-              <p > <?php echo substr($q['content'], 0, 180); ?>...</p>
+              <p> <?php echo substr($q['content'], 0, 180); ?>...</p>
 
               <?php 
               

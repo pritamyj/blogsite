@@ -1,3 +1,7 @@
+h2 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}  
 .bg {
   background-image: url(../images/2.jpg);
   height: 100vh;
@@ -34,6 +38,7 @@
   background-attachment: fixed; }
 
 .btn {
+  width: 100%;
   text-align: center;
   margin: 0 auto;
   text-decoration: none;
@@ -44,7 +49,7 @@
   margin-top: 40px;
   font-size: 22px; }
   .btn:hover {
-    background-color: #c24234;
+    background-color: rgba(0, 0, 0, 0.5); ;
     color: #fff; }
 
 .navbar {
@@ -105,12 +110,15 @@
     margin-left: 3px;
     font-family: Arial, Helvetica, sans-serif; }
     .latest-news-area .news-content h3 {
+        /*white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;*/
       margin-top: 0px;
       margin-bottom: 5px; }
     .latest-news-area .news-content h5 {
       margin-top: 15px;
       margin-bottom: 20px; }
-    .latest-news-area .news-content p {
+    .latest-news-area .news-content p { 
       margin-bottom: 10px;
       text-align: justify;
       margin-top: 10px; }

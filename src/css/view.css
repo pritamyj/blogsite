@@ -21,19 +21,20 @@
   .btnn:hover {
     background: #bd4f6c;
     text-decoration: none; }
-
+h2{ 
+      margin: 10px 0 10px 0; 
+}
 body {
-  font-family: Arial, Helvetica, sans-serif; }
-
+  font-family: Arial, Helvetica, sans-serif; } 
 .site-content {
-  margin-top : 100px;
+  margin-top : 110px ;
   display: grid;
   grid-template-columns: 70% 30%; }
   .site-content .post_content {
     /*margin-bottom: 1.5rem;      new*/
      }
     .site-content .post_content > .post-image .post-title {
-      position: absolute; }
+      position: absolute;} 
     .site-content .post_content > .post-image .post-info {
       background-color: #bf5347;
       color: #fff;
@@ -102,23 +103,31 @@ body {
   margin-top: 50px;
 }
 .reply_box{
+    padding: 10px;
       border: 0.1px solid #999;
   margin-top: 20px;
 }
+.sub_reply_msg, .reply_msg{
+  margin-top: 10px;
+}
 .btn {
-    
+    margin-top: 10px;
         background-color: #d2d2d2;
     color: #b74d65;
     padding: 5px 10px 5px 10px;
     border-radius: 5px;
     width: 150px;
-    margin-top: 15px;
-    margin-right: 15px;
+    margin-right: 15px ; 
     outline: none;
     border: none;
     font-size: 2rem;
     font-weight: 500;
     cursor: pointer;
+}
+.sub_reply_box{
+    margin: 10px 0px 0px 50px;
+    border: .5px solid #b3b3b3;
+    padding: 10px;
 }
 /*
 .p-2 {
@@ -207,7 +216,7 @@ primary:active, .show>.btn-primary.dropdown-toggle {
 
 @media (max-width: 1440px) {
   .container { 
-    margin-left: 30px;
+    margin-left: 30px; 
 }
 }
 @media (max-width: 1024px) {
@@ -215,7 +224,7 @@ primary:active, .show>.btn-primary.dropdown-toggle {
     margin-left: auto;
 }
   .site-content {
-    margin : 100px 0px; } 
+    margin : 110px  0px; } 
   .site-content .post_content {
     font-size: 16px; }
     .site-content .post_content > .post-image .post-info {
@@ -248,8 +257,9 @@ primary:active, .show>.btn-primary.dropdown-toggle {
       color: white; } }
 
 
-@media (max-width: 768px) {
+@media (max-width: 768px) { 
   .site-content { 
+    margin: 90px 0px ;
     display: grid;
     grid-template-columns: 100% 0%; } 
       .site-content .post_content > .post-image .post-info { 
@@ -266,7 +276,7 @@ primary:active, .show>.btn-primary.dropdown-toggle {
 
 @media (max-width: 425px) {
   .site-content{
-    margin: 100px 10px ;
+    margin: 90px 10px ;
   }
   .site-content .post_content > .post-image .post-info {  
     bottom: 47vw;
@@ -292,7 +302,7 @@ primary:active, .show>.btn-primary.dropdown-toggle {
     margin: 5px;
 }
   .site-content {
-    margin: 100px 3px; }
+    margin: 90px 0px; }
     .site-content .post_content > .post-image .post-info { 
       font-size: 12px; 
       bottom: 82vw; 

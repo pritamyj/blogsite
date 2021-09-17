@@ -78,7 +78,7 @@ $id = $_REQUEST['id'];
 									?>
  
 									<div class="post_title"> 
-										<h2><strong><?php echo $q['title'] ?></strong></h2> 
+										 <h2><strong><?php echo $q['title'] ?></strong></h2>  
 									</div>
 									<div class="post_content">
 										<p><?php echo $q['content'] ?></p>

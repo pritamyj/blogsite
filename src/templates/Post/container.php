@@ -17,7 +17,7 @@
                 echo "...";
               }
              ?></h3>
-              <p > <?php echo substr($q['content'], 0, 190); ?>...</p>
+              <p> <?php echo substr($q['content'], 0, 180); ?>...</p>
 
 
                     <?php 

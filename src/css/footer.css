@@ -102,9 +102,7 @@ footer p{
 }
 
 .quicklinks ul li{ 
-	text-align: center;
-    list-style: none;
-    margin-right: 150px;
+    list-style: none; 
 }
 
 .quicklinks ul li a{
@@ -188,10 +186,7 @@ footer p{
 	.quicklinks,
 	.contact{
 		width: 100%;
-	}
-.quicklinks ul li { 
-   text-align: left;
-}
+	} 
  .quicklinks ul li a{
  	font-size: 16px;
  } 
