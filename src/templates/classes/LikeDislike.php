@@ -13,30 +13,30 @@ class LikeDislike extends Db{
 
   public function dislike(){
 
-    $sql="INSERT INTO dislikes (user_id, post_id, rating_action) 
+    $sql="INSERT INTO likes (user_id, post_id, rating_action) 
     VALUES ($user_id, $post_id, 'dislike') 
     ON DUPLICATE KEY UPDATE rating_action='dislike'";
     $stmt = $this->connect()->query($sql); 
   }
 
-  public function unlike(){
+  public function unlike($user_id,$post_id){
 
-    $sql="DELETE FROM unlikes WHERE user_id=$user_id AND post_id=$post_id";
+    $sql="DELETE FROM likes WHERE user_id=$user_id AND post_id=$post_id";
     $stmt = $this->connect()->query($sql); 
   }
 
-  public function undislike(){
+  public function undislike($user_id,$post_id){
 
-    $sql="DELETE FROM undislikes WHERE user_id=$user_id AND post_id=$post_id";
+    $sql="DELETE FROM likes WHERE user_id=$user_id AND post_id=$post_id";
     $stmt = $this->connect()->query($sql); 
   }
 
-public function getRating($id){
+public function getRating($post_id){
 
-  $rating = array();
+  $rating =[];
 
-  $likes_query = "SELECT COUNT(*) FROM likes WHERE post_id = $id AND rating_action='like'";
-  $dislikes_query = "SELECT COUNT(*) FROM likes WHERE post_id = $id AND rating_action='dislike'";
+  $likes_query = "SELECT COUNT(*) FROM likes WHERE post_id = $post_id AND rating_action='like'";
+  $dislikes_query = "SELECT COUNT(*) FROM likes WHERE post_id = $post_id AND rating_action='dislike'";
 
   $likes_rs = $this->connect()->query($likes_query);
   $dislikes_rs = $this->connect()->query($dislikes_query);
@@ -48,7 +48,7 @@ public function getRating($id){
     'likes' => $likes,
     'dislikes' => $dislikes
   ];
-  return json_encode($rating);
+  return $likes ;
 }
  
 public function getLikes($id){

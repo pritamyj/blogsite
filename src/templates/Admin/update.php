@@ -62,7 +62,7 @@ if($_SESSION['ty'] == 'admin'){
    <section> 
       <div class="contentBx" style="width:100%">
             <div class="formBx">
-                <h2>UPDATE USER</h2>
+                <h1>UPDATE USER</h1>
   <form method="GET">
       <?php 
       $uid= $_REQUEST['upid'];

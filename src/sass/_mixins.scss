@@ -1,5 +1,5 @@
 @mixin bgcode($imge,$hgt) {
-
+ 
     background-image:$imge;  
     height:$hgt;
     width: 100%;
@@ -51,8 +51,7 @@ padding: 7px 0;
 
 @mixin tbl($m){
         margin: $m;
-        font-size: 18px;
-    
+        font-size: 20px; 
 }
 
 @mixin img{ 
@@ -68,9 +67,9 @@ padding: 7px 0;
     height: 100%;
 }
 
-@mixin sec{ 
+@mixin sec($jc){ 
         display: flex;
-        justify-content: center;
+        justify-content: $jc;
         align-items: center;
 }
 
@@ -130,3 +129,9 @@ width: 100%;
     margin-top: 40px;
     font-size: 22px;
 }
+
+
+@mixin ctd($cl){
+    color: $cl;
+    text-decoration: none;
+ }

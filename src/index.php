@@ -118,6 +118,7 @@ src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
               <?php 
               
+              $ob= new LikeDislike(); 
               $a2= new Index(); 
               $a1 = $a2->usern($q['user_id']); 
               foreach($a1 as $u){
@@ -127,11 +128,21 @@ src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
               <h4><small class="text-muted">Author: <?php echo $uname; ?></small></h4>
 
-              <h5><strong style=" color: darkslategrey;"><small"> <?php echo getLikes($q['id']); ?> Likes </small></strong> 
+              <h5><strong style=" color: darkslategrey;"><small">
+               <?php 
+              $likes=$ob->getLikes($q['id']);
+              foreach($likes as $Q){
+                echo $Q;
+              } ?> Likes </small></strong> 
 
                 &nbsp;&nbsp;&nbsp;&nbsp;
 
-                <strong style=" color: darkslategrey;"> <span class="dislikes"><?php echo getDislikes($q['id']); ?> Dislikes</span></strong> </h5>
+                <strong style=" color: darkslategrey;"> <span class="dislikes">
+               <?php 
+              $dislikes=$ob->getDislikes($q['id']);
+              foreach($dislikes as $Q){
+                echo $Q;
+              } ?> Dislikes</span></strong> </h5>
 
                 <p></p>
                 <div>                     

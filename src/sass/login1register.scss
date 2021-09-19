@@ -14,7 +14,7 @@ font-family: 'Poppins', sans-serif;
 @include navbar; 
 @include navbar2;
 }
-
+ 
 section{
 position: relative;
 @include htwd(100%);
@@ -40,7 +40,7 @@ object-fit: cover;
 
 & .contentBx{
 @include htwd(50%);
-@include sec;
+@include sec(center);
 
 & .formBx{
 width: 330px;
@@ -88,7 +88,7 @@ section .imgBx {
 	}
 
 	section .contentBx {
-@include sec;
+@include sec(center);
 @include htwd(100%); 
 		z-index: 1;
 	}

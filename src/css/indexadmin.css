@@ -1,7 +1,14 @@
 h2 {
-    margin-top: 0px;
-    margin-bottom: 0px;
-}  
+  margin-top: 0px; }
+
+/*added after*/
+.navbar .logo-image { 
+  width: 80px;
+  height:80px; 
+  overflow: hidden;
+  margin-top: -30px;
+}
+
 .bg {
   background-image: url(../images/2.jpg);
   height: 100vh;
@@ -49,7 +56,7 @@ h2 {
   margin-top: 40px;
   font-size: 22px; }
   .btn:hover {
-    background-color: rgba(0, 0, 0, 0.5); ;
+ background-color:rgba(0, 0, 0, 0.5);  
     color: #fff; }
 
 .navbar {
@@ -110,15 +117,12 @@ h2 {
     margin-left: 3px;
     font-family: Arial, Helvetica, sans-serif; }
     .latest-news-area .news-content h3 {
-        /*white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;*/
       margin-top: 0px;
       margin-bottom: 5px; }
     .latest-news-area .news-content h5 {
       margin-top: 15px;
       margin-bottom: 20px; }
-    .latest-news-area .news-content p { 
+    .latest-news-area .news-content p {
       margin-bottom: 10px;
       text-align: justify;
       margin-top: 10px; }
@@ -180,13 +184,4 @@ h2 {
     font-size: 30px;
     display: block;
     color: #fff;
-    letter-spacing: 5pxs; }
-  .table {
-    margin: 0px;
-    font-size: 13px;
-    text-align: center; }
-    .table .btn {
-      margin: 4px;
-      font-size: 13px;
-      padding: 2px;
-      width: 60px; } }
+    letter-spacing: 5pxs; } }

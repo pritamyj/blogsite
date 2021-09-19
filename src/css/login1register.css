@@ -48,7 +48,7 @@ section {
     align-items: center; }
     section .contentBx .formBx {
       width: 330px; }
-      section .contentBx .formBx h2 {
+      section .contentBx .formBx h2 { 
         color: #607d8b;
         font-weight: 600;
         margin-bottom: 20px;

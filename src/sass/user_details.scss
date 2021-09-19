@@ -1,33 +1,43 @@
 @import 'mixins';
 @import 'var';
-    .table{
+
+.table{
     @include tbl(0px);
-        text-align: center;
-      
-    & .btn{
+    text-align: center; 
+
+& .btn{ 
     @include tbl(4px); 
     padding: 2px;
-    width: 100px;
+    width: 100px; 
 
-    &:hover{
-    color:#fff;
-    background:#color6;
-    text-decoration:none;
-    }
-    }
-    } 
-  
-a {
-    color: #bb5f5e;
+&:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+} 
+
+}
+
+}
+  a {
+    color: $color9;
     text-decoration: none;
+
+&:hover {
+    color:$txtcolor;
+    text-decoration: none; 
+}
+} 
+
+btn{
+width: 100%;
 }
 
-@media(max-width:425px){
-	 .table{
-     font-size:15px;
-      
-    & .btn{
-     font-size:15px;
-    }
-    } 
+@media(max-width:375px){
+   body{
+   width:20px;
+   } 
 }
+
+ 
+
+
+

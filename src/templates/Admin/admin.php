@@ -67,6 +67,7 @@ if($_SESSION['ty'] == false){
 			<div class="news-active">
 
 				<?php
+				
 				$datas= new Index(); 
 				$dataa = $datas->allposts(); 
 				foreach ($dataa as $q) {

@@ -34,8 +34,6 @@ if($_SESSION['ty'] == 'admin'){
     ?> 
 
   <script src="../js/navbar.js"></script>
-      <link rel="stylesheet" type="text/css" href="../../css/indexadmin.css">
-      <link rel="stylesheet" type="text/css" href="../../css/user_details.css">
         
     <div class="bg_admin">
         <div class="hero">
@@ -83,9 +81,11 @@ if($_SESSION['ty'] == 'admin'){
 </table>
 </div>
 </section>
-
                 <?php
                 include "../Header/footer.php"; ?>
+
+      <link rel="stylesheet" type="text/css" href="../../css/user_details.css">
+      <link rel="stylesheet" type="text/css" href="../../css/indexadmin.css">
 </body>
 
 </html>

@@ -71,7 +71,7 @@ if($_SESSION['ty'] == false){
    <section> 
       <div class="contentBx" style="width:100%">
             <div class="formBx">
-                <h2>MY DETAILS</h2>
+                <h1>MY DETAILS</h1>
  <form method="GET">
       <?php foreach ($que as $q) { 
  

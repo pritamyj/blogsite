@@ -1,5 +1,5 @@
 <?php 
-
+  
 $conn = mysqli_connect('localhost', 'root', '', 'blog');
    
 $user_id= $_SESSION['ui'];

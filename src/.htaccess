@@ -1,6 +1,9 @@
  RewriteEngine on
  
- RewriteCond %{REQUEST_FILENAME} !-f
+ErrorDocument 404 /404.php
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
 
 RewriteRule ^([^\.]+)$ $1.php [NC,L]
 
@@ -10,3 +13,4 @@ RewriteRule ^([^\.]+)$ $1.php [NC,L]
  #RewriteCond %{REQUEST_FILENAME}\.php -f
 
  #RewriteRule ^templates/Post/view/([0-9]+)$ templates/Post/view.php?id=$1 [L]
+

@@ -5,15 +5,7 @@ src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="../../css/indexadmin.css">
-<style type="text/css">
-/*added after*/
-.navbar .logo-image { 
-  width: 80px;
-  height:80px;
-  /*border-radius: 50%;*/
-  overflow: hidden;
-  margin-top: -30px;
-}</style>
+ 
 <header>
   <div class="navbar navbar-fixed-top">
     <div class="container">
@@ -25,6 +17,7 @@ src="https://code.jquery.com/jquery-3.6.0.js"></script>
             <span class="icon-bar"></span> 
             <span class="icon-bar"></span>                      
           </button>
+          
      <div class="navbar-brand"><a href="" class="logo-image">
             <img src="../../images/DD.png" class="img-fluid"></a> </div>
         </div>

@@ -16,11 +16,11 @@ src="https://code.jquery.com/jquery-3.6.0.js"></script>
             <span class="icon-bar"></span> 
             <span class="icon-bar"></span>                        
           </button>
-
-          <a href="" class="navbar-brand">LOGO</a>
-
+ 
+     <div class="navbar-brand"><a href="" class="logo-image">
+            <img src="../../images/DD.png" class="img-fluid"></a> </div>
         </div>
-
+  
         <div class="collapse navbar-collapse" id="menu">
           <ul class="nav navbar-nav">
             <li><a href="../Admin/admin.php" >HOME</a></li>

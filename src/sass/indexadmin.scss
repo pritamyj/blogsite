@@ -30,7 +30,7 @@
 .btn {
    @include btn; 
 &:hover{
- background-color: $color5;
+ background-color:rgba(0, 0, 0, 0.5); };
  color: $txtcolor;
 }}
 .navbar {

@@ -1,11 +1,14 @@
 $(document).ready(function () {
- 	load_comment();
+
+	load_comment();
 	function load_comment() {
-		
+
+		var post_id = $( "#post_id" ).val();
 		$.ajax({
 			url: 'code.php',
 			type: 'POST',
 			data: {
+				'post_id': post_id,
 				'comment_load_data':true
 			},
 			success: function (response) {
@@ -17,7 +20,7 @@ $(document).ready(function () {
 
 					$('.comment-container').
 					append('<div class="reply_box">\
-						<h6 class="border-bottom d-inline">'+value.userr['username']+':'+value.cmt['commented_on']+'</h6>\
+						<h4 class="border-bottom d-inline">'+value.userr['username']+':'+value.cmt['commented_on']+'</h4>\
 						<p class="para">'+value.cmt['msg']+'</p>\
 						<button value="'+value.cmt['id']+'" class="btn reply_btn">reply</button>\
 						<button value="'+value.cmt['id']+'" class="btn view_reply_btn">view replies</button>\
@@ -69,8 +72,8 @@ $(document).ready(function () {
 			url:"code.php",
 			data: data,
 			success: function (response){
-console.log(response);
-$('.reply_section').html("");
+				console.log(response);
+				$('.reply_section').html("");
 			}
 		});
 
@@ -97,16 +100,16 @@ $('.reply_section').html("");
 
 				$.each(response, function(key, value){
 
-				thisClicked.closest('.reply_box').find('.reply_section').
-				append('<div class="sub_reply_box border-bottom p-2 mb-2">\
-					<input type="hidden" class="get_username" value="'+value.userr['username']+'"/>\
-					<h6 class="border-bottom d-inline">'+value.userr['username']+':'+value.cmt['commented_on']+'</h6>\
-					<p class="para">'+value.cmt['reply_msg']+'</p>\
-					<button value="'+value.cmt['comment_id']+'" class="btn sub_reply_btn">reply</button>\
-					<div class="ml-4 sub_reply_section">\
-					</div>\
-					</div>\
-					');	
+					thisClicked.closest('.reply_box').find('.reply_section').
+					append('<div class="sub_reply_box border-bottom p-2 mb-2">\
+						<input type="hidden" class="get_username" value="'+value.userr['username']+'"/>\
+						<h6 class="border-bottom d-inline">'+value.userr['username']+':'+value.cmt['commented_on']+'</h6>\
+						<p class="para">'+value.cmt['reply_msg']+'</p>\
+						<button value="'+value.cmt['comment_id']+'" class="btn sub_reply_btn">reply</button>\
+						<div class="ml-4 sub_reply_section">\
+						</div>\
+						</div>\
+						');	
 				});
 
 			}
@@ -115,32 +118,32 @@ $('.reply_section').html("");
 	});
 
 
-$(document).on('click', '.sub_reply_btn', function(e){
+	$(document).on('click', '.sub_reply_btn', function(e){
 		e.preventDefault();
 
 		var thisClicked = $(this);
 		var cmt_id =thisClicked.val();
 		var username=thisClicked.closest('.sub_reply_box').find('.get_username').val();
 
-				$('.sub_reply_section').html("");
+		$('.sub_reply_section').html("");
 		thisClicked.closest('.sub_reply_box').find('.sub_reply_section').
 		append('<div>\
 			<input type="text" value="@'+username+' " class="sub_reply_msg form-control my-2" placeholder="Your Reply"/>\
 			</div>\
 			<div class="text-end">\
-					<button class="btn sub_reply_add_btn">reply</button>\
-					<button class="btn sub_reply_cancel_btn">Cancel</button>\
+			<button class="btn sub_reply_add_btn">reply</button>\
+			<button class="btn sub_reply_cancel_btn">Cancel</button>\
 			</div>')
 
-});
+	});
 
 
-$(document).on('click', '.sub_reply_cancel_btn', function(e){
+	$(document).on('click', '.sub_reply_cancel_btn', function(e){
 		e.preventDefault();
 
-				$('.sub_reply_section').html("");
+		$('.sub_reply_section').html("");
 
-});
+	});
 
 
 	$(document).on('click', '.sub_reply_add_btn', function(e){
@@ -161,8 +164,8 @@ $(document).on('click', '.sub_reply_cancel_btn', function(e){
 			url:"code.php",
 			data: data,
 			success: function (response){
-console.log(response);
-$('.reply_section').html("");
+				console.log(response);
+				$('.reply_section').html("");
 			}
 		});
 
@@ -173,6 +176,7 @@ $('.reply_section').html("");
 	$('.add_comment_btn').click(function (e){
 		e.preventDefault();
 
+		var post_id = $( "#post_id" ).val();
 		var msg = $('.comment_textbox').val();
 		if($.trim(msg).length == 0) {
 			error_msg = "Please type comment";
@@ -185,7 +189,8 @@ $('.reply_section').html("");
 		if(error_msg != ''){
 			return false;
 		}else{ 
-			var data = {
+			var data = { 
+				'post_id':post_id,
 				'msg':msg,
 				'add_comment':true,
 			};
@@ -195,11 +200,13 @@ $('.reply_section').html("");
 				data: data,
 				dataType:"dataType",
 				success: function(response) {
-					alert(response);
+					console.log(response);
 					$('.comment_textbox').val("");
+
 				}
 			});
-		}
+		} 
+		load_comment();
 	});
 
 });

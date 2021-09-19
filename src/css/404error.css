@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+*{
+	margin: 0;
+	padding: 0;
+	outline: none;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+body{
+	height: 100vh;
+	background-size: 400%;
+}
+
+.error-page{
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	right: 10%;
+	bottom: 10%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #fff; 
+}
+
+.error-page .content{
+	 width: 100%;
+	text-align: center;
+}
+
+.content h1{
+	font-size: 18vw;
+	line-height: 1em;
+	position: relative; 
+	 background-color: #f3ec78;
+    background-image: linear-gradient(45deg, #db6c4f, #bd4f6c);
+    background-size: 100%;
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;  
+}
+
+.content h4{
+	margin-bottom: 0px;
+	text-transform: uppercase;
+	color: #000; 
+	font-size: 3.5em;
+}
+
+.content p{
+	font-size: 1.2em;
+	color: #0d0d0d;
+}
+
+.content .btns{
+	margin: 25px, 0;
+	display: inline-flex; 
+}
+
+.content .btns a{
+	display: inline-block;
+	margin: 40px 10px;
+	text-decoration: none;
+	border: 2px solid #c65864;
+	color: #c65864;
+	font-weight: 500;
+	padding: 10px 25px;
+	border-radius: 5px;
+	text-transform: uppercase;
+	transition: all 0.3s ease;
+}
+
+.content .btns a:hover{
+	background:  #c65864 ;
+	color: #fff;
+}
+
+@media (max-width: 768px) { 
+.content h4{
+	font-size: 2.5em;
+}
+}
+
+@media (max-width: 425px) {
+.content h1{
+	font-size: 30vw;
+}
+.content h4{
+	font-size: 2em;
+}
+
+.content .btns a{ 
+	margin: 20px 10px;
+}
+}
