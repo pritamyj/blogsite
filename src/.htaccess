@@ -1,6 +1,6 @@
  RewriteEngine on
  
-ErrorDocument 404 /404.php
+ErrorDocument 404 http://internship.local/404.php
 
 
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -12,5 +12,5 @@ RewriteRule ^([^\.]+)$ $1.php [NC,L]
 
  #RewriteCond %{REQUEST_FILENAME}\.php -f
 
- #RewriteRule ^templates/Post/view/([0-9]+)$ templates/Post/view.php?id=$1 [L]
+ #RewriteRule ^templates/Post/view/([0-9]+)$ templates/Post/view.php?id=$1 [NC,L]
 

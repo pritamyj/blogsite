@@ -34,13 +34,14 @@ body{
 	line-height: 1em;
 	position: relative; 
 	 background-color: #f3ec78;
-    background-image: linear-gradient(45deg, #db6c4f, #bd4f6c);
+    background-image: linear-gradient(45deg,#ff8869, #bd4f6c);
     background-size: 100%;
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent;  
 }
 
 .content h4{
+	word-spacing: 5px;
 	margin-bottom: 0px;
 	text-transform: uppercase;
 	color: #000; 
