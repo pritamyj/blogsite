@@ -1,6 +1,6 @@
  RewriteEngine on
  
-ErrorDocument 404 http://internship.local/404.php
+ErrorDocument 404 /404.php
 
 
 RewriteCond %{REQUEST_FILENAME} !-f

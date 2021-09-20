@@ -110,6 +110,62 @@
  								</div> 
  							</div>
 
+ 							<div class="trending-post mt-3">
+
+                <div class="contentt" style="background:#e8e4e494; border: none;margin-left: 30px; height: 100%; margin-top: -10px;">
+
+ 								<h4 class="text-center text-dark py-2" style="font-size:30px;padding-top:30px ;"><strong>Trending Post</strong></h4> 
+ 								<div class="post-item py-1">
+
+                  <?php 
+                  $object=new LikeDislike();
+                  $arrays=$object->trending_posts();
+                  foreach($arrays as $q){
+                    $a[]=$q['post_id'];
+                  } 
+                  $count=array_count_values($a);
+                  asort(array_reverse($count,true));  
+
+$i=0;
+                  foreach($count as $x => $val){
+
+                      $dats= new LikeDislike(); 
+                      $rs=$dats->trending_posts_keys($x);
+                      foreach($rs as $w){
+                       $a=$w['title'];
+                       $s= $w['content'];
+                       $d= $w['images'];
+                       $f= $w['id']; 
+  }
+                  ?>
+
+ 									<div class="article" style="margin:20px 0"> 
+ 											<a href="#"> 
+ 												<img src="../../<?php echo $d;?>" style="width: 100px;
+ 												height: 100px;border-radius: 100px; margin-left: 20px;">
+ 											</a>
+ 											<div class="card-body">
+ 												<div class="trending-category" style="text-decoration:none;color: #000;">
+ 													<a href="view.php?id=<?php echo $f; ?>" class="link text-primary">
+ 														<?php
+               echo substr($a,0 ,33); 
+              if(strlen($a) > 33){ 
+                echo "...";
+              }
+             ?>
+ 													</a>
+ 												</div>
+ 												<p class="text-title display-2 text-dark"> 
+                            <?php echo substr($s, 0, 90); ?>...
+ 												</p> 
+ 										</div> 
+ 								</div><?php
+                if ($i == 4) { break; }
+                     $i++;
+                     }
+                  ?>
+                </div> 
+ 							</div> 
  						</div>
  					<?php }  
  				}else{ 
@@ -137,70 +193,70 @@
  													$uname= $u['username'] ;
  												} 
  												?>
- 
-												</div>
-												<div class="post_title "> 
-													<h2><strong><?php echo $q['title'] ?></strong></h2> 
-												</div>
-												<div class="post_content"><p><?php echo $q['content'] ?></p>
-													<h4><span>Author: <?php echo $uname; ?></span>
-														<span style="float: right;"> Posted on: <?php echo $q['date'] ?></span></div>
-													</h4>
-													<?php
-													include "view_likes.php"; 
 
-												} 
-											}else{
-												header("Location: ../User/user.php");
-												exit();
-											} 
+ 											</div>
+ 											<div class="post_title "> 
+ 												<h2><strong><?php echo $q['title'] ?></strong></h2> 
+ 											</div>
+ 											<div class="post_content"><p><?php echo $q['content'] ?></p>
+ 												<h4><span>Author: <?php echo $uname; ?></span>
+ 													<span style="float: right;"> Posted on: <?php echo $q['date'] ?></span></div>
+ 												</h4>
+ 												<?php
+ 												include "view_likes.php"; 
 
-										} 
-										if ($_SESSION['ty'] == true) { ?>
-											<form method="POST ">
-												<input type="text" hidden name="id" id="post_id" value="<?php echo $q['id']; ?>" >
-												<button name="delete" class="btnn" >DELETE</button>
-												<button class="btnn"> <a href="edit.php?id=<?php echo $q['id']; ?> " style="text-decoration: none;color: white;">EDIT</a></button> <br><br> 
-											</form>
-										<?php } ?> 
-									</div>
-								</div>
-							</div>
+ 											} 
+ 										}else{
+ 											header("Location: ../User/user.php");
+ 											exit();
+ 										} 
 
-						</section> 
+ 									} 
+ 									if ($_SESSION['ty'] == true) { ?>
+ 										<form method="POST ">
+ 											<input type="text" hidden name="id" id="post_id" value="<?php echo $q['id']; ?>" >
+ 											<button name="delete" class="btnn" >DELETE</button>
+ 											<button class="btnn"> <a href="edit.php?id=<?php echo $q['id']; ?> " style="text-decoration: none;color: white;">EDIT</a></button> <br><br> 
+ 										</form>
+ 									<?php } ?> 
+ 								</div>
+ 							</div>
 
-						<?php if ($_SESSION['ty'] == 'admin' || $_SESSION['ty'] == 'user') { 
-							?>
-							<section class="container">
-								<div class="post-comment">
-									<!-- <div class="posts"> -->
-										<div class="card-header">
-											<h3>Comments</h3>
-										</div>
-										<div class="card-body">
+ 						</div>
 
-											<div class="main-comment"> 
-												<h4 id="error_status"></h4>
-												<textarea class="comment_textbox" rows="3"></textarea>
-												<button type="button" class="btn add_comment_btn">Comments</button>
-											</div>
-											<hr>
-											<div class="comment-container"> 
-											</div>
+ 					</section> 
 
-										</div>
-										<!-- </div>	 -->
-									</div>
-								</section>
-							<?php } ?>
-							
-							<script src="../js/scripts.js"></script>
-							<script src="../js/custom.js"></script>
-							<link rel="stylesheet" type="text/css" href="../../css/view.css">
-<?php
-							include "../Header/footer.php";
-							
-							error_reporting($errorlevel); ?>
+ 					<?php if ($_SESSION['ty'] == 'admin' || $_SESSION['ty'] == 'user') { 
+ 						?>
+ 						<section class="container">
+ 							<div class="post-comment">
+ 								<!-- <div class="posts"> -->
+ 									<div class="card-header">
+ 										<h3>Comments</h3>
+ 									</div>
+ 									<div class="card-body">
 
-						</body>
-						</html>
+ 										<div class="main-comment"> 
+ 											<h4 id="error_status"></h4>
+ 											<textarea class="comment_textbox" rows="3"></textarea>
+ 											<button type="button" class="btn add_comment_btn">Comments</button>
+ 										</div>
+ 										<hr>
+ 										<div class="comment-container"> 
+ 										</div>
+
+ 									</div> 
+ 								</div>
+ 							</section>
+ 						<?php } ?>
+
+ 						<script src="../js/scripts.js"></script>
+ 						<script src="../js/custom.js"></script>
+ 						<link rel="stylesheet" type="text/css" href="../../css/view.css">
+ 						<?php
+ 						include "../Header/footer.php";
+
+ 						error_reporting($errorlevel); ?>
+
+ 					</body>
+ 					</html>

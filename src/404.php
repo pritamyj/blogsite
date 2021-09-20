@@ -3,10 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="css/404error.css">
 	<title>404 error page</title>
 </head>
-<body>
+<body> 
+	<link rel="stylesheet" type="text/css" href="../../css/404error.css"> 
+	<link rel="stylesheet" type="text/css" href="css/404error.css"> 
 	<div class="error-page">
 		<div class="content"> 
 			<h1>404</h1>

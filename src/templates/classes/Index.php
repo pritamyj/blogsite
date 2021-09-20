@@ -22,7 +22,8 @@ class Index extends Db{
       $data[] = $row; 
     }
     return $data ; 
-  }   
+  }  
+
 }
 
 
