@@ -37,38 +37,7 @@ if (isset($_REQUEST['delete'])) {
   <link rel="stylesheet" type="text/css" href="../../css/indexadmin.css"> 
   <title></title>
   <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200&display=swap" rel="stylesheet">
-  <style type="text/css">
-
-  .grand_parent{ 
-   width: 100%;
-   height:100vh;
- }
- .site-content{  
-   height: auto;
-   display: flex;
-   flex-wrap: wrap; 
-   transition: all 0.2 linear;
-   margin: 200px 20px 20px 20px ;
- } 
- .childa{
-   height: auto;
-   width: 63%; 
-   margin: 20px;
- } 
- .childb{
-   height: auto;
-   width: 32.5%; 
-   margin: 20px 0px 0px 5px;
- } 
- .childc{
-   height: auto;  
-   margin: 20px;
-   width: 90%; 
- }
- @media (max-width: 768px){
-   .grand_parent{height:auto; }
- }
-</style>
+  
 </head>
 <body>
   <?php
