@@ -29,7 +29,7 @@ public function viewcmtreplies($cmt_id){
   }
 
   public function comment($user_id, $msg, $post_id){
-    $sql = "INSERT INTO comments(user_id, msg,post_id) VALUES(?, ?, ?)"; 
+    $sql = "INSERT INTO comments(user_id, msg, post_id) VALUES(?, ?, ?)"; 
     $stmt = $this->connect()->prepare($sql);
     $stmt->execute([$user_id, $msg, $post_id]); 
     return true; 

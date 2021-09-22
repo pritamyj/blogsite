@@ -11,7 +11,3 @@
             <span>Username</span>
             <input type="username" name="un" value="<?php echo $q['username']; ?>">
           </div>
-          <div class="inputBx">
-            <span>Password</span>
-            <input type="password" name="pa" value="<?php echo $q['password']; ?>">
-          </div><br> 

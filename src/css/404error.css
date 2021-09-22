@@ -58,7 +58,7 @@ body{
 	display: inline-flex; 
 }
 
-.content .btns a{
+.content .btns button{
 	display: inline-block;
 	margin: 40px 10px;
 	text-decoration: none;
@@ -71,7 +71,7 @@ body{
 	transition: all 0.3s ease;
 }
 
-.content .btns a:hover{
+.content .btns button:hover{
 	background:  #c65864 ;
 	color: #fff;
 }
@@ -90,7 +90,7 @@ body{
 	font-size: 2em;
 }
 
-.content .btns a{ 
+.content .btns button{ 
 	margin: 20px 10px;
 }
 }

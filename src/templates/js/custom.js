@@ -20,7 +20,7 @@ $(document).ready(function () {
 
 					$('.comment-container').
 					append('<div class="reply_box">\
-						<h4 class="border-bottom d-inline">'+value.userr['username']+':'+value.cmt['commented_on']+'</h4>\
+						<h5 class="border-bottom d-inline">'+value.userr['username']+':'+value.cmt['commented_on']+'</h5>\
 						<p class="para">'+value.cmt['msg']+'</p>\
 						<button value="'+value.cmt['id']+'" class="btn reply_btn">reply</button>\
 						<button value="'+value.cmt['id']+'" class="btn view_reply_btn">view replies</button>\

@@ -71,6 +71,7 @@ if($_SESSION['ty'] == 'admin'){
      
 include '../User/up_details_form.php';
         } ?>
+        <br>
                     <div class="inputBx">
                         <input type="submit" name="done" value="Update User Details">
                     </div> 

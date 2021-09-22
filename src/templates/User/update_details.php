@@ -77,6 +77,10 @@ if($_SESSION['ty'] == false){
  
 include 'up_details_form.php';
  } ?>
+          <div class="inputBx">
+            <span>Password</span>
+            <input type="password" name="pa" value="<?php echo $q['password']; ?>">
+          </div><br> 
                     <div class="inputBx">
                         <input type="submit" name="done" value="Update My Details">
                     </div> 
