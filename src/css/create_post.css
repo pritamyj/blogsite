@@ -1,209 +1,146 @@
-*{
+* {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-h1{ 
-  padding: 100px 0 0 0;
-  text-align: center;
-  color: #607d8b;
-  font-weight: 600;
-  font-size: 2em;
-  text-transform: uppercase;
-    margin-top: 0;
-  margin-bottom: 30px;
-  margin-left: 172px;
-  border-bottom: 4px solid#ff4584;
-  display: inline-block;
-  letter-spacing: 1px; 
-}
+  box-sizing: border-box; }
 
-p{
-  text-align: center;
-}
-
-.gp{
+.gp {
+  height: auto;
   width: 100%;
-  height:97vh; 
-  color: #fff;
-  margin: 0; 
-}
+  margin: 0;
+  height: 97vh;
+  color: #fff; }
+  .gp h1 {
+    padding: 100px 0 0 0;
+    text-align: center;
+    color: #607d8b;
+    font-weight: 600;
+    font-size: 2em;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 30px;
+    margin-left: 172px;
+    border-bottom: 4px solid #ff4584;
+    display: inline-block;
+    letter-spacing: 1px; }
+  .gp .p {
+    height: 70%;
+    margin: 0 30px 0 30px;
+    box-shadow: 0 0 20px;
+    display: flex;
+    justify-content: space-between;
+    transition: all 0.2 linear;
+    flex-direction: row-reverse; }
+    .gp .p .child {
+      flex: 1 1 500px; }
+      .gp .p .child p {
+        text-align: center; }
+      .gp .p .child img {
+        height: auto;
+        width: 500px;
+        margin: 10px;
+        height: 360px;
+        position: absolute;
+        border: 1px solid #607d8b; }
+      .gp .p .child form {
+        margin-left: 140px; }
+        .gp .p .child form input, .gp .p .child form textarea {
+          background: transparent;
+          border: 1px solid #607d8b;
+          color: #607d8b;
+          font-weight: 400;
+          outline: none;
+          margin-bottom: 10px;
+          display: inline-block;
+          letter-spacing: 1px;
+          font-size: 16px;
+          width: 500px;
+          padding: 10px 20px;
+          border-radius: 30px; }
+        .gp .p .child form input[type="submit"] {
+          background: #607d8b;
+          border: none;
+          color: #fff;
+          font-weight: 500;
+          outline: none;
+          cursor: pointer; }
+          .gp .p .child form input[type="submit"]:hover {
+            background: #bd4f6c; }
 
-.p{
-  height: 70%;
-  margin: 0 30px 0 30px; 
-  box-shadow: 0 0 20px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  transition:all 0.2 linear;
-  flex-direction: row-reverse;
-}
+@media (max-width: 1024px) {
+  .gp h1 {
+    margin-left: 45px; }
+  .gp .p .child img {
+    width: 450px;
+    margin-left: 25px; }
+  .gp .p .child form input, .gp .p .child form textarea {
+    width: 450px; }
+  .gp .p .child form {
+    margin-left: 10px; } }
 
-.child{  
- flex: 1 1 500px ; 
-}
-
-.child img{  
-  height: 360px;
-  width: 500px; 
-  margin: 10px ; 
-  position: absolute;
-  border: 1px solid #607d8b; 
-}
-
-input[type="submit"]{
-  background: #607d8b;
-  border: none;
-  color: #fff;
-  font-weight: 500;
-  outline: none;
-  cursor: pointer; }
-  input[type="submit"]:hover {
-    background: #bd4f6c; }
-    input,textarea {
-      color: #607d8b;
-      font-weight: 400;
-      margin-bottom: 10px;
-      display: inline-block;
-      letter-spacing: 1px;
-      font-size: 16px;
-      width: 500px;
-      padding: 10px 20px;
-      outline: none;
-      border-radius: 30px;
-      background: transparent;
-      border: 1px solid #607d8b; }
-
-      form{
-        margin-left: 140px;
-      }
- /*
-      @media (max-width: 1024px) {
-
-        h1{
-          font-size: 2rem;
-          margin-left: 3.2%;
-          }
-          .p{ 
-            flex-wrap: nowrap;  
-          }
-          form{
-            margin-top: 10px;
-            margin-left: 0px;
-          }
-.child img{  
-width: 460px; 
-  height: 330px;
-      margin-left: 10px;
-  }
-  .gp{
-  height:10vh;
-}
-.p{
-    height: 1080px;
-}
-}
-*/
 @media (max-width: 768px) {
-
-        h1{
-          font-size: 2rem;
-          margin-left: 17.5%;
-          }
-          .p{ 
-            margin: 0 20px 0 20px;  
-          }
-          form{
-            margin-top: 10px;
-            margin-left: 16%;
-          }
-.child img{ 
-  height: 330px;
-      margin-left: 116px;
-  }
-  .gp{
-  height:175vh;
-}
-.p{
-    height: 1080px;
-}
-}
-
+  .gp {
+    height: 175vh; }
+    .gp h1 {
+      font-size: 2rem;
+      margin-left: 17.5%; }
+    .gp .p {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      transition: all 0.2 linear;
+      flex-direction: row-reverse;
+      margin: 0 20px 0 20px;
+      height: 1080px; }
+      .gp .p .child img {
+        height: 330px;
+        margin-left: 116px; }
+      .gp .p .child form {
+        margin-top: 10px;
+        margin-left: 16%; } }
 
 @media (max-width: 425px) {
-
-        h1{
-              padding: 80px 0 0 0; 
-          margin-left: 7%;
-          } 
-          form{ 
-            margin-left: 10px;
-          }
-.child img{ 
-    width: 370px; 
-  height: 250px;
-      margin-left: 10px;
-  }
-  .gp{
-  height:155vh;
-} 
-.p{
-    height: 920px;
-}
-
- input,textarea {  
-      font-size: 14px;
-      width: 370px; 
-       }
-
-}
-
+  .gp {
+    height: 155vh; }
+    .gp h1 {
+      padding: 80px 0 0 0;
+      margin-left: 7%; }
+    .gp .p {
+      height: 920px; }
+      .gp .p .child img {
+        width: 370px;
+        height: 250px;
+        margin-left: 10px; }
+      .gp .p .child form {
+        margin-left: 10px; }
+        .gp .p .child form input, .gp .p .child form textarea {
+          font-size: 14px;
+          width: 370px; } }
 
 @media (max-width: 375px) {
-
-        h1{ 
-          margin-left: 5.5%;
-          }  
-.child img{ 
-    width: 335px;
-    height: 230px; 
-  }
-  .gp{
-  height:145vh;
-} 
-.p{
-    margin: 0 10px 0 10px;
-    height: 875px;
-}
-
- input,textarea {  
-      font-size: 14px;
-      width: 335px; 
-       }
-
-}
-
+  .gp {
+    height: 145vh; }
+    .gp h1 {
+      margin-left: 5.5%; }
+    .gp .p {
+      margin: 0 10px 0 10px;
+      height: 875px; }
+      .gp .p .child img {
+        width: 335px;
+        height: 230px; }
+      .gp .p .child form input, .gp .p .child form textarea {
+        font-size: 14px;
+        width: 335px; } }
 
 @media (max-width: 320px) {
-
-        h1{ 
-          margin-left: 6.5%;
-          }  
-.child img{ 
-    width: 280px;
-    height: 190px; 
-  }
-  .gp{
-  height:135vh;
-} 
-.p{ 
-    height: 790px;
-}
-
- input,textarea {  
-      font-size: 12px;
-      width: 280px; 
-       }
-
-}
+  .gp {
+    height: 135vh; }
+    .gp h1 {
+      margin-left: 6.5%; }
+    .gp .p {
+      height: 790px; }
+      .gp .p .child img {
+        width: 280px;
+        height: 190px; }
+      .gp .p .child form input, .gp .p .child form textarea {
+        font-size: 12px;
+        width: 280px; } }

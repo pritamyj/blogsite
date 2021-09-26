@@ -6,4 +6,3 @@ $del= new User();
 $del->deleteuser($id); 
 header("Location: user_details.php?info=deleted");
 exit();
-?>

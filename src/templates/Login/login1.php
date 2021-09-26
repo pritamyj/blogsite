@@ -2,7 +2,7 @@
 $errorlevel = error_reporting();
 error_reporting($errorlevel & ~E_NOTICE);
 session_start();
-include '../autoload.php'; 
+include '../autoload.php';
 
 
 if (isset($_REQUEST["submit"])) {
@@ -17,27 +17,27 @@ if (isset($_REQUEST["submit"])) {
         exit();
     } else {
 
-         $datas= new Login(); 
-         $dataa = $datas->login_check($uname,$pass); 
-         foreach ($dataa as $q) {
-             
-        $ty = $q['user_type'];
-        $ui = $q['user_id']; 
-}
- 
-         if (!empty($dataa)) {
+        $datas = new Login();
+        $dataa = $datas->login_check($uname, $pass);
+        foreach ($dataa as $q) {
+
+            $ty = $q['user_type'];
+            $ui = $q['user_id'];
+        }
+
+        if (!empty($dataa)) {
             $_SESSION['username'] = $uname;
             $_SESSION['password'] = $pass;
             $_SESSION['ty'] = $ty;
             $_SESSION['ui'] = $ui;
 
-            if(isset($_POST['rememberme'])){
+            if (isset($_POST['rememberme'])) {
 
                 $unamee = base64_encode($uname);
                 $passs = base64_encode($pass);
 
-                setcookie('usernamecookie',$unamee, time()+86400, '/', null,null,true);
-                setcookie('passwordcookie', $passs, time()+86400, '/', null, null,true);
+                setcookie('usernamecookie', $unamee, time() + 86400, '/', null, null, true);
+                setcookie('passwordcookie', $passs, time() + 86400, '/', null, null, true);
 
 
                 if ($ty == 'admin') {
@@ -48,7 +48,7 @@ if (isset($_REQUEST["submit"])) {
                     header("Location: ../User/user.php");
                     exit();
                 }
-            }else{
+            } else {
                 if ($ty == 'admin') {
 
                     header("Location: ../Admin/admin.php");
@@ -69,6 +69,7 @@ if (isset($_REQUEST["submit"])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -78,13 +79,15 @@ if (isset($_REQUEST["submit"])) {
 
 
 </head>
-<body><?php if($_SESSION['ty'] == false){  
-    include "../Header/navbar.php";   
-  }elseif($_SESSION['ty'] == 'admin'){ 
-    include "../Header/navbar_admin.php";  
-  }elseif($_SESSION['ty'] == 'user'){ 
-    include "../Header/navbar_user.php";  }
-    error_reporting($errorlevel); ?>
+
+<body><?php if ($_SESSION['ty'] == false) {
+            include "../Header/navbar.php";
+        } elseif ($_SESSION['ty'] == 'admin') {
+            include "../Header/navbar_admin.php";
+        } elseif ($_SESSION['ty'] == 'user') {
+            include "../Header/navbar_user.php";
+        }
+        error_reporting($errorlevel); ?>
     <section>
         <div class="imgBx">
             <img src="../../images/9.jpg">
@@ -99,11 +102,15 @@ if (isset($_REQUEST["submit"])) {
                     <?php } ?>
                     <div class="inputBx">
                         <span>Username</span>
-                        <input type="text" name="uname" value="<?php if(isset($_COOKIE['usernamecookie'])){ echo base64_decode($_COOKIE['usernamecookie']);} ?>">
+                        <input type="text" name="uname" value="<?php if (isset($_COOKIE['usernamecookie'])) {
+                                                                    echo base64_decode($_COOKIE['usernamecookie']);
+                                                                } ?>">
                     </div>
                     <div class="inputBx">
                         <span>Password</span>
-                        <input type="password" name="password" value="<?php if(isset($_COOKIE['passwordcookie'])){ echo base64_decode($_COOKIE['passwordcookie']);} ?>">
+                        <input type="password" name="password" value="<?php if (isset($_COOKIE['passwordcookie'])) {
+                                                                            echo base64_decode($_COOKIE['passwordcookie']);
+                                                                        } ?>">
                     </div>
                     <div class="remember">
                         <label><input type="checkbox" name="rememberme"> Remember me</label>
@@ -119,7 +126,8 @@ if (isset($_REQUEST["submit"])) {
         </div>
     </section>
     <link rel="stylesheet" type="text/css" href="../../css/login1register.css">
-                <?php
-                include "../Header/footer.php"; ?>
+    <?php
+    include "../Header/footer.php"; ?>
 </body>
+
 </html>

@@ -8,9 +8,9 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^\.]+)$ $1.php [NC,L]
 
 
- #RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-d
 
- #RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteCond %{REQUEST_FILENAME}\.php -f
 
- #RewriteRule ^templates/Post/view/([0-9]+)$ templates/Post/view.php?id=$1 [NC,L]
+RewriteRule ^view/([0-9]+) view.php?id=$1 [NC,L]
 

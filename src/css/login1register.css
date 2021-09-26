@@ -47,8 +47,11 @@ section {
     justify-content: center;
     align-items: center; }
     section .contentBx .formBx {
+      text-align: center;
       width: 330px; }
-      section .contentBx .formBx h2 { 
+      section .contentBx .formBx form {
+        text-align: left; }
+      section .contentBx .formBx h2 {
         color: #607d8b;
         font-weight: 600;
         margin-bottom: 20px;
@@ -87,7 +90,7 @@ section {
             font-weight: 500;
             outline: none;
             cursor: pointer; }
-            section .contentBx .formBx .inputBx input[type="submit"]:hover {
+            section .contentBx .formBx .inputBx input[type="submit"] :hover {
               background: #bd4f6c; }
       section .contentBx .formBx .remember {
         color: #607d8b;
@@ -130,4 +133,4 @@ section {
   section .contentBx .formBx {
     width: 100%;
     padding: 20px;
-    margin: 100px 40px 40px 40px; } }
+    margin: 100px 25px 40px 25px; } }

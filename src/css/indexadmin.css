@@ -1,14 +1,15 @@
 h2 {
   margin-top: 0px; }
 
-/*added after*/
-.navbar .logo-image { 
+.navbar .logo-image {
   width: 80px;
-  height:80px; 
+  height: 80px;
   overflow: hidden;
-  margin-top: -30px;
-}
+  margin-top: -30px; }
 
+/*.container { 
+    padding-right: 3px;
+    padding-left: 9px;}*/
 .bg {
   background-image: url(../images/2.jpg);
   height: 100vh;
@@ -18,6 +19,7 @@ h2 {
   background-attachment: fixed; }
 
 .hero {
+  text-align: center;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -56,7 +58,7 @@ h2 {
   margin-top: 40px;
   font-size: 22px; }
   .btn:hover {
- background-color:rgba(0, 0, 0, 0.5);  
+    background-color: rgba(0, 0, 0, 0.5);
     color: #fff; }
 
 .navbar {
@@ -123,9 +125,9 @@ h2 {
       margin-top: 15px;
       margin-bottom: 20px; }
     .latest-news-area .news-content p {
+      margin-top: 10px;
       margin-bottom: 10px;
-      text-align: justify;
-      margin-top: 10px; }
+      text-align: justify; }
     .latest-news-area .news-content a {
       font-size: 14px;
       color: #fff;
@@ -165,7 +167,16 @@ h2 {
       opacity: 0.4;
       transform: scale(1); }
 
+@media (max-width: 1024px) {
+  .container {
+    margin-right: 17px;
+    width: 985px; } }
+
 @media (max-width: 768px) {
+  .container {
+    margin-right: 2px;
+    width: 764px;
+    padding-right: 10px; }
   .latest-news-area {
     margin: 20px;
     flex-direction: column;
@@ -185,3 +196,26 @@ h2 {
     display: block;
     color: #fff;
     letter-spacing: 5pxs; } }
+
+@media (max-width: 425px) {
+  .container {
+    margin-right: 0px;
+    width: 425px;
+    padding-left: 2px;
+    padding-right: 0px; }
+  .navbar .navbar-toggle {
+    margin-right: 25px; }
+  .navbar .navbar-collapse {
+    padding: 0 20%; }
+  .navbar .navbar-nav {
+    float: none; }
+  .navbar .navbar-nav > li > a {
+    text-align: center; } }
+
+@media (max-width: 375px) {
+  .container {
+    padding-right: 50px; } }
+
+@media (max-width: 320px) {
+  .container {
+    padding-right: 105px; } }

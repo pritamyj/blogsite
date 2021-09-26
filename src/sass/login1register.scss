@@ -9,7 +9,7 @@ padding: 0;
 box-sizing: border-box; 
 font-family: 'Poppins', sans-serif;
 }
-
+ 
 .navbar {
 @include navbar; 
 @include navbar2;
@@ -43,7 +43,12 @@ object-fit: cover;
 @include sec(center);
 
 & .formBx{
+	text-align: center;
 width: 330px;
+
+		& form{
+	text-align: left;
+		}
 
 & h2{
 @include form(600,20px);
@@ -70,11 +75,11 @@ margin-bottom: 10px;
 outline: none;  
 cursor: pointer;
 
-&:hover{
+& :hover{
 background: $color1;
 }}}}
 & .remember {
-@include fwcl($color3,400)  
+@include fwcl($color3,400);  
 margin-bottom: 10px;
 font-size: 14px;
 }}}}
@@ -114,7 +119,7 @@ section .imgBx {
 section .contentBx .formBx {
 		width: 100%;
 		padding: 20px;
-		    margin: 100px 40px 40px 40px;
+		    margin: 100px 25px 40px 25px;
 	}
 
 }

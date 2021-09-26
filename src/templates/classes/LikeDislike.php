@@ -1,39 +1,45 @@
 <?php
 
- 
-class LikeDislike extends Db{
-  private $user_id="";
-  public function like(){
 
-    $sql="INSERT INTO likes (user_id, post_id, rating_action) 
+class LikeDislike extends Db
+{
+  private $user_id = "";
+  public function like()
+  {
+
+    $sql = "INSERT INTO likes (user_id, post_id, rating_action) 
     VALUES ($user_id, $post_id, 'like') 
     ON DUPLICATE KEY UPDATE rating_action='like'";
-    $stmt = $this->connect()->query($sql); 
+    $stmt = $this->connect()->query($sql);
   }
 
-  public function dislike(){
+  public function dislike()
+  {
 
-    $sql="INSERT INTO likes (user_id, post_id, rating_action) 
+    $sql = "INSERT INTO likes (user_id, post_id, rating_action) 
     VALUES ($user_id, $post_id, 'dislike') 
     ON DUPLICATE KEY UPDATE rating_action='dislike'";
-    $stmt = $this->connect()->query($sql); 
+    $stmt = $this->connect()->query($sql);
   }
 
-  public function unlike($user_id,$post_id){
+  public function unlike($user_id, $post_id)
+  {
 
-    $sql="DELETE FROM likes WHERE user_id=$user_id AND post_id=$post_id";
-    $stmt = $this->connect()->query($sql); 
+    $sql = "DELETE FROM likes WHERE user_id=$user_id AND post_id=$post_id";
+    $stmt = $this->connect()->query($sql);
   }
 
-  public function undislike($user_id,$post_id){
+  public function undislike($user_id, $post_id)
+  {
 
-    $sql="DELETE FROM likes WHERE user_id=$user_id AND post_id=$post_id";
-    $stmt = $this->connect()->query($sql); 
+    $sql = "DELETE FROM likes WHERE user_id=$user_id AND post_id=$post_id";
+    $stmt = $this->connect()->query($sql);
   }
 
-  public function getRating($post_id){
+  public function getRating($post_id)
+  {
 
-    $rating =[];
+    $rating = [];
 
     $likes_query = "SELECT COUNT(*) FROM likes WHERE post_id = $post_id AND rating_action='like'";
     $dislikes_query = "SELECT COUNT(*) FROM likes WHERE post_id = $post_id AND rating_action='dislike'";
@@ -48,10 +54,11 @@ class LikeDislike extends Db{
       'likes' => $likes,
       'dislikes' => $dislikes
     ];
-    return $likes ;
+    return $likes;
   }
 
-  public function getLikes($id){
+  public function getLikes($id)
+  {
 
     $sql = "SELECT COUNT(*) FROM likes 
     WHERE post_id = $id AND rating_action='like'";
@@ -63,7 +70,7 @@ class LikeDislike extends Db{
   public function getDislikes($id)
   {
     $sql = "SELECT COUNT(*) FROM likes WHERE post_id = $id AND rating_action='dislike'";
-    $rs = $this->connect()->query($sql);  
+    $rs = $this->connect()->query($sql);
     $result = $rs->fetch();
     return $result;
   }
@@ -75,9 +82,9 @@ class LikeDislike extends Db{
     $this->user_id = $user_id;
     $sql = "SELECT * FROM likes WHERE user_id=$user_id AND post_id=$post_id AND rating_action='like'";
     $result = $this->connect()->query($sql);
-    if ($row=$result->fetch() > 0) {
+    if ($row = $result->fetch() > 0) {
       return true;
-    }else{
+    } else {
       return false;
     }
   }
@@ -87,31 +94,32 @@ class LikeDislike extends Db{
     $this->user_id = $user_id;
     $sql = "SELECT * FROM likes WHERE user_id=$user_id AND post_id=$post_id AND rating_action='dislike'";
     $result = $this->connect()->query($sql);
-    if ($row=$result->fetch() > 0) {
+    if ($row = $result->fetch() > 0) {
       return true;
-    }else{
+    } else {
       return false;
     }
   }
 
-  public function trending_posts(){
+  public function trending_posts()
+  {
 
-    $sql = "SELECT * from likes WHERE rating_action = 'like'"; 
-    $stmt = $this->connect()->query($sql);  
-    while($row = $stmt->fetch()){
-      $data[] = $row; 
+    $sql = "SELECT * from likes WHERE rating_action = 'like'";
+    $stmt = $this->connect()->query($sql);
+    while ($row = $stmt->fetch()) {
+      $data[] = $row;
     }
-    return $data ; 
-}
-
-  public function trending_posts_keys($post_id){
-
-    $sql = "SELECT * from data WHERE id = $post_id"; 
-    $stmt = $this->connect()->query($sql);  
-    while($row = $stmt->fetch()){
-      $data[] = $row; 
-    }
-    return $data ; 
-}
-
+    return $data;
   }
+
+  public function trending_posts_keys($post_id)
+  {
+
+    $sql = "SELECT * from data WHERE id = $post_id";
+    $stmt = $this->connect()->query($sql);
+    while ($row = $stmt->fetch()) {
+      $data[] = $row;
+    }
+    return $data;
+  }
+}
