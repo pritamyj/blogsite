@@ -1,0 +1,214 @@
+@import "mixins";
+@import "var";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.gp {
+  @include hwm(100%, 0);
+  height: 97vh;
+  color: $txtcolor;
+
+  & h1 {
+    padding: 100px 0 0 0;
+    text-align: center;
+    color: $color3;
+    font-weight: 600;
+    font-size: 2em;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 30px;
+    margin-left: 172px;
+    border-bottom: 4px solid #ff4584;
+    display: inline-block;
+    letter-spacing: 1px;
+  }
+
+  & .p {
+    height: 70%;
+    margin: 0 30px 0 30px;
+    box-shadow: 0 0 20px;
+    display: flex;
+    justify-content: space-between;
+    transition: all 0.2 linear;
+    flex-direction: row-reverse;
+
+    & .child {
+      flex: 1 1 500px;
+
+      & p {
+        text-align: center;
+      }
+
+      & img {
+        @include hwm(500px, 10px);
+        height: 360px;
+        position: absolute;
+        border: 1px solid #607d8b;
+      }
+
+      & form {
+        margin-left: 140px;
+
+        & input,
+        textarea {
+          @include create_post_input(
+            transparent,
+            1px solid $color3,
+            $color3,
+            400
+          );
+          margin-bottom: 10px;
+          display: inline-block;
+          letter-spacing: 1px;
+          font-size: 16px;
+          width: 500px;
+          padding: 10px 20px;
+          border-radius: 30px;
+        }
+
+        input[type="submit"] {
+          @include create_post_input($color3, none, $txtcolor, 500);
+          cursor: pointer;
+
+          &:hover {
+            background: $color1;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .gp h1 {
+    margin-left: 45px;
+  }
+  .gp .p .child img {
+    width: 450px;
+    margin-left: 25px;
+  }
+  .gp .p .child form input,
+  .gp .p .child form textarea {
+    width: 450px;
+  }
+  .gp .p .child form {
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gp {
+    height: 175vh;
+    & h1 {
+      font-size: 2rem;
+      margin-left: 17.5%;
+    }
+
+    & .p {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      transition: all 0.2 linear;
+      flex-direction: row-reverse;
+      margin: 0 20px 0 20px;
+      height: 1080px;
+      & .child {
+        & img {
+          height: 330px;
+          margin-left: 116px;
+        }
+        & form {
+          margin-top: 10px;
+          margin-left: 16%;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 425px) {
+  .gp {
+    height: 155vh;
+
+    & h1 {
+      padding: 80px 0 0 0;
+      margin-left: 7%;
+    }
+    & .p {
+      height: 920px;
+      & .child {
+        & img {
+          width: 370px;
+          height: 250px;
+          margin-left: 10px;
+        }
+        & form {
+          margin-left: 10px;
+          & input,
+          textarea {
+            font-size: 14px;
+            width: 370px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .gp {
+    height: 145vh;
+
+    & h1 {
+      margin-left: 5.5%;
+    }
+
+    & .p {
+      margin: 0 10px 0 10px;
+      height: 875px;
+      & .child {
+        & img {
+          width: 335px;
+          height: 230px;
+        }
+        & form {
+          & input,
+          textarea {
+            font-size: 14px;
+            width: 335px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .gp {
+    height: 135vh;
+    & h1 {
+      margin-left: 6.5%;
+    }
+    .p {
+      height: 790px;
+
+      & .child {
+        & img {
+          width: 280px;
+          height: 190px;
+        }
+
+        & form {
+          & input,
+          textarea {
+            font-size: 12px;
+            width: 280px;
+          }
+        }
+      }
+    }
+  }
+}

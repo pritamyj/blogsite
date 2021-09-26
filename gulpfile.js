@@ -1,38 +1,55 @@
 import gulp from 'gulp';
 import imagemin from 'gulp-imagemin';
 import uglify from 'gulp-uglify';
-// import sass from 'gulp-sass' ; 
+import Sass from 'sass';
+import gulpSass from 'gulp-sass' ; 
+const sass = gulpSass(Sass);
+
 
 gulp.task('msg', async function(){
-	return console.log('learning gulp.......');
+	return console.log('gulp is running.......');
 });
 
+gulp.task('default', async function(){
+	return console.log('gulp is running(default).......');
+});
  
 
+
 gulp.task('copyphp', async function(){
-	gulp.src('src/templates/*.php')
-	.pipe(gulp.dest('dest/templates'));
+	gulp.src('src/templates/Admin/*.php')
+	.pipe(gulp.dest('dest/templates/Admin'));
+});
+
+gulp.task('copydir', async function(){
+gulp.src([   
+    // 'src/*.php',
+    // 'src/templates/**/*',
+    'src/**/*', 
+])
+.pipe(gulp.dest('dest/'));
 });
 
 
 
- gulp.task('imageMin', () => 
+
+ gulp.task('imageMin', async function(){
 	gulp.src('src/images/*')
 		.pipe(imagemin())
 		.pipe(gulp.dest('dest/images'))
-); 
+ });
 
 
  gulp.task('minify', async function(){
- 	gulp.src('src/js/*')
+ 	gulp.src('src/templates/js/*')
  	.pipe(uglify())
-		.pipe(gulp.dest('dest/js'));
+		.pipe(gulp.dest('dest/templates/js'));
  });
 
 
 
-//not working:
- gulp.task('sass', async function(){
+ 
+ gulp.task('scss', async function(){
  	gulp.src('src/sass/*.scss')
  	.pipe(sass().on('error', sass.logError))
 		.pipe(gulp.dest('dest/css'));
@@ -40,6 +57,6 @@ gulp.task('copyphp', async function(){
 
 
 
-//not working:
- gulp.task('default', ['msg', 'copyphp', 'imageMin', 'minify' ]);
+ 
+   gulp.task('default', gulp.series('msg', 'copyphp','copydir', 'imageMin', 'minify', 'scss' ));
 

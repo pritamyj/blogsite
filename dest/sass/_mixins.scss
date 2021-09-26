@@ -1,0 +1,158 @@
+@mixin bgcode($imge, $hgt) {
+  background-image: $imge;
+  height: $hgt;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+@mixin txt($fs) {
+  font-size: $fs;
+  display: block;
+  color: $txtcolor;
+}
+
+@mixin navbar {
+  padding: 45px 0px;
+  transition: all 0.5s ease-in-out;
+  font-family: $fontf;
+}
+
+@mixin navbar2 {
+  background-color: $color1;
+  background-image: linear-gradient(326deg, $color1 0%, $color2 74%);
+  padding: 7px 0;
+}
+
+@mixin ahover($colr) {
+  font-size: 14px;
+  color: $colr;
+  justify-content: flex-end;
+  display: flex;
+  float: left;
+}
+
+@mixin lna($mar, $grid) {
+  margin: $mar;
+  flex-direction: column;
+  grid-template-columns: $grid;
+}
+
+@mixin mtmb($mt, $mb) {
+  margin-top: $mt;
+  margin-bottom: $mb;
+}
+
+@mixin lnw($height) {
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  height: $height;
+  justify-content: space-between;
+  flex-direction: column;
+  display: flex;
+}
+
+@mixin tbl($m) {
+  margin: $m;
+  font-size: 20px;
+}
+
+@mixin img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin htwd($w) {
+  width: $w;
+  height: 100%;
+}
+
+@mixin sec($jc) {
+  display: flex;
+  justify-content: $jc;
+  align-items: center;
+}
+
+@mixin form($fw, $mb) {
+  color: $color3;
+  font-weight: $fw;
+  margin-bottom: $mb;
+  display: inline-block;
+  letter-spacing: 1px;
+  font-size: 16px;
+}
+
+@mixin input($c, $b) {
+  background: $c;
+  border: $b;
+}
+
+@mixin inp($p) {
+  width: 100%;
+  padding: 10px $p;
+  outline: none;
+  border-radius: 30px;
+}
+
+@mixin fwcl($fw, $c) {
+  color: $fw;
+  font-weight: $c;
+}
+
+@mixin cont($c, $pa) {
+  background-color: $c;
+  color: $txtcolor;
+  padding: $pa;
+  border-radius: 3rem;
+}
+
+@mixin postinfo($fs, $bo, $le, $wi) {
+  @include cont($color4, 10px);
+  font-size: $fs;
+  position: absolute;
+  bottom: $bo;
+  left: $le;
+  text-align: center;
+  width: $wi;
+  border-radius: 3rem;
+}
+
+@mixin btn {
+  width: 100%;
+  text-align: $c;
+  margin: 0 auto;
+  text-decoration: $nn;
+  border: 2px solid $txtcolor;
+  padding: 12px, 30px;
+  border-radius: 5px;
+  color: $txtcolor;
+  margin-top: 40px;
+  font-size: 22px;
+}
+
+@mixin ctd($cl) {
+  color: $cl;
+  text-decoration: none;
+}
+
+@mixin hwm($w, $m) {
+  height: auto;
+  width: $w;
+  margin: $m;
+}
+
+@mixin ctd($cl) {
+  color: $cl;
+  text-transform: uppercase;
+}
+
+@mixin create_post_input($bg, $b, $c, $fw) {
+  background: $bg;
+  border: $b;
+  color: $c;
+  font-weight: $fw;
+  outline: none;
+}
