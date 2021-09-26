@@ -1,6 +1,7 @@
 import gulp from 'gulp';
 import imagemin from 'gulp-imagemin';
 import uglify from 'gulp-uglify';
+import concat from 'gulp-concat';
 import Sass from 'sass';
 import gulpSass from 'gulp-sass' ; 
 const sass = gulpSass(Sass);
@@ -49,6 +50,16 @@ gulp.src([
 
 
  
+ gulp.task('scripts', async function(){
+ 	gulp.src('src/templates/js/*')
+ 	.pipe(concat('main.js'))
+ 	.pipe(uglify())
+		.pipe(gulp.dest('dest/templates/js'));
+ });
+
+
+
+ 
  gulp.task('scss', async function(){
  	gulp.src('src/sass/*.scss')
  	.pipe(sass().on('error', sass.logError))
@@ -58,5 +69,13 @@ gulp.src([
 
 
  
-   gulp.task('default', gulp.series('msg', 'copyphp','copydir', 'imageMin', 'minify', 'scss' ));
+   gulp.task('default', gulp.series('msg', 'copyphp','copydir', 'imageMin', 'minify', 'scripts', 'scss' ));
 
+
+ gulp.task('watch', function(){
+ 	gulp.watch('src/**/*',gulp.series('copydir'));
+ 	gulp.watch('src/images/*',gulp.series('imageMin'));
+ 	gulp.watch('src/templates/js/*',gulp.series('minify'));
+ 	gulp.watch('src/templates/js/*',gulp.series('scripts'));
+ 	gulp.watch('src/sass/*.scss',gulp.series('scss'));
+ });
