@@ -45,6 +45,7 @@ body {
       margin: 25px, 0;
       display: inline-flex; }
       .error-page .content .btns button {
+        background: #fff;
         color: #c65864;
         text-transform: uppercase;
         display: inline-block;

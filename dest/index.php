@@ -106,7 +106,17 @@ include "templates/Post/server.php";
                     echo substr($q['title'], 0, 20);
                     if (strlen($q['title']) > 20) {
                       echo "...";
+
                     }
+
+
+
+                      $title = preg_replace('/[^\p{L}\p{N}\s]/u', '', $q['title']);
+
+                      $posttitle = str_replace(" ", "-", $title);
+
+
+
                     ?></h3>
                 <p> <?php echo substr($q['content'], 0, 180); ?>...</p>
 
@@ -143,7 +153,7 @@ include "templates/Post/server.php";
 
                 <p></p>
                 <div>
-                  <a href="templates/Post/view.php?id=<?php echo $q['id']; ?>">Read More</a>
+                  <a href="templates/Post/view/<?php echo $q['id'].'/'.$posttitle; ?>">Read More</a>
                 </div>
               </div>
             </div>

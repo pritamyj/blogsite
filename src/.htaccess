@@ -1,16 +1,32 @@
-RewriteEngine on
+ RewriteEngine on
  
 ErrorDocument 404 /404.php
+  
 
 
+
+#for post 
+ 
+ RewriteRule ^blog/([a-zA-Z_-]+)$ templates/Post/view.php?posttitle=$1 [NC,L]
+
+
+ #RewriteRule ^templates/Post/view/([0-9]+)$ templates/Post/view.php?id=$1 [NC,L]
+
+ #RewriteRule ^blog/([0-9]+)/([a-zA-Z_-]+)$ templates/Post/view.php?id=$1&posttitle=$2 [NC,L]
+
+
+
+ 
 RewriteCond %{REQUEST_FILENAME} !-f
 
 RewriteRule ^([^\.]+)$ $1.php [NC,L]
 
 
-RewriteCond %{REQUEST_FILENAME} !-d
 
-RewriteCond %{REQUEST_FILENAME}\.php -f
 
-RewriteRule ^view/([0-9]+) view.php?id=$1 [NC,L]
+#RewriteCond %{REQUEST_FILENAME} !-d
+
+#RewriteCond %{REQUEST_FILENAME}\.php -f
+
+#RewriteRule ^view/([0-9]+) view/$1 [NC,L]
 

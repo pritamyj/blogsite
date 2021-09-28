@@ -27,37 +27,43 @@
         $s = $w['content'];
         $d = $w['images'];
         $f = $w['id'];
+
+
+        $title = preg_replace('/[^\p{L}\p{N}\s]/u', '', $w['title']);
+
+        $posttitle = str_replace(" ", "-", $title);
+
+
       }
-    ?>
+      ?>
 
       <div class="article">
-        <a href="view.php?id=<?php echo $f; ?>">
+        <a href="../../blog/<?php echo $posttitle; ?>">
           <img src="../../<?php echo $d; ?>">
         </a>
         <div class="card-body">
           <div class="trending-category">
-            <a href="view.php?id=<?php echo $f; ?>">
+            <a href="../../blog/<?php echo $posttitle; ?>">
               <strong><?php
-                      echo substr($a, 0, 33);
-                      if (strlen($a) > 33) {
-                        echo "...";
-                      }
-                      ?></strong>
-            </a>
-          </div>
-          <a href="view.php?id=<?php echo $f; ?>">
-            <p class="text-title display-2 text-dark">
-              <?php echo substr($s, 0, 90); ?>...
-            </p>
+              echo substr($a, 0, 33);
+              if (strlen($a) > 33) {
+                echo "...";
+              }
+            ?></strong>
           </a>
         </div>
+        <a href="../../blog/<?php echo $posttitle; ?>">
+          <p class="text-title display-2 text-dark">
+            <?php echo substr($s, 0, 90); ?>...
+          </p>
+        </a>
+      </div>
       </div><?php
-            if ($i == 4) {
-              break;
-            }
-            $i++;
-          }
-            ?>
+      if ($i == 4) {
+        break;
+      }
+      $i++;
+    }
+    ?>
   </div>
-</div>
-<!-- </div> -->
+</div> 

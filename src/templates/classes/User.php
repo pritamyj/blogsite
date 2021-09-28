@@ -25,10 +25,10 @@ class User extends Db
     return $data;
   }
 
-  public function selectedposts($id)
+  public function selectedposts($title)
   {
 
-    $sql = "SELECT * FROM data WHERE id = $id";
+    $sql = "SELECT * FROM data WHERE title = '$title'";
     $stmt = $this->connect()->query($sql);
     while ($row = $stmt->fetch()) {
       $data[] = $row;

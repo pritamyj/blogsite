@@ -59,6 +59,7 @@ body {
 
       & button {
         @include ctd(#c65864);
+        background: #fff;
         display: inline-block;
         margin: 40px 10px;
         text-decoration: none;

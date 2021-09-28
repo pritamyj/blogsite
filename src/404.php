@@ -1,14 +1,21 @@
+<?php  
+$basename = basename($_SERVER['PHP_SELF']);
+$domain = str_replace("$basename", "", $_SERVER['PHP_SELF']);
+
+?>
+
 <!DOCTYPE html>
 <html>
  
 <head>
+
+<base href="<?php echo $domain ; ?>">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>404 error page</title>
 </head>
 
-<body>
-	<link rel="stylesheet" type="text/css" href="../../css/404error.css">
+<body> 
 	<link rel="stylesheet" type="text/css" href="css/404error.css">
 	<div class="error-page">
 		<div class="content">
